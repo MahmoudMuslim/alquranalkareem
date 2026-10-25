@@ -2,6 +2,7 @@ import 'package:alquranalkareem/core/utils/helpers/app_text_styles.dart';
 import 'package:alquranalkareem/core/widgets/title_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';

@@ -1219,8 +1219,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "What'sNewDetails10": "۞ İlim talebelerine yardımcı olması için bir 'Madad' bölümü eklendi.\n'Madad' modeli, kitaplardan ve İslami kaynaklardan çıkarılan sonuçları ve bilgileri sunar; orijinal kaynağa geçiş yapma ve ilgili kitaptan konunun tamamını okuma imkânı sağlar.\nModel, aramayı ve içeriğe erişimi kolaylaştırmayı amaçlar.\n۞ İslami kütüphaneye, geliştirilmiş arama ve daha iyi bir kullanıcı deneyimiyle yeni bölümler eklendi.\n۞ Yazı tipi ailesini değiştirme özelliği eklendi.\n۞ Uygulamada fark ettiğiniz geri bildirimleri veya hataları, ya da uygulamada görmek istediğiniz özellikleri gönderme özelliği eklendi.",
+  "What'sNewDetails10": "۞ 'Madad' bölümü; daha fazla kategoriyi kapsayacak şekilde ve çevrimiçi arama özelliğiyle geliştirildi.\n۞ Çevrimiçi arama artık Tefsir Merkezi verilerine dayalı ek bir bölüm içeriyor.\n۞ Arama modelleri arasında geçiş yapma imkânı.\n۞ Tam metni okumak için kitaba gitme imkânı.",
   "@What'sNewDetails10": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "What'sNewDetails11": "۞ Yer imleriniz, zikirleriniz, planlarınız ve ayarlarınızı cihazlarınız arasında QR koduyla senkronize etme seçeneği eklendi — hesap gerekmeden",
+  "@What'sNewDetails11": {
     "type": "text",
     "placeholders": {}
   },
@@ -1284,6 +1289,49 @@
   "@notifyListenBody": {
     "type": "text",
     "placeholders": {}
+  },
+  "smartReminders": "Akıllı hatırlatıcılar",
+  "@smartReminders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smartRemindersDesc": "Okuma alışkanlıklarınıza uyum sağlayan günde bir nazik hatırlatma",
+  "@smartRemindersDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reminderTime": "Hatırlatma zamanı",
+  "@reminderTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoTime": "Otomatik (akıllı)",
+  "@autoTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "quietHours": "Sessiz saatler",
+  "@quietHours": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "digestContent": "Hatırlatma içeriği",
+  "@digestContent": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "continueReading": "Okumaya devam et",
+  "@continueReading": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "khatmaRemainingDays": "Hatmin: @total günden @done tamamlandı",
+  "@khatmaRemainingDays": {
+    "type": "text",
+    "placeholders": {
+      "done": {},
+      "total": {}
+    }
   },
   "lastSearch": "آخر بحث",
   "@lastSearch": {
@@ -1499,6 +1547,7 @@
   "feedback_contact_optional": "İletişim e-postası (isteğe bağlı)",
   "feedback_sent_success": "Geri bildiriminiz başarıyla gönderildi!",
   "feedback_sent_error": "Geri bildirim gönderilemedi. Tekrar deneyin.",
+  "feedback_queued": "Your feedback will be sent automatically once the connection is back",
   "my_feedback": "Geri Bildirimlerim",
   "no_feedback_yet": "Henüz geri bildirim göndermediniz",
   "feedback_reply_hint": "Bir takip yazın...",
@@ -1525,6 +1574,20 @@
   "askAssistant": "Asistana sor...",
   "assistantWelcome": "Kur'an ve İlimleri Yapay Zekâ Asistanı",
   "assistantWelcomeDesc": "Kur'an-ı Kerim ve ilimlerinde (Tefsir, sarf, nahiv, nüzul sebepleri, kıraatler) uzman bir asistan. İstediğin şekilde soru sor, güvenilir kaynaklarla cevap vereceğim.",
+  "unifiedWelcomeDesc": "Kur'an, ilimleri ve İslami bölümler (Hadis, Fıkıh, Akide, Siyer) konularındaki asistanınız. İstediğiniz şekilde sorun, iki güvenilir kaynağa bakıp metinleri olduğu gibi aktaracağım.",
+  "quotationAyah": "Kur'an ayeti",
+  "quotationHadith": "Peygamber hadisi",
+  "quotationTafsir": "Tefsir",
+  "quotationScholar": "Âlim sözü",
+  "quotationFiqh": "Fıkıh metni",
+  "quotationAqeedah": "Akide metni",
+  "quotationSeerah": "Siyer ve tarih",
+  "quotationOther": "Alıntı metin",
+  "fetchingFullText": "Tam metin alınıyor...",
+  "showFullText": "Tam metni göster",
+  "navigateToBook": "Kitaba git",
+  "justNow": "Az önce",
+  "timeAgo": "@value önce",
   "thinking": "Düşünüyor...",
   "callingTool": "@tool çağrılıyor...",
   "clearChat": "Sohbeti temizle",
@@ -1546,5 +1609,207 @@
   "assistantOverloaded": "Sunucu su anda mesgul. Biraz sonra tekrar deneyin.",
   "assistantTooLarge": "Soru cok uzun. Kisaltmayi deneyin.",
   "assistantGenericError": "Modelden cevap alinamadi. Tekrar deneyin veya baska bir model secin.",
-  "assistantNoData": "Su anda bu sorgu icin veri mevcut degil."
+  "assistantNoData": "Su anda bu sorgu icin veri mevcut degil.",
+  "midad": "Midad",
+  "deviceSync": "Cihaz senkronizasyonu",
+  "@deviceSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deviceSyncDesc": "Yer imlerinizi, zikirlerinizi, planlarınızı ve ayarlarınızı QR kod ile cihazlarınız arasında senkronize edin — hesap gerekmez",
+  "@deviceSyncDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createSyncGroup": "Senkronizasyon grubu oluştur",
+  "@createSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinSyncGroup": "QR kod okutarak katıl",
+  "@joinSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterSyncCodeManually": "Veya senkronizasyon kodunu elle girin",
+  "@enterSyncCodeManually": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCodeHint": "Senkronizasyon kodu",
+  "@syncCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinWithCode": "Kod ile katıl",
+  "@joinWithCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrTitle": "QR kod tara",
+  "@scanQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrInstruction": "Kamerayı diğer cihazınızda görünen koda doğrultun",
+  "@scanQrInstruction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cameraPermissionDenied": "Tarama kamera izni gerektirir — kodu elle girin",
+  "@cameraPermissionDenied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrTitle": "Bu cihazın eşleştirme kodu",
+  "@pairingQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrHint": "Gruba katılmak için bu kodu diğer cihazınızdan okutun",
+  "@pairingQrHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "devicesConnected": "Bağlı cihazlar",
+  "@devicesConnected": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastSync": "Son senkronizasyon",
+  "@lastSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncNow": "Şimdi senkronize et",
+  "@syncNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncing": "Senkronize ediliyor…",
+  "@syncing": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSync": "Bu cihazın senkronizasyonunu kaldır",
+  "@resetSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSyncConfirm": "Bu cihaz senkronizasyon grubundan ayrılacak. Yerel verileriniz olduğu gibi kalır. Devam edilsin mi?",
+  "@resetSyncConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "copySyncCode": "Senkronizasyon kodunu kopyala",
+  "@copySyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCreateError": "Grup oluşturulamadı — bağlantınızı kontrol edin",
+  "@syncCreateError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncJoinFailed": "Katılamadı — kodu ve bağlantınızı kontrol edin",
+  "@syncJoinFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomFull": "Grup dolu (en fazla 5 cihaz)",
+  "@syncRoomFull": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomNotFound": "Geçersiz veya süresi geçmiş kod",
+  "@syncRoomNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "invalidSyncCode": "Geçersiz kod",
+  "@invalidSyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neverSynced": "Hiç senkronize edilmedi",
+  "@neverSynced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "Onayla",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCompleted": "Senkronizasyon tamamlandı",
+  "@syncCompleted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncFailed": "Senkronizasyon başarısız — bağlantınızı kontrol edin",
+  "@syncFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tasmeaa": "Ezber Testi",
+  "tasmeeStartRecording": "Okumaya başla",
+  "tasmeeStopRecording": "Kaydı durdur",
+  "tasmeeRecording": "Okuyor",
+  "tasmeeProcessing": "Okuma analiz ediliyor",
+  "tasmeeConnecting": "Bağlanıyor",
+  "tasmeeDescription": "Hıfz ve tilavet için kişisel öğretmenin",
+  "tasmeePreparingEngine": "Motor hazırlanıyor",
+  "tasmeeDownloadingModel": "Model indiriliyor",
+  "tasmeeShowWords": "Kelimeleri göster",
+  "tasmeeHideWords": "Kelimeleri gizle",
+  "tasmeeRetry": "Tekrar oku",
+  "tasmeeSettings": "Okuma ayarları",
+  "tasmeeResultTitle": "Okuma sonucu",
+  "tasmeeNoErrors": "Harika! Hata yok",
+  "tasmeeTotal": "Toplam",
+  "tasmeeTajweed": "Tecvid",
+  "tasmeePronunciation": "Telaffuz",
+  "tasmeeTashkeel": "Harakeler",
+  "tasmeeExpected": "Beklenen",
+  "tasmeeActual": "Okunan",
+  "tasmeeInsert": "Fazla",
+  "tasmeeDelete": "Eksik",
+  "tasmeeReplace": "Değişim",
+  "tasmeeNoMatch": "Okuma tanınamadı, daha net telaffuzla tekrar deneyin",
+  "tasmeeExit": "Çıkış",
+  "tasmeeResultsPages": "Tamamlanan sayfalar",
+  "tasmeeNoResults": "Henüz kaydedilmiş sonuç yok — bir sayfayı tamamla ve burada görünecek",
+  "tasmeePage": "Sayfa",
+  "tasmeeErrorsCount": "hata",
+  "tasmeeResultDeleted": "Sonuç silindi",
+  "tasmeeModeTitle": "Tasmee modu",
+  "tasmeeModeTasmee": "Tasmee",
+  "tasmeeModeTasmeeDesc": "Kelimeler gizlidir, okudukça açılır",
+  "tasmeeModeCorrector": "Tilavet düzeltici",
+  "tasmeeModeCorrectorDesc": "Ayetler görünür, her yanlış kelime doğru okunana kadar anında düzeltilir",
+  "tasmeeModeTeacher": "Kur'an öğretmeni",
+  "tasmeeModeTeacherDesc": "Hoca ayeti okur, sen ise öğrenene kadar tekrar edersin",
+  "tasmeeCorrectWord": "Kelimeyi düzelt",
+  "tasmeePlayWord": "Kelimeyi dinle",
+  "tasmeeRepeatWord": "Kelimeyi tekrar et",
+  "tasmeeRepeatHint": "Telaffuzu dinle, sonra mikrofona bas ve tekrar et",
+  "tasmeeRepeatWithContext": "Önceki kelimeyi “@word” bu kelimeyle birlikte oku",
+  "tasmeeListeningWord": "Dinliyorum… kelimeyi söyle",
+  "tasmeeTryAgain": "Henüz doğru değil — dinle ve tekrar dene",
+  "tasmeeAutoSkippedWord": "@total denemeden sonra kelime atlandı — okumaya devam edin",
+  "tasmeeRetryAttemptOf": "Deneme @attempt / @total",
+  "tasmeeSkipWord": "Kelimeyi atla",
+  "tasmeeNonBlockingCorrector": "Düzeltme sayfası olmadan okumaya devam et",
+  "tasmeeStrictness": "Düzeltme sıkılığı",
+  "tasmeeStrictnessStrict": "Sıkı",
+  "tasmeeStrictnessBalanced": "Dengeli",
+  "tasmeeStrictnessLenient": "Toleran",
+  "tasmeeWordCorrect": "Aferin! Doğru söylendi",
+  "tasmeeTeacherQariPlaying": "Hoca ayeti okuyor…",
+  "tasmeeTeacherYourTurn": "Sıra sende — ayeti oku",
+  "tasmeeTeacherPageDone": "Sayfa öğrenildi, aferin!",
+  "tasmeeTeacherPlayFailed": "Hoca çalınamadı — bağlantıyı kontrol edip tekrar dene",
+  "tasmeeLocalModel": "Yerel düzeltme modeli",
+  "tasmeeModelReady": "Hazır",
+  "audioManager": "Ses Yönetimi"
 }

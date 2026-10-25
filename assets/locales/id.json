@@ -1219,8 +1219,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "What'sNewDetails10": "۞ Menambahkan bagian 'Madad' untuk menjadi asisten bagi penuntut ilmu.\nModel 'Madad' menyajikan hasil dan informasi yang diekstrak dari buku-buku dan referensi Islam, dengan kemampuan untuk menuju sumber asli dan membaca topik secara lengkap dari buku yang terkait.\nModel ini bertujuan untuk memudahkan pencarian dan akses ke konten.\n۞ Menambahkan bagian baru ke perpustakaan Islam dengan pencarian yang disempurnakan dan pengalaman pengguna yang lebih baik.\n۞ Menambahkan fitur untuk mengganti jenis font.\n۞ Menambahkan fitur untuk mengirim masukan atau kesalahan yang Anda temukan di aplikasi, atau fitur-fitur yang Anda inginkan di aplikasi.",
+  "What'sNewDetails10": "۞ Penyempurnaan bagian 'Madad' untuk mencakup lebih banyak kategori dengan kemampuan pencarian online.\n۞ Pencarian online kini mencakup bagian tambahan berdasarkan data Pusat Tafsir.\n۞ Kemampuan untuk mengganti model pencarian.\n۞ Kemampuan untuk membuka buku dan membaca teks lengkap.",
   "@What'sNewDetails10": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "What'sNewDetails11": "۞ Menambahkan opsi untuk menyinkronkan penanda, adzkar, rencana, dan pengaturan Anda antar perangkat melalui kode QR — tanpa perlu akun",
+  "@What'sNewDetails11": {
     "type": "text",
     "placeholders": {}
   },
@@ -1285,6 +1290,49 @@
     "type": "text",
     "placeholders": {
       "bookName": {}
+    }
+  },
+  "smartReminders": "Pengingat cerdas",
+  "@smartReminders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smartRemindersDesc": "Satu pengingat harian yang lembut dan menyesuaikan kebiasaan membaca Anda",
+  "@smartRemindersDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reminderTime": "Waktu pengingat",
+  "@reminderTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoTime": "Otomatis (cerdas)",
+  "@autoTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "quietHours": "Jam tenang",
+  "@quietHours": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "digestContent": "Konten pengingat",
+  "@digestContent": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "continueReading": "Lanjutkan membaca",
+  "@continueReading": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "khatmaRemainingDays": "Khatamah Anda: @done dari @total hari selesai",
+  "@khatmaRemainingDays": {
+    "type": "text",
+    "placeholders": {
+      "done": {},
+      "total": {}
     }
   },
   "lastSearch": "Pencarian Terakhir",
@@ -1501,6 +1549,7 @@
   "feedback_contact_optional": "Email kontak (opsional)",
   "feedback_sent_success": "Umpan balik Anda berhasil dikirim!",
   "feedback_sent_error": "Tidak dapat mengirim umpan balik. Coba lagi.",
+  "feedback_queued": "Your feedback will be sent automatically once the connection is back",
   "my_feedback": "Umpan Balik Saya",
   "no_feedback_yet": "Anda belum mengirim umpan balik apa pun",
   "feedback_reply_hint": "Tulis tindak lanjut...",
@@ -1527,6 +1576,20 @@
   "askAssistant": "Tanya asisten...",
   "assistantWelcome": "Asisten AI Al-Qur'an & Ilmunya",
   "assistantWelcomeDesc": "Asisten yang berspesialisasi dalam Al-Qur'an dan ilmunya (tafsir, nahwu, sharf, asbabun nuzul, qira'at). Tanya dalam bentuk apa pun, saya akan menggunakan sumber tepercaya untuk menjawab.",
+  "unifiedWelcomeDesc": "Asisten Anda dalam Al-Qur'an, ilmunya, dan bidang Islam (Hadis, Fiqh, Akidah, Sirah). Tanya dalam bentuk apa pun dan saya akan mencari di dua sumber tepercaya serta mengutip teks apa adanya.",
+  "quotationAyah": "Ayat Al-Qur'an",
+  "quotationHadith": "Hadis Nabi",
+  "quotationTafsir": "Tafsir",
+  "quotationScholar": "Perkataan ulama",
+  "quotationFiqh": "Teks Fiqh",
+  "quotationAqeedah": "Teks Akidah",
+  "quotationSeerah": "Sirah & sejarah",
+  "quotationOther": "Teks kutipan",
+  "fetchingFullText": "Mengambil teks lengkap...",
+  "showFullText": "Tampilkan teks lengkap",
+  "navigateToBook": "Buka buku",
+  "justNow": "Baru saja",
+  "timeAgo": "@value yang lalu",
   "thinking": "Berfikir...",
   "callingTool": "Memanggil @tool...",
   "clearChat": "Hapus obrolan",
@@ -1548,5 +1611,207 @@
   "assistantOverloaded": "Server saat ini sibuk. Coba lagi dalam beberapa saat.",
   "assistantTooLarge": "Pertanyaan terlalu panjang. Coba persingkat.",
   "assistantGenericError": "Tidak bisa mendapatkan jawaban dari model. Coba lagi atau pilih model lain.",
-  "assistantNoData": "Tidak ada data yang tersedia untuk kueri ini saat ini."
+  "assistantNoData": "Tidak ada data yang tersedia untuk kueri ini saat ini.",
+  "midad": "Midad",
+  "deviceSync": "Sinkronisasi perangkat",
+  "@deviceSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deviceSyncDesc": "Sinkronkan penanda, dzikir, rencana, dan pengaturan Anda antar perangkat dengan kode QR — tanpa akun",
+  "@deviceSyncDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createSyncGroup": "Buat grup sinkronisasi",
+  "@createSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinSyncGroup": "Gabung dengan memindai kode QR",
+  "@joinSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterSyncCodeManually": "Atau masukkan kode sinkronisasi secara manual",
+  "@enterSyncCodeManually": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCodeHint": "Kode sinkronisasi",
+  "@syncCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinWithCode": "Gabung dengan kode",
+  "@joinWithCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrTitle": "Pindai kode QR",
+  "@scanQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrInstruction": "Arahkan kamera ke kode yang ditampilkan di perangkat lain Anda",
+  "@scanQrInstruction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cameraPermissionDenied": "Pemindaian memerlukan izin kamera — masukkan kode secara manual",
+  "@cameraPermissionDenied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrTitle": "Kode pemasangan perangkat ini",
+  "@pairingQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrHint": "Pindai kode ini dari perangkat lain Anda untuk bergabung ke grup",
+  "@pairingQrHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "devicesConnected": "Perangkat terhubung",
+  "@devicesConnected": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastSync": "Sinkronisasi terakhir",
+  "@lastSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncNow": "Sinkronkan sekarang",
+  "@syncNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncing": "Menyinkronkan…",
+  "@syncing": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSync": "Lepaskan sinkronisasi perangkat ini",
+  "@resetSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSyncConfirm": "Perangkat ini akan keluar dari grup sinkronisasi. Data lokal Anda tetap sama. Lanjutkan?",
+  "@resetSyncConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "copySyncCode": "Salin kode sinkronisasi",
+  "@copySyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCreateError": "Gagal membuat grup — periksa koneksi Anda",
+  "@syncCreateError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncJoinFailed": "Gagal bergabung — periksa kode dan koneksi Anda",
+  "@syncJoinFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomFull": "Grup penuh (maks. 5 perangkat)",
+  "@syncRoomFull": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomNotFound": "Kode tidak valid atau kedaluwarsa",
+  "@syncRoomNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "invalidSyncCode": "Kode tidak valid",
+  "@invalidSyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neverSynced": "Belum pernah tersinkron",
+  "@neverSynced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "Konfirmasi",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCompleted": "Sinkronisasi selesai",
+  "@syncCompleted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncFailed": "Sinkronisasi gagal — periksa koneksi Anda",
+  "@syncFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tasmeaa": "Tasmi'",
+  "tasmeeStartRecording": "Mulai menasmi'",
+  "tasmeeStopRecording": "Hentikan rekaman",
+  "tasmeeRecording": "Sedang menasmi'",
+  "tasmeeProcessing": "Menganalisis bacaan",
+  "tasmeeConnecting": "Menyambungkan",
+  "tasmeeDescription": "Guru pribadi untuk hafalan dan bacaanmu",
+  "tasmeePreparingEngine": "Menyiapkan mesin",
+  "tasmeeDownloadingModel": "Mengunduh model",
+  "tasmeeShowWords": "Tampilkan kata",
+  "tasmeeHideWords": "Sembunyikan kata",
+  "tasmeeRetry": "Ulangi tasmi'",
+  "tasmeeSettings": "Pengaturan tasmi'",
+  "tasmeeResultTitle": "Hasil tasmi'",
+  "tasmeeNoErrors": "Bagus! Tidak ada kesalahan",
+  "tasmeeTotal": "Total",
+  "tasmeeTajweed": "Tajwid",
+  "tasmeePronunciation": "Pelafalan",
+  "tasmeeTashkeel": "Harakat",
+  "tasmeeExpected": "Diharapkan",
+  "tasmeeActual": "Yang dibaca",
+  "tasmeeInsert": "Berlebihan",
+  "tasmeeDelete": "Kurang",
+  "tasmeeReplace": "Tertukar",
+  "tasmeeNoMatch": "Bacaan tidak dikenali, coba lagi dengan pelafalan lebih jelas",
+  "tasmeeExit": "Keluar",
+  "tasmeeResultsPages": "Halaman selesai",
+  "tasmeeNoResults": "Belum ada hasil tersimpan — selesaikan satu halaman dan akan muncul di sini",
+  "tasmeePage": "Halaman",
+  "tasmeeErrorsCount": "kesalahan",
+  "tasmeeResultDeleted": "Hasil dihapus",
+  "tasmeeModeTitle": "Mode tasmi'",
+  "tasmeeModeTasmee": "Tasmi'",
+  "tasmeeModeTasmeeDesc": "Kata tersembunyi dan muncul saat kamu melafalkan",
+  "tasmeeModeCorrector": "Korektor tilawah",
+  "tasmeeModeCorrectorDesc": "Ayat terlihat dengan koreksi langsung tiap kata yang salah hingga benar",
+  "tasmeeModeTeacher": "Guru Al-Qur'an",
+  "tasmeeModeTeacherDesc": "Qari melafalkan ayat lalu kamu mengulanginya hingga mahir",
+  "tasmeeCorrectWord": "Perbaiki kata",
+  "tasmeePlayWord": "Putar kata",
+  "tasmeeRepeatWord": "Ulangi kata",
+  "tasmeeRepeatHint": "Dengarkan pelafalan lalu tekan mikrofon dan ulangi",
+  "tasmeeRepeatWithContext": "Baca kata sebelumnya “@word” bersama kata ini",
+  "tasmeeListeningWord": "Mendengarkan… ucapkan katanya",
+  "tasmeeTryAgain": "Belum tepat — dengarkan dan coba lagi",
+  "tasmeeAutoSkippedWord": "Kata dilewati setelah @total percobaan — lanjutkan membaca",
+  "tasmeeRetryAttemptOf": "Percobaan @attempt dari @total",
+  "tasmeeSkipWord": "Lewati kata",
+  "tasmeeNonBlockingCorrector": "Lanjutkan membaca tanpa lembar koreksi",
+  "tasmeeStrictness": "Keketatan koreksi",
+  "tasmeeStrictnessStrict": "Ketat",
+  "tasmeeStrictnessBalanced": "Seimbang",
+  "tasmeeStrictnessLenient": "Longgar",
+  "tasmeeWordCorrect": "Bagus! Dilafalkan dengan benar",
+  "tasmeeTeacherQariPlaying": "Qari sedang melafalkan…",
+  "tasmeeTeacherYourTurn": "Giliranmu — Lafalkan ayatnya",
+  "tasmeeTeacherPageDone": "Halaman dikuasai, bagus!",
+  "tasmeeTeacherPlayFailed": "Gagal memutar qari — periksa koneksi dan coba lagi",
+  "tasmeeLocalModel": "Model koreksi lokal",
+  "tasmeeModelReady": "Siap",
+  "audioManager": "Kelola Audio"
 }

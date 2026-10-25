@@ -45,7 +45,9 @@ assets/QuranData.sqlite
 .packages
 .pub-cache/
 .pub/
+docs/
 /build/
+post.md
 
 # Symbolication related
 app.*.symbols
@@ -57,11 +59,22 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+/android/.gradle/
+/android/app/build/
+/android/build/
+/android/local.properties
 /assets/QuranData.sqlite
 *.db
 /assets/pages/
+/docs/
 
 # Environment variables (secrets — never commit)
 /assets/.env
 .env
 *.env
+
+# ZCode CLI settings (local agent config — never commit)
+.zcode/
+
+# Cloudflare Wrangler local state (never commit)
+.wrangler/

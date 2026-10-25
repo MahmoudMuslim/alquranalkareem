@@ -1,17 +1,25 @@
 part of '../ai_search.dart';
 
 class IconWidget extends StatelessWidget {
-  const IconWidget({super.key});
+  final bool? isOnlineMode;
+  final Color? iconColor;
+  const IconWidget({super.key, this.isOnlineMode = false, this.iconColor});
 
   @override
   Widget build(BuildContext context) {
     final ctrl = AiSearchController.instance;
     return Column(
       children: [
-        const SizedBox().customSvg(SvgPath.svgHomeMidadIcon, height: 70),
+        const SizedBox().customSvgWithCustomColor(
+          SvgPath.svgHomeMidadIcon,
+          height: 70,
+          color: iconColor ?? context.theme.canvasColor,
+        ),
         const Gap(8),
         Text(
-          ctrl.state.hasAnySectionLoaded
+          isOnlineMode == true
+              ? 'midadDescription'.tr
+              : ctrl.state.hasAnySectionLoaded
               ? 'midadDescription'.tr
               : 'downloadSections'.tr,
           style: AppTextStyles.titleMedium(

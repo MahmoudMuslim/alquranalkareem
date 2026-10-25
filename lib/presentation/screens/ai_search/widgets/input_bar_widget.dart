@@ -49,7 +49,6 @@ class InputBarWidget extends StatelessWidget {
                             fontSize: 15,
                           ),
                           decoration: InputDecoration(
-                            // hint موحّد للوضعين (مثل SemanticMode).
                             hintText: 'askMidad'.tr,
                             hintStyle: AppTextStyles.titleMedium(
                               color: theme.colorScheme.surface,
@@ -67,7 +66,7 @@ class InputBarWidget extends StatelessWidget {
                             if (query.trim().isEmpty) return;
                             if (isAssistant) {
                               if (!ctrl.state.isAssistantThinking.value) {
-                                ctrl.sendAssistantMessage(query);
+                                ctrl.sendMessage(query);
                                 FocusManager.instance.primaryFocus?.unfocus();
                               }
                             } else {
@@ -103,13 +102,12 @@ class InputBarWidget extends StatelessWidget {
                 final isAssistant =
                     ctrl.state.midasMode.value == MidasMode.assistant;
                 final hasText = ctrl.state.hasInputText.value;
-                final isBusy =
-                    isAssistant &&
+                final isBusy = isAssistant &&
                     (ctrl.state.isAssistantThinking.value ||
                         ctrl.state.currentToolName.value.isNotEmpty);
                 return Row(
                   children: [
-                    // زر الإرسال (سهم لأعلى) أو مؤشر تحميل أثناء المعالجة.
+                    // زر الإرسال أو مؤشر تحميل أثناء المعالجة.
                     if (isBusy)
                       Padding(
                         padding: const EdgeInsets.all(10),
@@ -130,7 +128,7 @@ class InputBarWidget extends StatelessWidget {
                                     .trim();
                                 if (query.isEmpty) return;
                                 if (isAssistant) {
-                                  ctrl.sendAssistantMessage(query);
+                                  ctrl.sendMessage(query);
                                 } else {
                                   ctrl.state.currentQuery.value = query;
                                   ctrl.search(query);
@@ -153,7 +151,7 @@ class InputBarWidget extends StatelessWidget {
                           ),
                         ),
                       ),
-                    // العنصر الجانبي: فلتر الأقسام (دلالي) أو مؤشر الأداة/اختيار النموذج (مساعد).
+                    // العنصر الجانبي: مؤشر الأداة/اختيار النموذج (مساعد) أو فلتر (دلالي).
                     if (isAssistant)
                       Expanded(
                         child: ctrl.state.currentToolName.value.isNotEmpty

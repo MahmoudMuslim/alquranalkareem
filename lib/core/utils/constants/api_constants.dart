@@ -23,8 +23,7 @@ class ApiConstants {
   // GitLab fallback URLs
   static const String notificationsGitLabUrl =
       'https://gitlab.com/haozo89/data/-/raw/main/noti.json?ref_type=heads';
-  static const String appUrl =
-      'https://alheekmahlib.github.io/alheekmahlib/#/download/quran';
+  static const String appUrl = 'https://alhikmah.vexaltech.dev/download/quran';
   static const String quranShareUrl =
       'https://alheekmahlib.github.io/alheekmahlib/#/quran?page=';
 
@@ -64,4 +63,7 @@ class ApiConstants {
   static const String feedbackReplySuffix =
       '/reply'; // POST /feedback/{token}/reply
   static const String feedbackUploadEndpoint = '/upload'; // POST رفع وسائط
+
+  // QR Device Sync — Cloudflare Worker + D1 (انظر sync_service/ بالمستودع)
+  static const String syncApiUrl = 'https://alquran-sync.haozo89.workers.dev';
 }

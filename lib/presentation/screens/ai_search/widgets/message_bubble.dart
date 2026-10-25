@@ -6,7 +6,7 @@ part of '../ai_search.dart';
 /// - **رسالة المساعد**: **بدون فقاعة**، تأخذ كامل عرض الشاشة، مع تنسيق Markdown
 ///   وجداول ملتفّة (بدون تمرير أفقي)، وأزرار نسخ/مشاركة أسفلها.
 class MessageBubble extends StatelessWidget {
-  const MessageBubble({
+  MessageBubble({
     super.key,
     required this.message,
     this.associatedQuestion,
@@ -25,9 +25,41 @@ class MessageBubble extends StatelessWidget {
 
   final Color? textColor;
   final Color? iconColor;
+
+  final ctrl = AiSearchController.instance;
+
   @override
   Widget build(BuildContext context) {
     if (message.isAssistant) return _buildAssistantAnswer(context);
+
+    // if (ctrl.state.isAssistantThinking.value) {
+    //   return IgnorePointer(
+    //     child: Obx(() {
+    //       // يظهر فقط عند التفكير (وليس أثناء استدعاء أداة — تلك لها مؤشرها الخاص).
+    //       return Column(
+    //         mainAxisSize: MainAxisSize.min,
+    //         children: [
+    //           AnimatedDrawingWidget(
+    //             svgPath: SvgPath.svgHomeMidadIcon,
+    //             height: 80,
+    //             width: 160,
+    //             isRepeat: true,
+    //             duration: 3,
+    //             customColor: iconColor ?? context.theme.canvasColor,
+    //           ),
+    //           const Gap(16),
+    //           Text(
+    //             'thinking'.tr,
+    //             style: AppTextStyles.titleMedium(
+    //               fontSize: 18,
+    //               color: textColor ?? context.theme.colorScheme.surface,
+    //             ),
+    //           ),
+    //         ],
+    //       );
+    //     }),
+    //   );
+    // }
     return _buildUserQuestion(context);
   }
 
@@ -67,24 +99,32 @@ class MessageBubble extends StatelessWidget {
   }
 
   /// إجابة المساعد — بدون فقاعة، كامل العرض، مع Markdown + أزرار نسخ/مشاركة.
+  ///
+  /// تعرض مقدمة المساعد (نص الـ LLM) متبوعةً ببطاقات الاقتباسات المنقولة من MCP
+  /// (تُعرض كاملةً كما جاءت من المصدر، دون تمريرها عبر LLM، لضمان نسخ حرفي بلا تحريف).
+  ///
+  /// الاقتباسات تظهر تدريجياً (fade-in) بعد انتهاء streaming المقدمة، بأسلوب ChatGPT.
   Widget _buildAssistantAnswer(BuildContext context) {
     final theme = context.theme;
     final ctrl = AiSearchController.instance;
+    // هل تُعرض هذه الرسالة بحركة streaming؟ مرة واحدة فقط للرسالة الأخيرة الحيّة،
+    // ثم تُعرض ثابتةً (عبر onComplete → markAssistantStreamed) فلا تُعاد عند التمرير.
+    final shouldStream = ctrl.state.shouldStreamAssistant(
+      message.content,
+      isLastMessage: isLastMessage,
+    );
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.symmetric(vertical: 4),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // نص الإجابة بتنسيق Markdown + محاكاة streaming (كلمة بكلمة).
-          // StreamingTextMarkdown يلفّ GptMarkdown داخلياً، وGptMarkdownTheme
-          // (InheritedWidget) يُلتقط تلقائياً فتظهر الألوان والخطوط الصحيحة.
-          // الرسالة الأخيرة: حركة streaming؛ الرسائل السابقة (من السجل): فورية.
+          // نص مقدمة المساعد بتنسيق Markdown + محاكاة streaming (كلمة بكلمة).
+          // الرسالة الأخيرة الحيّة: حركة streaming مرة واحدة فقط؛ البقية (والسجل): فورية.
           // highlightBuilder يطبّق خط المصحف (uthmanic2) على الآيات المحاطة بـ backticks.
-          Directionality(
-            textDirection: TextDirection.rtl,
-            child: GptMarkdownTheme(
-              gptThemeData: _buildMarkdownTheme(theme),
+          if (message.content.trim().isNotEmpty)
+            Directionality(
+              textDirection: TextDirection.rtl,
               child: DefaultTextStyle(
                 style: AppTextStyles.titleMedium(
                   fontSize: 17,
@@ -96,7 +136,7 @@ class MessageBubble extends StatelessWidget {
                   wordByWord: true,
                   chunkSize: 1,
                   markdownEnabled: true,
-                  animationsEnabled: isLastMessage,
+                  animationsEnabled: shouldStream,
                   styleSheet: AppTextStyles.titleMedium(
                     fontSize: 17,
                     height: 1.6,
@@ -104,10 +144,21 @@ class MessageBubble extends StatelessWidget {
                   ),
                   textDirection: TextDirection.rtl,
                   fadeInEnabled: false,
+                  onComplete: shouldStream
+                      ? () => ctrl.state.markAssistantStreamed()
+                      : null,
                   highlightBuilder: (ctx, text, style) =>
                       _buildAyahWidget(ctx, text, style, theme),
                 ),
               ),
+            ),
+          // بطاقات الاقتباسات المنقولة من MCP (نصوص الكتب كاملةً كما هي).
+          // streaming مقترن بحداثة الرسالة (shouldStream): مرة واحدة للرسالة الحيّة فقط.
+          ...message.quotations.map(
+            (q) => QuotationCard(
+              quotation: q,
+              textColor: textColor,
+              enableStreaming: shouldStream,
             ),
           ),
           context.hDivider(
@@ -139,6 +190,7 @@ class MessageBubble extends StatelessWidget {
               context,
               message.content,
               associatedQuestion,
+              message.quotations,
             ),
           ),
           // زر المشاركة.
@@ -146,8 +198,11 @@ class MessageBubble extends StatelessWidget {
             context,
             svgPath: SvgPath.svgHomeShare,
             tooltip: 'shareText'.tr,
-            onPressed: () =>
-                ctrl.shareAssistantAnswer(message.content, associatedQuestion),
+            onPressed: () => ctrl.shareAssistantAnswer(
+              message.content,
+              associatedQuestion,
+              message.quotations,
+            ),
           ),
         ],
       ),
@@ -206,39 +261,6 @@ class MessageBubble extends StatelessWidget {
           color: textColor ?? theme.canvasColor,
         ),
       ),
-    );
-  }
-
-  /// يبني ثيم GptMarkdown مخصصاً يجعل كل العناوين والروابط بلون canvasColor
-  /// وخط التطبيق، بدل الأنماط الافتراضية السوداء (Typography.tall2021).
-  GptMarkdownThemeData _buildMarkdownTheme(ThemeData theme) {
-    final baseColor = textColor ?? theme.canvasColor;
-    final fontFamily = ThemeController.instance.currentFontFamily;
-    final baseStyle = TextStyle(color: baseColor, fontFamily: fontFamily);
-    return GptMarkdownThemeData(
-      brightness: theme.brightness,
-      highlightColor: baseColor.withValues(alpha: 0.15),
-      linkColor: theme.colorScheme.primary,
-      linkHoverColor: theme.colorScheme.primary,
-      hrLineColor: baseColor.withValues(alpha: 0.2),
-      h1: baseStyle.copyWith(
-        fontSize: 22,
-        fontWeight: FontWeight.bold,
-        height: 1.4,
-      ),
-      h2: baseStyle.copyWith(
-        fontSize: 19,
-        fontWeight: FontWeight.bold,
-        height: 1.4,
-      ),
-      h3: baseStyle.copyWith(
-        fontSize: 17,
-        fontWeight: FontWeight.w600,
-        height: 1.4,
-      ),
-      h4: baseStyle.copyWith(fontSize: 16, fontWeight: FontWeight.w600),
-      h5: baseStyle.copyWith(fontSize: 15, fontWeight: FontWeight.w600),
-      h6: baseStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w600),
     );
   }
 }

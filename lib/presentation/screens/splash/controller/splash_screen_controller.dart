@@ -10,12 +10,15 @@ class SplashScreenController extends GetxController {
   Future<void> onInit() async {
     super.onInit();
     _loadInitialData();
+    // الإشعارات الذكية: تسجيل الفتح في حلقة التغذية الراجعة وإعادة جدولة
+    // هضم اليوم — دون انتظار (لا يحجب شاشة البداية).
+    NotificationManager.instance.onAppOpened();
     halfOpenSlider(duration: 1, height: 120);
     Future.delayed(
-      const Duration(milliseconds: 4300),
+      const Duration(milliseconds: 2200),
     ).then((_) => hasNewFeatures());
     Future.delayed(
-      const Duration(milliseconds: 6300),
+      const Duration(milliseconds: 4100),
     ).then((_) => EventController.instance.ramadhanOrEidGreeting());
     QuranLibrary().setFontsSelected = 0;
   }
@@ -80,7 +83,7 @@ class SplashScreenController extends GetxController {
     } else {
       toggleSlider(duration: 0);
       Future.delayed(
-        const Duration(milliseconds: 900),
+        const Duration(milliseconds: 800),
         () => Get.offAll(
           () => GeneralController.instance.screenSelect(),
           transition: Transition.fadeIn,

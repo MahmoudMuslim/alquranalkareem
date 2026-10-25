@@ -2,21 +2,27 @@ PODS:
   - awesome_notifications (0.12.0):
     - FlutterMacOS
   - FlutterMacOS (1.0.0)
+  - media_kit_video (0.0.1):
+    - FlutterMacOS
 
 DEPENDENCIES:
   - awesome_notifications (from `Flutter/ephemeral/.symlinks/plugins/awesome_notifications/macos`)
   - FlutterMacOS (from `Flutter/ephemeral`)
+  - media_kit_video (from `Flutter/ephemeral/.symlinks/plugins/media_kit_video/macos`)
 
 EXTERNAL SOURCES:
   awesome_notifications:
     :path: Flutter/ephemeral/.symlinks/plugins/awesome_notifications/macos
   FlutterMacOS:
     :path: Flutter/ephemeral
+  media_kit_video:
+    :path: Flutter/ephemeral/.symlinks/plugins/media_kit_video/macos
 
 SPEC CHECKSUMS:
   awesome_notifications: 4e05708c3d44949fca858ace458b3c2ee823da8f
-  FlutterMacOS: d0db08ddef1a9af05a5ec4b724367152bb0500b1
+  FlutterMacOS: c232990155153907050900a2e175c7773903ba4e
+  media_kit_video: 28d7d27611c7769a2464eb7621c37386a61dcc9a
 
-PODFILE CHECKSUM: 290a0eafa0c24750b990514373911b1609fa1010
+PODFILE CHECKSUM: 0ddfe7eab588181f819ad3f00ab6f37fce702253
 
 COCOAPODS: 1.16.2

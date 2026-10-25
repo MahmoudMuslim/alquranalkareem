@@ -1225,8 +1225,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "What'sNewDetails10": "۞ علم طلبہ کے لیے معاون کے طور پر ایک 'مداد' سیکشن کا اضافہ کیا گیا ہے۔\n'مداد' ماڈل کتابوں اور اسلامی حوالہ جات سے اخذ کردہ نتائج اور معلومات پیش کرتا ہے، اصل مصدر پر جانے اور متعلقہ کتاب سے مکمل موضوع پڑھنے کی سہولت کے ساتھ۔\nاس ماڈل کا مقصد تلاش اور مواد تک رسائی کو آسان بنانا ہے۔\n۞ بہتر تلاش اور بہتر صارف تجربے کے ساتھ اسلامی لائبریری میں نئے سیکشنز کا اضافہ کیا گیا ہے۔\n۞ فونٹ کی قسم تبدیل کرنے کی خصوصیت کا اضافہ کیا گیا ہے۔\n۞ آپ کی رائے یا ایپ میں دیکھے گئے خامیوں، یا ایپ میں آپ جو خصوصیات چاہتے ہیں، انہیں بھیجنے کی خصوصیت کا اضافہ کیا گیا ہے۔",
+  "What'sNewDetails10": "۞ 'مداد' سیکشن کو بہتر کیا گیا ہے تاکہ یہ مزید اقسام کو آن لائن تلاش کی سہولت کے ساتھ شامل کرے۔\n۞ آن لائن تلاش میں اب تفسیروں کے مرکز کے ڈیٹا پر مبنی ایک اضافی سیکشن شامل ہے۔\n۞ تلاش کے ماڈلز تبدیل کرنے کی سہولت۔\n۞ مکمل متن پڑھنے کے لیے کتاب پر جانے کی سہولت۔",
   "@What'sNewDetails10": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "What'sNewDetails11": "۞ آپ کی نشانیوں، اذکار، منصوبوں اور ترتیبات کو QR کوڈ کے ذریعے اپنے آلات کے درمیان ہم وقت کرنے کا آپشن شامل کیا گیا ہے — بغیر اکاؤنٹ کے",
+  "@What'sNewDetails11": {
     "type": "text",
     "placeholders": {}
   },
@@ -1291,6 +1296,49 @@
     "type": "text",
     "placeholders": {
       "bookName": {}
+    }
+  },
+  "smartReminders": "سمارٹ یاد دہانیاں",
+  "@smartReminders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smartRemindersDesc": "آپ کی مطالعہ کی عادات کے مطابق ایک نرم روزانہ یاد دہانی",
+  "@smartRemindersDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reminderTime": "یاد دہانی کا وقت",
+  "@reminderTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoTime": "خودکار (سمارٹ)",
+  "@autoTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "quietHours": "خاموش گھنٹے",
+  "@quietHours": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "digestContent": "یاد دہانی کا مواد",
+  "@digestContent": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "continueReading": "مطالعہ جاری رکھیں",
+  "@continueReading": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "khatmaRemainingDays": "آپ کی ختمہ: @total دنوں میں سے @done مکمل",
+  "@khatmaRemainingDays": {
+    "type": "text",
+    "placeholders": {
+      "done": {},
+      "total": {}
     }
   },
   "lastSearch": "آخری تلاش",
@@ -1507,6 +1555,7 @@
   "feedback_contact_optional": "رابطہ ای میل (اختیاری)",
   "feedback_sent_success": "آپ کی رائے کامیابی سے بھیج دی گئی!",
   "feedback_sent_error": "رائے نہیں بھیجی جا سکی۔ دوبارہ کوشش کریں۔",
+  "feedback_queued": "Your feedback will be sent automatically once the connection is back",
   "my_feedback": "میری رائے",
   "no_feedback_yet": "آپ نے ابھی تک کوئی رائے نہیں بھیجی",
   "feedback_reply_hint": "ایک فالو اپ لکھیں...",
@@ -1533,6 +1582,20 @@
   "askAssistant": "اسسٹنٹ سے پوچھیں...",
   "assistantWelcome": "قرآن اور اس کے علوم کا اے آئی اسسٹنٹ",
   "assistantWelcomeDesc": "قرآن کریم اور اس کے علوم (تفسیر، نحو، صرف، نزول کے اسباب، قرات) میں ماہر اسسٹنٹ۔ کسی بھی طرح سوال پوچھیں، میں قابلِ اعتماد ذرائع سے جواب دوں گا۔",
+  "unifiedWelcomeDesc": "قرآن، اس کے علوم اور اسلامی شعبوں (حدیث، فقہ، عقیدہ، سیرت) میں آپ کا اسسٹنٹ۔ کسی بھی طرح سوال پوچھیں، میں دو قابلِ اعتماد ذرائع میں تلاش کروں گا اور نصوص جیسے ہیں نقل کروں گا۔",
+  "quotationAyah": "قرآنی آیت",
+  "quotationHadith": "نبوی حدیث",
+  "quotationTafsir": "تفسیر",
+  "quotationScholar": "عالم کا قول",
+  "quotationFiqh": "فقہی نص",
+  "quotationAqeedah": "عقیدی نص",
+  "quotationSeerah": "سیرت و تاریخ",
+  "quotationOther": "منقول نص",
+  "fetchingFullText": "مکمل متن لایا جا رہا ہے...",
+  "showFullText": "مکمل نص دکھائیں",
+  "navigateToBook": "کتاب پر جائیں",
+  "justNow": "ابھی",
+  "timeAgo": "@value پہلے",
   "thinking": "سوچ رہا ہے...",
   "callingTool": "@tool بلایا جا رہا ہے...",
   "clearChat": "چیٹ صاف کریں",
@@ -1554,5 +1617,207 @@
   "assistantOverloaded": "سرور فی الحال مصروف ہے۔ تھوڑی دیر بعد دوبارہ کوشش کریں۔",
   "assistantTooLarge": "سوال بہت لمبا ہے۔ اسے مختصر کرنے کی کوشش کریں۔",
   "assistantGenericError": "ماڈل سے جواب نہیں مل سکا۔ دوبارہ کوشش کریں یا کوئی اور ماڈل منتخب کریں۔",
-  "assistantNoData": "اس وقت اس استفسار کے لیے کوئی ڈیٹا دستیاب نہیں ہے۔"
+  "assistantNoData": "اس وقت اس استفسار کے لیے کوئی ڈیٹا دستیاب نہیں ہے۔",
+  "midad": "مداد",
+  "deviceSync": "ڈیوائسز کی مطابقت",
+  "@deviceSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deviceSyncDesc": "اپنی نشانیاں، اذکاری، منصوبے اور ترتیبات QR کوڈ کے ذریعے اپنی ڈیوائسز کے درمیان ہم آہنگ کریں — بغیر اکاؤنٹ",
+  "@deviceSyncDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createSyncGroup": "مطابقت گروپ بنائیں",
+  "@createSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinSyncGroup": "QR کوڈ اسکین کر کے شامل ہوں",
+  "@joinSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterSyncCodeManually": "یا مطابقت کوڈ دستی طور پر درج کریں",
+  "@enterSyncCodeManually": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCodeHint": "مطابقت کوڈ",
+  "@syncCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinWithCode": "کوڈ سے شامل ہوں",
+  "@joinWithCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrTitle": "QR کوڈ اسکین کریں",
+  "@scanQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrInstruction": "کیمرے کو اپنی دوسری ڈیوائس پر دکھے گئے کوڈ کی طرف رکھیں",
+  "@scanQrInstruction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cameraPermissionDenied": "اسکین کے لیے کیمرے کی اجازت درکار ہے — کوڈ دستی درج کریں",
+  "@cameraPermissionDenied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrTitle": "اس ڈیوائس کا جوڑکوڈ",
+  "@pairingQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrHint": "گروپ میں شامل ہونے کے لیے یہ کوڈ اپنی دوسری ڈیوائس سے اسکین کریں",
+  "@pairingQrHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "devicesConnected": "منسلک ڈیوائسز",
+  "@devicesConnected": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastSync": "آخری مطابقت",
+  "@lastSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncNow": "ابھی مطابقت کریں",
+  "@syncNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncing": "مطابقت جاری ہے…",
+  "@syncing": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSync": "اس ڈیوائس کی مطابقت ختم کریں",
+  "@resetSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSyncConfirm": "یہ ڈیوائس مطابقت گروپ سے الگ ہو جائے گی۔ آپ کا مقامی ڈیٹا برقرار رہے گا۔ جاری رکھیں؟",
+  "@resetSyncConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "copySyncCode": "مطابقت کوڈ کاپی کریں",
+  "@copySyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCreateError": "گروپ نہیں بن سکا — اپنا کنکشن چیک کریں",
+  "@syncCreateError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncJoinFailed": "شامل نہیں ہو سکے — کوڈ اور کنکشن چیک کریں",
+  "@syncJoinFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomFull": "گروپ مکمل ہے (زیادہ سے زیادہ 5 ڈیوائسز)",
+  "@syncRoomFull": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomNotFound": "کوڈ غلط یا میعاد ختم",
+  "@syncRoomNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "invalidSyncCode": "غلط کوڈ",
+  "@invalidSyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neverSynced": "ابھی تک مطابقت نہیں ہوئی",
+  "@neverSynced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "تصدیق کریں",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCompleted": "مطابقت مکمل ہو گئی",
+  "@syncCompleted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncFailed": "مطابقت ناکام — اپنا کنکشن چیک کریں",
+  "@syncFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tasmeaa": "تسميع",
+  "tasmeeStartRecording": "تسميع شروع کریں",
+  "tasmeeStopRecording": "ریکارڈنگ روکیں",
+  "tasmeeRecording": "تسميع جاری ہے",
+  "tasmeeProcessing": "تلاوت کا تجزیہ جاری ہے",
+  "tasmeeConnecting": "رابطہ ہو رہا ہے",
+  "tasmeeDescription": "حفظ اور تلاوت کے لیے آپ کا ذاتی معلم",
+  "tasmeePreparingEngine": "انجن تیار ہو رہا ہے",
+  "tasmeeDownloadingModel": "ماڈل ڈاؤن لوڈ ہو رہا ہے",
+  "tasmeeShowWords": "الفاظ دکھائیں",
+  "tasmeeHideWords": "الفاظ چھپائیں",
+  "tasmeeRetry": "دوبارہ تسميع کریں",
+  "tasmeeSettings": "تسميع کی ترتیبات",
+  "tasmeeResultTitle": "تسميع کا نتیجہ",
+  "tasmeeNoErrors": "شاباس! کوئی غلطی نہیں",
+  "tasmeeTotal": "کل",
+  "tasmeeTajweed": "تجوید",
+  "tasmeePronunciation": "تلفظ",
+  "tasmeeTashkeel": "اعراب",
+  "tasmeeExpected": "متوقع",
+  "tasmeeActual": "پڑھا گیا",
+  "tasmeeInsert": "اضافہ",
+  "tasmeeDelete": "کمی",
+  "tasmeeReplace": "تبدیلی",
+  "tasmeeNoMatch": "تلاوت کی شناخت نہیں ہو سکی، واضح تلفظ کے ساتھ دوبارہ کوشش کریں",
+  "tasmeeExit": "خارج ہوں",
+  "tasmeeResultsPages": "مکمل شدہ صفحات",
+  "tasmeeNoResults": "ابھی کوئی محفوظ نتائج نہیں — ایک صفحہ مکمل کریں اور یہاں نظر آئے گا",
+  "tasmeePage": "صفحہ",
+  "tasmeeErrorsCount": "غلطیاں",
+  "tasmeeResultDeleted": "نتیجہ حذف ہو گیا",
+  "tasmeeModeTitle": "تسمیع موڈ",
+  "tasmeeModeTasmee": "تسمیع",
+  "tasmeeModeTasmeeDesc": "الفاظ چھپے ہوتے ہیں اور تلاوت کے دوران ظاہر ہوتے ہیں",
+  "tasmeeModeCorrector": "تلاوت مصحح",
+  "tasmeeModeCorrectorDesc": "آیات نظر آتی ہیں اور ہر غلط لفظ کی فوری اصلاح ہوتی ہے یہاں تک کہ درست پڑھا جائے",
+  "tasmeeModeTeacher": "قرآن ٹیچر",
+  "tasmeeModeTeacherDesc": "قاری آیت پڑھتا ہے پھر آپ اسے دہراتے ہیں یہاں تک کہ مکمل کر لیں",
+  "tasmeeCorrectWord": "لفظ درست کریں",
+  "tasmeePlayWord": "لفظ سنائیں",
+  "tasmeeRepeatWord": "لفظ دہرائیں",
+  "tasmeeRepeatHint": "تلفظ سنیں پھر مائیک دبائیں اور دہرائیں",
+  "tasmeeRepeatWithContext": "پچھلا لفظ «@word» اس لفظ کے ساتھ ملا کر پڑھیں",
+  "tasmeeListeningWord": "سن رہا ہے… لفظ بولیں",
+  "tasmeeTryAgain": "ابھی درست نہیں — سنیں اور دوبارہ کوشش کریں",
+  "tasmeeAutoSkippedWord": "@total کوششوں کے بعد لفظ چھوڑ دیا گیا — تلاوت جاری رکھیں",
+  "tasmeeRetryAttemptOf": "کوشش @attempt از @total",
+  "tasmeeSkipWord": "لفظ چھوڑیں",
+  "tasmeeNonBlockingCorrector": "اصلاحی شیٹ کے بغیر تلاوت جاری رکھیں",
+  "tasmeeStrictness": "تصحیح کی سختگی",
+  "tasmeeStrictnessStrict": "سخت",
+  "tasmeeStrictnessBalanced": "متوازن",
+  "tasmeeStrictnessLenient": "شکیب",
+  "tasmeeWordCorrect": "شاباش! درست پڑھا گیا",
+  "tasmeeTeacherQariPlaying": "قاری آیت پڑھ رہا ہے…",
+  "tasmeeTeacherYourTurn": "آپ کی باری — آیت پڑھیں",
+  "tasmeeTeacherPageDone": "صفحہ مکمل مہارت سے سن لیا، شاباش!",
+  "tasmeeTeacherPlayFailed": "قاری کی تلاوت چلائی نہیں جا سکی — کنکشن چیک کریں اور دوبارہ کوشش کریں",
+  "tasmeeLocalModel": "مقامی تصحیح ماڈل",
+  "tasmeeModelReady": "تیار",
+  "audioManager": "آڈیو مینجمنٹ"
 }

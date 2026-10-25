@@ -54,18 +54,20 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
     if (!mounted) return;
     result.fold(
       (failure) => context.showCustomErrorSnackBar('feedback_sent_error'.tr),
-      (_) {
+      (model) {
+        // token فارغ = أُدخلت الطابور وستُرسل عند عودة الاتصال.
+        final queued = model.token.isEmpty;
         _messageCtrl.clear();
         _emailCtrl.clear();
         context.showCustomErrorSnackBar(
-          'feedback_sent_success'.tr,
+          queued ? 'feedback_queued'.tr : 'feedback_sent_success'.tr,
           isDone: true,
         );
-        // أغلق الـ sheet ثم أعد تحميل القائمة.
+        // أغلق الـ sheet ثم أعد تحميل القائمة (لا جديد قبل الإرسال الفعلي).
         if (Get.isBottomSheetOpen ?? false) {
           Get.back();
         }
-        _c.loadAllThreads();
+        if (!queued) _c.loadAllThreads();
       },
     );
   }
@@ -74,89 +76,93 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
   Widget build(BuildContext context) {
     final colorScheme = context.theme.colorScheme;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            'feedback_subtitle'.tr,
-            style: AppTextStyles.titleLarge(
-              color: colorScheme.inversePrimary,
-              fontSize: 18.sp,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              'feedback_subtitle'.tr,
+              style: AppTextStyles.titleLarge(
+                color: colorScheme.inversePrimary,
+                fontSize: 18,
+              ),
             ),
-          ),
-          Gap(12.h),
-          _messageField(context),
-          ValueListenableBuilder<int>(
-            valueListenable: _charCount,
-            builder: (context, used, _) {
-              final remaining = _maxChars - used;
-              return Align(
-                alignment: AlignmentDirectional.centerEnd,
-                child: Text(
-                  '$remaining ${'characters_remaining'.tr}',
-                  style: AppTextStyles.titleSmall(
-                    color: colorScheme.inversePrimary.withValues(alpha: 0.6),
-                    fontSize: 12.sp,
-                  ),
-                ),
-              );
-            },
-          ),
-          Gap(12.h),
-          _emailField(context),
-          Gap(12.h),
-          _mediaSection(context),
-          Gap(16.h),
-          ValueListenableBuilder<int>(
-            valueListenable: _charCount,
-            builder: (context, used, _) {
-              final hasText = used > 0;
-              return Obx(() {
-                final busy = _c.isSubmitting.value;
-                final uploading = _c.isUploading.value;
-                final hasFiles = _c.selectedFiles.isNotEmpty;
-                // مفعّل إن وُجد نص أو ملفات، ولسنا مشغولين.
-                final enabled = (hasText || hasFiles) && !busy && !uploading;
-                return Opacity(
-                  opacity: enabled ? 1.0 : 0.5,
-                  child: ContainerButton(
-                    onPressed: enabled ? _submit : null,
-                    title: 'send_feedback',
-                    isButton: true,
-                    width: double.infinity,
-                    horizontalPadding: 8.0,
-                    verticalPadding: 12.0,
-                    backgroundColor: colorScheme.primary,
-                    titleColor: colorScheme.secondary,
-                    titleStyle: AppTextStyles.titleMedium(
-                      color: colorScheme.secondary,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16.sp,
+            Gap(12.h),
+            _messageField(context),
+            ValueListenableBuilder<int>(
+              valueListenable: _charCount,
+              builder: (context, used, _) {
+                final remaining = _maxChars - used;
+                return Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: Text(
+                    '$remaining ${'characters_remaining'.tr}',
+                    style: AppTextStyles.titleSmall(
+                      color: colorScheme.inversePrimary.withValues(alpha: 0.6),
+                      fontSize: 12,
                     ),
-                    child: busy
-                        ? Padding(
-                            padding: EdgeInsetsDirectional.only(start: 8.w),
-                            child: SizedBox(
-                              width: 20.w,
-                              height: 20.w,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 2.0,
-                                valueColor: AlwaysStoppedAnimation<Color>(
-                                  colorScheme.secondary,
-                                ),
-                              ),
-                            ),
-                          )
-                        : null,
                   ),
                 );
-              });
-            },
-          ),
-          Gap(16.h),
-        ],
+              },
+            ),
+            Gap(12.h),
+            _emailField(context),
+            Gap(12.h),
+            _mediaSection(context),
+            Gap(16.h),
+            ValueListenableBuilder<int>(
+              valueListenable: _charCount,
+              builder: (context, used, _) {
+                final hasText = used > 0;
+                return Obx(() {
+                  final busy = _c.isSubmitting.value;
+                  final uploading = _c.isUploading.value;
+                  final hasFiles = _c.selectedFiles.isNotEmpty;
+                  // مفعّل إن وُجد نص أو ملفات، ولسنا مشغولين.
+                  final enabled = (hasText || hasFiles) && !busy && !uploading;
+                  return Opacity(
+                    opacity: enabled ? 1.0 : 0.5,
+                    child: ContainerButton(
+                      onPressed: enabled ? _submit : null,
+                      title: 'send_feedback',
+                      isButton: true,
+                      width: double.infinity,
+                      horizontalPadding: 8.0,
+                      verticalPadding: 12.0,
+                      backgroundColor: colorScheme.primary,
+                      titleColor: colorScheme.secondary,
+                      titleStyle: AppTextStyles.titleMedium(
+                        color: colorScheme.secondary,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
+                      ),
+                      child: busy
+                          ? Padding(
+                              padding: const EdgeInsetsDirectional.only(
+                                start: 8,
+                              ),
+                              child: SizedBox(
+                                width: 20,
+                                height: 20,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2.0,
+                                  valueColor: AlwaysStoppedAnimation<Color>(
+                                    colorScheme.secondary,
+                                  ),
+                                ),
+                              ),
+                            )
+                          : null,
+                    ),
+                  );
+                });
+              },
+            ),
+            const Gap(16),
+          ],
+        ),
       ),
     );
   }
@@ -192,7 +198,7 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
                 '${files.length}/${FeedbackController.maxFiles}',
                 style: AppTextStyles.titleSmall(
                   color: colorScheme.inversePrimary.withValues(alpha: 0.6),
-                  fontSize: 12.sp,
+                  fontSize: 12,
                 ),
               ),
             ],
@@ -201,10 +207,10 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
           if (uploading) ...[
             Gap(8.h),
             ClipRRect(
-              borderRadius: BorderRadius.circular(4.r),
+              borderRadius: BorderRadius.circular(4),
               child: LinearProgressIndicator(
                 value: progress,
-                minHeight: 6.h,
+                minHeight: 6,
                 backgroundColor: colorScheme.surface.withValues(alpha: 0.1),
                 valueColor: AlwaysStoppedAnimation<Color>(colorScheme.primary),
               ),
@@ -214,16 +220,16 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
               '${'feedback_uploading'.tr} ${(progress * 100).toInt()}%',
               style: AppTextStyles.titleSmall(
                 color: colorScheme.inversePrimary.withValues(alpha: 0.6),
-                fontSize: 11.sp,
+                fontSize: 11,
               ),
             ),
           ],
           // شبكة المصغّرات.
           if (files.isNotEmpty) ...[
-            Gap(8.h),
+            const Gap(8),
             Wrap(
-              spacing: 8.w,
-              runSpacing: 8.h,
+              spacing: 8,
+              runSpacing: 8,
               children: List.generate(files.length, (i) {
                 return _thumb(context, files[i], i);
               }),
@@ -245,23 +251,23 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
       opacity: onPressed == null ? 0.5 : 1.0,
       child: InkWell(
         onTap: onPressed,
-        borderRadius: BorderRadius.circular(8.r),
+        borderRadius: BorderRadius.circular(8),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.h),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
           decoration: BoxDecoration(
             color: colorScheme.surface.withValues(alpha: 0.08),
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(8),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, size: 18.sp, color: colorScheme.primary),
-              Gap(4.w),
+              Icon(icon, size: 18, color: colorScheme.primary),
+              const Gap(4),
               Text(
                 label.tr,
                 style: AppTextStyles.titleSmall(
                   color: colorScheme.inversePrimary,
-                  fontSize: 12.sp,
+                  fontSize: 12,
                 ),
               ),
             ],
@@ -277,10 +283,10 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
     return Stack(
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(8),
           child: SizedBox(
-            width: 72.w,
-            height: 72.w,
+            width: 72,
+            height: 72,
             child: Stack(
               fit: StackFit.expand,
               children: [
@@ -288,10 +294,10 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
                 if (isVideo)
                   Container(
                     color: Colors.black.withValues(alpha: 0.3),
-                    child: Icon(
+                    child: const Icon(
                       Icons.play_circle_fill,
                       color: Colors.white,
-                      size: 28.sp,
+                      size: 28,
                     ),
                   ),
               ],
@@ -309,7 +315,7 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
                 color: Colors.black54,
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.close, color: Colors.white, size: 14.sp),
+              child: const Icon(Icons.close, color: Colors.white, size: 14),
             ),
           ),
         ),
@@ -334,10 +340,10 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
   Widget _messageField(BuildContext context) {
     final colorScheme = context.theme.colorScheme;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w),
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
         color: colorScheme.surface.withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: TextField(
         controller: _messageCtrl,
@@ -348,7 +354,7 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
         onTapOutside: (_) => FocusScope.of(context).unfocus(),
         style: AppTextStyles.titleMedium(
           color: colorScheme.inversePrimary,
-          fontSize: 16.sp,
+          fontSize: 16,
         ),
         decoration: InputDecoration(
           counterText: '',
@@ -356,7 +362,7 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
           hintText: 'feedback_message_hint'.tr,
           hintStyle: AppTextStyles.titleMedium(
             color: colorScheme.inversePrimary.withValues(alpha: 0.5),
-            fontSize: 16.sp,
+            fontSize: 16,
           ),
         ),
       ),
@@ -366,10 +372,10 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
   Widget _emailField(BuildContext context) {
     final colorScheme = context.theme.colorScheme;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 12.w),
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
         color: colorScheme.surface.withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: TextField(
         controller: _emailCtrl,
@@ -378,14 +384,14 @@ class _FeedbackSendSheetState extends State<FeedbackSendSheet> {
         onTapOutside: (_) => FocusScope.of(context).unfocus(),
         style: AppTextStyles.titleMedium(
           color: colorScheme.inversePrimary,
-          fontSize: 16.sp,
+          fontSize: 16,
         ),
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: 'feedback_contact_optional'.tr,
           hintStyle: AppTextStyles.titleMedium(
             color: colorScheme.inversePrimary.withValues(alpha: 0.5),
-            fontSize: 16.sp,
+            fontSize: 16,
           ),
           icon: const SizedBox().customSvgWithColor(
             SvgPath.svgHomeEmail,

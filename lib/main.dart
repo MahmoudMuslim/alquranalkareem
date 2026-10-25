@@ -1,13 +1,16 @@
 import 'dart:io' show Platform;
 
+import 'package:connectivity_kit/connectivity_kit.dart';
 import 'package:drift/drift.dart' show driftRuntimeOptions;
 import 'package:flutter/material.dart';
 import 'package:flutter_app_info/flutter_app_info.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:quran_library/quran_library.dart';
 import 'package:timezone/data/latest.dart' as tz;
+import 'package:video_player_media_kit/video_player_media_kit.dart';
 
 import '/core/services/languages/dependency_inj.dart' as dep;
 import 'core/services/background_services.dart';
@@ -17,11 +20,16 @@ import 'core/services/services_locator.dart';
 import 'core/utils/constants/extensions/convert_number_extension.dart';
 import 'core/utils/constants/shared_preferences_constants.dart';
 import 'myApp.dart';
+import 'presentation/screens/feedback/data/feedback_queue.dart';
 import 'presentation/screens/quran_page/quran.dart';
 
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  widgetsBinding;
+
+  if (Platform.isWindows) {
+    VideoPlayerMediaKit.ensureInitialized(windows: true);
+  }
+
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   Map<String, Map<String, String>> languages = await dep.init();
   await initializeApp();
@@ -38,10 +46,19 @@ Future<void> initializeApp() async {
   Future.delayed(const Duration(seconds: 0));
   // تحميل مفاتيح البيئة (OpenRouter API key). آمن إن لم يوجد الملف.
   try {
-    await dotenv.load(fileName: 'assets/.env');
+    await dotenv.load();
   } catch (_) {
     // الملف اختياري — المساعد الذكي سيُظهر رسالة خطأ عند الاستخدام دون مفتاح.
   }
+  final service = ConnectionService(
+    options: const ConnectionOptions(enableReachability: true),
+  );
+  await service.init();
+
+  Get.put(service, permanent: true);
+  Get.put(ConnectionController(), permanent: true);
+  // طابور الـ feedback: إرسال مؤجَّل يستأنف تلقائيًا عند عودة الاتصال.
+  await FeedbackQueue.init(service);
   await GetStorage.init();
   await QuranLibrary.init(
     numberConverter: (text, {languageCode}) =>

@@ -14,7 +14,11 @@ import '../../calendar/events.dart';
 
 class HijriWidget extends StatelessWidget {
   final bool? isInCalendar;
-  HijriWidget({super.key, this.isInCalendar = false});
+
+  /// عرض مخصص للودجت — يفيد عند وضعه داخل حاوية بعرض محدد (مثل لوحة الأحداث
+  /// في الوضع الأفقي لشاشة التقويم) بدل الاعتماد على عرض الشاشة كاملًا.
+  final double? width;
+  HijriWidget({super.key, this.isInCalendar = false, this.width});
 
   final generalCtrl = GeneralController.instance;
   final eventCtrl = EventController.instance;
@@ -28,7 +32,7 @@ class HijriWidget extends StatelessWidget {
         AlignmentDirectional.centerEnd,
       ),
       child: SizedBox(
-        width: context.customOrientation(Get.width, Get.width * .5),
+        width: width ?? context.customOrientation(Get.width, Get.width * .5),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: isInCalendar ? 8.0 : 16.0),
           child: Column(
@@ -263,7 +267,7 @@ class HijriWidget extends StatelessWidget {
             alignment: Alignment.center,
             child: customSvgWithColor(
               'assets/svg/hijri/${eventCtrl.hijriNow.hMonth}.svg',
-              width: 120,
+              width: 100,
               color: isInCalendar
                   ? context.theme.canvasColor
                   : Theme.of(context).colorScheme.inversePrimary,
@@ -311,15 +315,23 @@ class HijriWidget extends StatelessWidget {
         children: [
           Align(
             alignment: Alignment.center,
-            child: Text(
-              '${eventCtrl.gregorianMonthFormat}'.convertNumbersToCurrentLang(),
-              style: AppTextStyles.titleLarge().copyWith(
-                fontSize: 34,
-                color: isInCalendar
-                    ? context.theme.canvasColor
-                    : Theme.of(context).colorScheme.inversePrimary,
+            child: SizedBox(
+              width: 100,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  '${eventCtrl.gregorianMonthFormat}'
+                      .convertNumbersToCurrentLang(),
+                  style: AppTextStyles.titleLarge().copyWith(
+                    fontSize: 34,
+                    fontWeight: FontWeight.w500,
+                    color: isInCalendar
+                        ? context.theme.canvasColor
+                        : Theme.of(context).colorScheme.inversePrimary,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
-              textAlign: TextAlign.center,
             ),
           ),
           Align(

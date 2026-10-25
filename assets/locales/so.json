@@ -1225,8 +1225,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "What'sNewDetails10": "۞ Waxaa lagu daray qaybta 'Madad' si ay u noqoto caawiye ardayda raadinta aqoonta.\nTuruuxa 'Madad' waxay soo bandhigaysaa natiijooyinka iyo macluumaadka la soo saaray kutubta iyo tixsiyaha Islaamiga ah, iyada oo suurtogal ah in la aado xogta asalka ah oo la akhriyo mowduuca dhammaystiran ee kutubta la xidhan.\nTuruuxani waxay oo kaliya ah in la fududeeyo raadinta iyo helitaanka muhiimka.\n۞ Waxaa lagu daray qaybo cusub Maktabadda Islaamiska ah iyada oo la hagaajiyay raadinta iyo khibrada isticmaalaha.\n۞ Waxaa lagu daray astaanta beddelaidda nooca qoraalka.\n۞ Waxaa lagu daray astaanta u diraya ra'yigaaga ama khaladaadka aad aragto barnaamijka, ama astaamaha aad rabto inay jiraan barnaamijka.",
+  "What'sNewDetails10": "۞ Waxaa la hagaajiyay qaybta 'Madad' si ay u daboolo qaybo badan oo leh awood raadin online ah.\n۞ Raadinta online hadda waxay ku jirtaa qaybo dheeri ah oo ku salaysan xogta Xarunta Tafsiirka.\n۞ Awoodda beddelaadda moodeelyada raadinta.\n۞ Awoodda u tagista kitaabka si aad u akhrido qoraalka buuxa.",
   "@What'sNewDetails10": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "What'sNewDetails11": "۞ Waxaa lagu daray ikhtiyaarka is-waafajinta calaamadahaaga, adhkar-kaaga, qorshooyinkaaga iyo dejisyadaaga ee u dhexeeya aaladahaaga adigoo isticmaalaya koodhka QR — adigoo aan akoon lahayn",
+  "@What'sNewDetails11": {
     "type": "text",
     "placeholders": {}
   },
@@ -1291,6 +1296,49 @@
     "type": "text",
     "placeholders": {
       "bookName": {}
+    }
+  },
+  "smartReminders": "Xasuusin xariif ah",
+  "@smartReminders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smartRemindersDesc": "Xasuusin maalinle ah oo jilicsan oo ku habboon caadada akhriskaaga",
+  "@smartRemindersDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reminderTime": "Waqtiga xasuusinta",
+  "@reminderTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoTime": "Otomaatig (xariif)",
+  "@autoTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "quietHours": "Saacadaha aamusnaanta",
+  "@quietHours": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "digestContent": "Waxa xasuusin ka kooban",
+  "@digestContent": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "continueReading": "Sii wad akhriska",
+  "@continueReading": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "khatmaRemainingDays": "Khatmaada: @done maalmood oo @total ah ayaa la dhammeeyay",
+  "@khatmaRemainingDays": {
+    "type": "text",
+    "placeholders": {
+      "done": {},
+      "total": {}
     }
   },
   "lastSearch": "Raadintii Ugu Dambaysay",
@@ -1479,6 +1527,7 @@
   "feedback_contact_optional": "Iimaylka xiriirka (ikhtiyaari)",
   "feedback_sent_success": "Rajadaada si guul leh ayaa loo diray!",
   "feedback_sent_error": "Rajinta lama diri karin. Isku day mar kale.",
+  "feedback_queued": "Your feedback will be sent automatically once the connection is back",
   "my_feedback": "Rajadayda",
   "no_feedback_yet": "Weli rajad ma soo dirtid",
   "feedback_reply_hint": "Raac-dheeri qor...",
@@ -1505,6 +1554,20 @@
   "askAssistant": "Caawiyaha weydii...",
   "assistantWelcome": "Caawiyaha AI ee Quraanka iyo Cilmigiisa",
   "assistantWelcomeDesc": "Caawiye ku takhusushay Quraanka Kariimka ah iyo cilmigiisa (tafsiir, naxwo, sarf, sababta soo dejinta, qira'aat). Weydii si kasta oo aad jeceshahay, waan isticmaali doonaa ilo aamin ah si aan u jawaabo.",
+  "unifiedWelcomeDesc": "Caawiyeahaaga ee Quraanka, cilmigiisa iyo qaybaha Islaamiga (Xadiis, Fiqhi, Caqiida, Siirka). Weydii si kasta, waan raadin doonaa labo ilo aamin ah oo ku soo qaadan doonaa qoraalada sidii ay yihiin.",
+  "quotationAyah": "Aayad Quraan",
+  "quotationHadith": "Xadiis Nebi",
+  "quotationTafsir": "Tafsiir",
+  "quotationScholar": "Hadal culimo",
+  "quotationFiqh": "Qoraal Fiqhi",
+  "quotationAqeedah": "Qoraal Caqiida",
+  "quotationSeerah": "Siira iyo taariikh",
+  "quotationOther": "Qoraal la soo gaabiyay",
+  "fetchingFullText": "Qoraalka buuxa ayaa la soo dejinayaa...",
+  "showFullText": "Tus qoraalka buuxa",
+  "navigateToBook": "U tago kitaabka",
+  "justNow": "Hadda",
+  "timeAgo": "@value kahor",
   "thinking": "Fikirayaa...",
   "callingTool": "waxaa la wacayaa @tool...",
   "clearChat": "Tirtir wada hadal",
@@ -1526,5 +1589,207 @@
   "assistantOverloaded": "Server-ku hadda waa mashqulay. Isku day mar kale dabool kasta.",
   "assistantTooLarge": "Su aashu waa dheer tahay. Isku day inaad gaabisato.",
   "assistantGenericError": "Lama heli karin jawaab moodelka. Isku day mar kale ama dooro moodel kale.",
-  "assistantNoData": "Ma jiro xog la heli karo weydintan hadda."
+  "assistantNoData": "Ma jiro xog la heli karo weydintan hadda.",
+  "midad": "Midad",
+  "deviceSync": "Isku-dhubka qalabka",
+  "@deviceSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deviceSyncDesc": "Calaamadahaaga, dhikrarkaaga, qorshooyinkaaga iyo dejimahaaga u dhexeeya qalabkaaga QR code ahaan — xisaab la'aan",
+  "@deviceSyncDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createSyncGroup": "Abur koox isku-dhub",
+  "@createSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinSyncGroup": "Ku biir QR code scan",
+  "@joinSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterSyncCodeManually": "Ama geli koodhka isku-dhubka gacanta",
+  "@enterSyncCodeManually": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCodeHint": "Koodhka isku-dhubka",
+  "@syncCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinWithCode": "Ku biir koodhka",
+  "@joinWithCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrTitle": "Scan QR code",
+  "@scanQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrInstruction": "Kaameradda jiheysii koodhka ka muuqda qalabkaaga kale",
+  "@scanQrInstruction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cameraPermissionDenied": "Scan-ku wuxuu u baahan yahay ogolaansho kaamerad — koodhka gacanta geli",
+  "@cameraPermissionDenied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrTitle": "Koodhka isku-xidhka qalabkan",
+  "@pairingQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrHint": "Koodhkan ka scan qalabkaaga kale si aad kooxda ku biirtid",
+  "@pairingQrHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "devicesConnected": "Qalabka la isku-xidhay",
+  "@devicesConnected": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastSync": "Isku-dhubkii ugu dambeeyay",
+  "@lastSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncNow": "Hadda isku-dhub",
+  "@syncNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncing": "Waa la isku-dhubeynaa…",
+  "@syncing": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSync": "Jooji isku-dhubka qalabkan",
+  "@resetSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSyncConfirm": "Qalabkan wuu ka baxayaa kooxda isku-dhubka. Xogtaada hoose wuu sii jiri doonaa. Sii wad?",
+  "@resetSyncConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "copySyncCode": "Koobiyi koodhka isku-dhubka",
+  "@copySyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCreateError": "Lama abuurin kooxda — xiriirka hubi",
+  "@syncCreateError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncJoinFailed": "Lama gaarin — koodhka iyo xiriirka hubi",
+  "@syncJoinFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomFull": "Kooxdu way buuxsantahay (ugu badnaan 5 qalab)",
+  "@syncRoomFull": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomNotFound": "Koodh khaldan ama dhacay",
+  "@syncRoomNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "invalidSyncCode": "Koodh khaldan",
+  "@invalidSyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neverSynced": "Weli lama isku-dhubin",
+  "@neverSynced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "Xaqiiji",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCompleted": "Isku-dhubka wuu dhammaaday",
+  "@syncCompleted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncFailed": "Isku-dhubku wuu fashilmay — xiriirka hubi",
+  "@syncFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tasmeaa": "Tasmii'",
+  "tasmeeStartRecording": "Bilow tasmii'a",
+  "tasmeeStopRecording": "Jooji duubista",
+  "tasmeeRecording": "Tasmii'a socota",
+  "tasmeeProcessing": "Falanqaynta akhriska",
+  "tasmeeConnecting": "Xiriirinta",
+  "tasmeeDescription": "Macallinkaaga gaarka ah ee xifdanka iyo akhriska",
+  "tasmeePreparingEngine": "Diyaarinta mashiinka",
+  "tasmeeDownloadingModel": "Soo dejinta moodelka",
+  "tasmeeShowWords": "Muuji ereyada",
+  "tasmeeHideWords": "Qari ereyada",
+  "tasmeeRetry": "Dib u akhri",
+  "tasmeeSettings": "Setupka tasmii'a",
+  "tasmeeResultTitle": "Natiijada tasmii'a",
+  "tasmeeNoErrors": "Waad fiican tahay! Cilad ma jirto",
+  "tasmeeTotal": "Guud",
+  "tasmeeTajweed": "Tajwiid",
+  "tasmeePronunciation": "Talaaffur",
+  "tasmeeTashkeel": "Tashkiil",
+  "tasmeeExpected": "La filayo",
+  "tasmeeActual": "La akhriyay",
+  "tasmeeInsert": "Dheeraad ah",
+  "tasmeeDelete": "Maqan",
+  "tasmeeReplace": "Beddel",
+  "tasmeeNoMatch": "Akriskii lama aqbalin, ku celi mid ka bataalan",
+  "tasmeeExit": "Ka bax",
+  "tasmeeResultsPages": "Bogag la dhammeeyay",
+  "tasmeeNoResults": "Wali ma jiro natiijo la kaydiyay — dhammee bog si halkan uu kaga muuqdo",
+  "tasmeePage": "Bog",
+  "tasmeeErrorsCount": "qalad",
+  "tasmeeResultDeleted": "Natiijada waa la tirtiray",
+  "tasmeeModeTitle": "Habka tasmi",
+  "tasmeeModeTasmee": "Tasmi",
+  "tasmeeModeTasmeeDesc": "Erayada waa la qariyay, waxayna muuqdaan adigoo akhrinayo",
+  "tasmeeModeCorrector": "Hagaajiyaha akhriska",
+  "tasmeeModeCorrectorDesc": "Aayadaha waa muuqdaan, cilad celin degdeg ayaa laga sameeyaa eray kasta oo qaldan ilaa la akhriyo sax",
+  "tasmeeModeTeacher": "Macallinka Quranka",
+  "tasmeeModeTeacherDesc": "Qaari aayadda wuu akhriyaa, adigana waxaad ku celiyaysaa ilaa aad qabto",
+  "tasmeeCorrectWord": "Hagaaj erayga",
+  "tasmeePlayWord": "Dur erayga",
+  "tasmeeRepeatWord": "Eri erayga",
+  "tasmeeRepeatHint": "Dhageyso duridda kadib taabo mayrkaroofka oo eri",
+  "tasmeeRepeatWithContext": "Akhri ereygii hore «@word» keladan oo wada jir ah",
+  "tasmeeListeningWord": "Waa dhegeysanayaa… odhi erayga",
+  "tasmeeTryAgain": "Wali sax ma aha — dhageyso oo isku day mar kale",
+  "tasmeeAutoSkippedWord": "Ereyka waa laga saaray kadib @total isku day — sii wad akhriska",
+  "tasmeeRetryAttemptOf": "Isku day @attempt ee @total",
+  "tasmeeSkipWord": "Daad erayga",
+  "tasmeeNonBlockingCorrector": "Sii wad akhriska iyadoon la isticmaalin xogta saxidda",
+  "tasmeeStrictness": "Adadka saxidda",
+  "tasmeeStrictnessStrict": "Adag",
+  "tasmeeStrictnessBalanced": "Dhexdhexaad",
+  "tasmeeStrictnessLenient": "Daalicin",
+  "tasmeeWordCorrect": "Wanaagsan! Sax ayaa loo akhriyay",
+  "tasmeeTeacherQariPlaying": "Qaari wuu akhrinayaa…",
+  "tasmeeTeacherYourTurn": "Adiga ayaa turn — akhri aayadda",
+  "tasmeeTeacherPageDone": "Bogka waa la bartay, wanaagsan!",
+  "tasmeeTeacherPlayFailed": "Lama dhejin kari qaari — hubi xiriirka oo isku day mar kale",
+  "tasmeeLocalModel": "Moodelka dexsaadka ee maxalliga ah",
+  "tasmeeModelReady": "Diyaar ah",
+  "audioManager": "Maareynta Codka"
 }

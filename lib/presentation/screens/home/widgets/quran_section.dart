@@ -16,6 +16,7 @@ class QuranSection extends StatelessWidget {
   QuranSection({super.key});
 
   final quranCtrl = QuranController.instance;
+  final tasmee = TasmeeCtrl.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,10 @@ class QuranSection extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
+              // أنهِ وضع التسميع إن كان مفعّلًا قبل فتح القراءة العادية.
+              if (tasmee.state.isTasmeeMode.value) {
+                tasmee.exitTasmeeMode();
+              }
               Get.to(() => QuranHome(), transition: Transition.downToUp);
               Future.delayed(const Duration(milliseconds: 300), () {
                 quranCtrl.changeSurahListOnTap(lastReadPage);

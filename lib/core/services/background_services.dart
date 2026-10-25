@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+import 'dart:async' show unawaited;
 import 'dart:developer' show log;
 import 'dart:io' show Platform;
 
@@ -12,6 +13,7 @@ import 'package:intl/intl.dart';
 
 import '../widgets/local_notification/controller/local_notifications_controller.dart';
 import '../../presentation/screens/feedback/controller/feedback_controller.dart';
+import 'notifications_manager.dart';
 
 const String _appGroupId = 'group.com.alheekmah.quran_widget';
 const String _androidWidgetName = 'QuranWidget';
@@ -60,7 +62,10 @@ class BGServices {
     // Start BackgroundFetch
     await BackgroundFetch.start()
         .then((v) async {
-          await _fetchDataAndScheduleNotifications();
+          // الجلب هنا خلفي (fire-and-forget) عمدًا: لا يجوز أن يُحجب إقلاع
+          // التطبيق على سلسلة GitHub/GitLab — المسار المنتظر يبقى في
+          // _executeBackgroundTask للمهام الخلفية فقط.
+          unawaited(_fetchDataAndScheduleNotifications());
           log('Background Service Started $v', name: 'Background service');
         })
         .catchError((e) {
@@ -104,6 +109,9 @@ Future<void> _executeBackgroundTask(String taskId) async {
   // فحص ردود الـ Feedback الجديدة (معزول في try/catch خاص كي لا يوقف باقي المهام)
   await _checkFeedbackReplies();
 
+  // إعادة تقييم هضم الإشعارات الذكية (تذكير القراءة اليومي)
+  await _evaluateSmartNotifications();
+
   // التحقق من تغيّر التاريخ (يوم جديد بعد منتصف الليل)
   final today = DateTime.now().toIso8601String().substring(0, 10);
   final lastDate = storage.read('last_widget_date') as String?;
@@ -115,6 +123,21 @@ Future<void> _executeBackgroundTask(String taskId) async {
     );
     await _updateWidgetHijriDate(storage);
     storage.write('last_widget_date', today);
+  }
+}
+
+/// إعادة تقييم هضم الإشعارات الذكية من الخلفية — المسار الأساسي هو فتح
+/// التطبيق، وهذا مسار فرصي (iOS قد لا يشغّل المهمة في وقتها). معزول
+/// بالكامل كي لا يؤثر على باقي المهام الخلفية.
+Future<void> _evaluateSmartNotifications() async {
+  try {
+    await NotificationManager.instance.evaluateAndReschedule();
+    log('Smart notifications evaluated', name: 'Background service');
+  } catch (e) {
+    log(
+      'Smart notifications evaluation skipped: $e',
+      name: 'Background service',
+    );
   }
 }
 

@@ -18,7 +18,6 @@ class PlayListController extends GetxController {
 
   // ━━━━━━━━━━━━━━ القوائم المحفوظة ━━━━━━━━━━━━━━
   RxList<PlayListModel> playLists = RxList<PlayListModel>();
-  final GlobalKey<ExpansionTileCardState> saveCard = GlobalKey();
 
   // ━━━━━━━━━━━━━━ اختيار السورة والآيات ━━━━━━━━━━━━━━
   RxInt fromSurahIndex = 0.obs;
@@ -65,8 +64,6 @@ class PlayListController extends GetxController {
   // ━━━━━━━━━━━━━━ الاستماع المتتابع ━━━━━━━━━━━━━━
   RxBool autoPlayNext = true.obs;
   StreamSubscription<PlayerState>? _autoNextSubscription;
-
-  final box = GetStorage();
 
   // ━━━━━━━━━━━━━━ Streams ━━━━━━━━━━━━━━
   Stream<PositionData> get positionDataStream =>
@@ -292,7 +289,9 @@ class PlayListController extends GetxController {
       ),
     );
     PlayListStorage.savePlayList(playLists);
-    saveCard.currentState?.expand();
+    // توسيع بطاقة القوائم المحفوظة عبر المدير العام بدل GlobalKey،
+    // لأن family_bottom_sheet يركّب محتوى الورقة مرتين فلا يصح GlobalKey داخله.
+    generalCtrl.state.expansionManager.expand('playList_tile');
   }
 
   void loadSavedPlayList() async {
@@ -517,17 +516,15 @@ class PlayListController extends GetxController {
 
 class PlayListStorage {
   static const String _storageKey = 'playList';
+  static final GetStorage _box = GetStorage();
 
   static Future<void> savePlayList(List<PlayListModel> playLists) async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
     final playListJson = playLists.map((r) => jsonEncode(r.toJson())).toList();
-    await prefs.setStringList(_storageKey, playListJson);
+    await _box.write(_storageKey, playListJson);
   }
 
   static Future<List<PlayListModel>> loadPlayList() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    final playListsJson =
-        prefs.getStringList(_storageKey)?.cast<String>() ?? [];
+    final playListsJson = _box.read<List>(_storageKey)?.cast<String>() ?? [];
     return playListsJson
         .map((r) => PlayListModel.fromJson(jsonDecode(r)))
         .toList();

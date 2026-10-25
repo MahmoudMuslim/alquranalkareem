@@ -1219,8 +1219,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "What'sNewDetails10": "۞ Idinagdag ang seksyong 'Madad' upang maging katulong ng mga estudyanteng naghahanap ng kaalaman.\nAng modelong 'Madad' ay nagpapakita ng mga resulta at impormasyon na nakuha mula sa mga aklat at sangguniang Islamiko, na may kakayahang pumunta sa orihinal na pinagmulan at basahin ang buong paksa mula sa kaugnay na aklat.\nLayunin ng modelo na pasimplehin ang paghahanap at pag-access sa nilalaman.\n۞ Idinagdag ang mga bagong seksyon sa Islamic library na may pinahusay na paghahanap at mas magandang karanasan ng user.\n۞ Idinagdag ang tampok para magpalit ng uri ng font.\n۞ Idinagdag ang tampok para ipadala ang iyong puna o mga pagkakamali na nakikita mo sa app, o mga tampok na gusto mong nasa app.",
+  "What'sNewDetails10": "۞ Pinahusay ang seksyong 'Madad' upang magsama ng mas maraming kategorya na may kakayahang maghanap online.\n۞ Kasama na ngayon sa online na paghahanap ang isang karagdagang seksyon batay sa data ng Tafsir Center.\n۞ Kakayahang magpalit ng mga modelong panghanap.\n۞ Kakayahang pumunta sa aklat upang basahin ang buong teksto.",
   "@What'sNewDetails10": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "What'sNewDetails11": "۞ Idinagdag ang opsyon na i-sync ang iyong mga bookmark, adhkar, plano, at setting sa iyong mga device sa pamamagitan ng QR code — nang walang account",
+  "@What'sNewDetails11": {
     "type": "text",
     "placeholders": {}
   },
@@ -1285,6 +1290,49 @@
     "type": "text",
     "placeholders": {
       "bookName": {}
+    }
+  },
+  "smartReminders": "Matalinong mga paalala",
+  "@smartReminders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smartRemindersDesc": "Isang banayad na pang-araw-araw na paalala na umaangkop sa iyong gawi sa pagbasa",
+  "@smartRemindersDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reminderTime": "Oras ng paalala",
+  "@reminderTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoTime": "Awtomatiko (matalino)",
+  "@autoTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "quietHours": "Oras ng katahimikan",
+  "@quietHours": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "digestContent": "Nilalaman ng paalala",
+  "@digestContent": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "continueReading": "Ipagpatuloy ang pagbasa",
+  "@continueReading": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "khatmaRemainingDays": "Ang iyong khatma: @done sa @total na araw na natapos",
+  "@khatmaRemainingDays": {
+    "type": "text",
+    "placeholders": {
+      "done": {},
+      "total": {}
     }
   },
   "lastSearch": "Huling Paghahanap",
@@ -1501,6 +1549,7 @@
   "feedback_contact_optional": "Email ng kontak (opsyonal)",
   "feedback_sent_success": "Matagumpay na naipadala ang iyong puna!",
   "feedback_sent_error": "Hindi mapadala ang puna. Subukang muli.",
+  "feedback_queued": "Your feedback will be sent automatically once the connection is back",
   "my_feedback": "Aking Puna",
   "no_feedback_yet": "Wala ka pang naisabing puna",
   "feedback_reply_hint": "Magsulat ng follow-up...",
@@ -1527,6 +1576,20 @@
   "askAssistant": "Tanungin ang assistant...",
   "assistantWelcome": "AI Assistant ng Quran at Agham Nito",
   "assistantWelcomeDesc": "Isang assistant na dalubhasa sa Banal na Quran at sa mga agham nito (tafsir, grammar, morphology, mga dahilan ng paghahayag, mga pagbasa). Magtanong sa anumang anyo at gagamitin ko ang mga pinagkakatiwalaang pinagmulan upang sumagot.",
+  "unifiedWelcomeDesc": "Ang iyong katulong sa Quran, sa mga agham nito, at sa mga Islamikong seksyon (Hadith, Fiqh, Aqeedah, Seerah). Magtanong sa anumang anyo at maghahanap ako sa dalawang pinagkakatiwalaang pinagmulan at babanggit ang mga teksto tulad ng pagkakasulat.",
+  "quotationAyah": "Talata ng Quran",
+  "quotationHadith": "Propetikong hadith",
+  "quotationTafsir": "Tafsir",
+  "quotationScholar": "Sinabi ng iskolar",
+  "quotationFiqh": "Teksto ng Fiqh",
+  "quotationAqeedah": "Teksto ng Aqeedah",
+  "quotationSeerah": "Seerah at kasaysayan",
+  "quotationOther": "Pinakitang teksto",
+  "fetchingFullText": "Kinukuha ang buong teksto...",
+  "showFullText": "Ipakita ang buong teksto",
+  "navigateToBook": "Pumunta sa aklat",
+  "justNow": "Ngayon",
+  "timeAgo": "@value ang nakalipas",
   "thinking": "Nagiisip...",
   "callingTool": "Tinatawag ang @tool...",
   "clearChat": "I-clear ang chat",
@@ -1548,5 +1611,207 @@
   "assistantOverloaded": "Busy ngayon ang server. Subukang muli pagkalipas ng ilang sandali.",
   "assistantTooLarge": "Masyadong mahaba ang tanong. Subukang paliitin ito.",
   "assistantGenericError": "Hindi makakuha ng sagot mula sa model. Subukang muli o pumili ng ibang model.",
-  "assistantNoData": "Walang available na data para sa query na ito sa ngayon."
+  "assistantNoData": "Walang available na data para sa query na ito sa ngayon.",
+  "midad": "Midad",
+  "deviceSync": "Pag-sync ng mga device",
+  "@deviceSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deviceSyncDesc": "I-sync ang iyong mga bookmark, adhkar, plano, at setting sa iba pang device gamit ang QR code — walang account",
+  "@deviceSyncDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createSyncGroup": "Gumawa ng sync group",
+  "@createSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinSyncGroup": "Sumali sa pamamagitan ng pag-scan ng QR code",
+  "@joinSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterSyncCodeManually": "O i-type manually ang sync code",
+  "@enterSyncCodeManually": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCodeHint": "Sync code",
+  "@syncCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinWithCode": "Sumali gamit ang code",
+  "@joinWithCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrTitle": "I-scan ang QR code",
+  "@scanQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrInstruction": "Ituro ang camera sa code na nakikita sa iyong ibang device",
+  "@scanQrInstruction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cameraPermissionDenied": "Kailangan ng camera permission ang pag-scan — i-type na lang ang code",
+  "@cameraPermissionDenied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrTitle": "Pairing code ng device na ito",
+  "@pairingQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrHint": "I-scan ang code na ito mula sa iyong ibang device para sumali sa grupo",
+  "@pairingQrHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "devicesConnected": "Mga konektadong device",
+  "@devicesConnected": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastSync": "Huling pag-sync",
+  "@lastSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncNow": "I-sync ngayon",
+  "@syncNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncing": "Nagsi-sync…",
+  "@syncing": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSync": "Alisin ang sync ng device na ito",
+  "@resetSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSyncConfirm": "Mawawala ang device na ito sa sync group. Mananatili ang iyong lokal na data. Magpatuloy?",
+  "@resetSyncConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "copySyncCode": "Kopyahin ang sync code",
+  "@copySyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCreateError": "Hindi nagawa ang grupo — tingnan ang koneksyon",
+  "@syncCreateError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncJoinFailed": "Hindi nakasali — tingnan ang code at koneksyon",
+  "@syncJoinFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomFull": "Puno na ang grupo (max 5 device)",
+  "@syncRoomFull": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomNotFound": "Mali o expired na code",
+  "@syncRoomNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "invalidSyncCode": "Maling code",
+  "@invalidSyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neverSynced": "Hindi pa kailanman na-sync",
+  "@neverSynced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "Kumpirmahin",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCompleted": "Natapos ang pag-sync",
+  "@syncCompleted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncFailed": "Nabigo ang pag-sync — tingnan ang koneksyon",
+  "@syncFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tasmeaa": "Pagsaulo",
+  "tasmeeStartRecording": "Simulan ang pagsaulo",
+  "tasmeeStopRecording": "Itigil ang pagtatala",
+  "tasmeeRecording": "Nagpapasaulo",
+  "tasmeeProcessing": "Sinusuri ang pagbasa",
+  "tasmeeConnecting": "Kumukonekta",
+  "tasmeeDescription": "Ang iyong personal na tutor sa pagmememorize at pagbasa",
+  "tasmeePreparingEngine": "Inihahanda ang engine",
+  "tasmeeDownloadingModel": "Nagda-download ng modelo",
+  "tasmeeShowWords": "Ipakita ang mga salita",
+  "tasmeeHideWords": "Itago ang mga salita",
+  "tasmeeRetry": "Ulitin ang pagsaulo",
+  "tasmeeSettings": "Mga setting ng pagsaulo",
+  "tasmeeResultTitle": "Resulta ng pagsaulo",
+  "tasmeeNoErrors": "Magaling! Walang mali",
+  "tasmeeTotal": "Kabuuan",
+  "tasmeeTajweed": "Tajweed",
+  "tasmeePronunciation": "Pagbigkas",
+  "tasmeeTashkeel": "Tashkeel",
+  "tasmeeExpected": "Inaasahan",
+  "tasmeeActual": "Nabasa",
+  "tasmeeInsert": "Karagdagan",
+  "tasmeeDelete": "Kulang",
+  "tasmeeReplace": "Pinalit",
+  "tasmeeNoMatch": "Hindi nakilala ang pagbasa, subukan muli na mas malinaw",
+  "tasmeeExit": "Lumabas",
+  "tasmeeResultsPages": "Natapos na pahina",
+  "tasmeeNoResults": "Wala pang naka-save na resulta — kumpletuhin ang isang pahina at lalabas dito",
+  "tasmeePage": "Pahina",
+  "tasmeeErrorsCount": "mali",
+  "tasmeeResultDeleted": "Natanggal ang resulta",
+  "tasmeeModeTitle": "Mode ng tasmi",
+  "tasmeeModeTasmee": "Tasmi",
+  "tasmeeModeTasmeeDesc": "Nakatago ang mga salita at lumalabas habang bumibigkas ka",
+  "tasmeeModeCorrector": "Tagapagtama ng pagbigkas",
+  "tasmeeModeCorrectorDesc": "Nakikita ang mga ayah na may agarang pagtama sa maling salita hanggang maging tama",
+  "tasmeeModeTeacher": "Guro ng Quran",
+  "tasmeeModeTeacherDesc": "Binibigkas ng qari ang ayah, pagkatapos ay ulitin mo hanggang sa ma-master",
+  "tasmeeCorrectWord": "Itama ang salita",
+  "tasmeePlayWord": "I-play ang salita",
+  "tasmeeRepeatWord": "Ulitin ang salita",
+  "tasmeeRepeatHint": "Makinig sa pagbigkas pagkatapos pindutin ang mic at ulitin",
+  "tasmeeRepeatWithContext": "Basahin ang naunang salita “@word” kasama ang salitang ito",
+  "tasmeeListeningWord": "Nakikinig… sabihin ang salita",
+  "tasmeeTryAgain": "Hindi pa tama — makinig at subukang muli",
+  "tasmeeAutoSkippedWord": "Laktawan ang salita pagkatapos ng @total pagtatangka — ipagpatuloy ang pagbabasa",
+  "tasmeeRetryAttemptOf": "Pagtatangka @attempt ng @total",
+  "tasmeeSkipWord": "Laktawan ang salita",
+  "tasmeeNonBlockingCorrector": "Ipagpatuloy ang pag-recite nang walang correction sheet",
+  "tasmeeStrictness": "Katigasan ng pagwawasto",
+  "tasmeeStrictnessStrict": "Mahigpit",
+  "tasmeeStrictnessBalanced": "Balanse",
+  "tasmeeStrictnessLenient": "Maluwag",
+  "tasmeeWordCorrect": "Magaling! Tamang binigkas",
+  "tasmeeTeacherQariPlaying": "Nagbibigkas ang qari…",
+  "tasmeeTeacherYourTurn": "Ikaw naman — bigkasin ang ayah",
+  "tasmeeTeacherPageDone": "Na-master ang pahina, galing!",
+  "tasmeeTeacherPlayFailed": "Hindi mapatugtog ang qari — tingnan ang koneksyon at subukang muli",
+  "tasmeeLocalModel": "Lokal na modelo ng pagwawasto",
+  "tasmeeModelReady": "Handa na",
+  "audioManager": "Pamamahala ng Audio"
 }

@@ -81,7 +81,7 @@ class SerializableSearchResult {
   }
 }
 
-/// نوع السجل: بحث دلالي أحادي الدور، أو محادثة مساعد متعددة الأدوار.
+/// نوع السجل: بحث دلالي أحادي الدور، أو محادثة مساعد موحَّدة متعددة الأدوار.
 enum ChatHistoryType { semanticSearch, assistant }
 
 /// A single chat history entry — supports both semantic-search results and

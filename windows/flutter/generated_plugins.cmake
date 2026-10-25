@@ -4,16 +4,22 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   awesome_notifications
+  camera_desktop
   connectivity_plus
   file_selector_windows
   flutter_onnxruntime
   flutter_timezone
+  media_kit_libs_windows_video
+  media_kit_video
+  multi_store_review
+  record_windows
   share_plus
   url_launcher_windows
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
-  jni
+  flutter_zxing
+  sherpa_onnx_windows
 )
 
 set(PLUGIN_BUNDLED_LIBRARIES)

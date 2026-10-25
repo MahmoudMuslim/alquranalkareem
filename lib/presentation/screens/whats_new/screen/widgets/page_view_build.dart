@@ -12,7 +12,6 @@ class PageViewBuild extends StatelessWidget {
   final whatsNewCtrl = WhatsNewController.instance;
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
     return Flexible(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -33,22 +32,15 @@ class PageViewBuild extends StatelessWidget {
                   const Gap(16),
                   newFeatures[index]['title'] == ''
                       ? const SizedBox.shrink()
-                      : Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 8.0,
-                            vertical: 4.0,
-                          ),
-                          decoration: BoxDecoration(
-                            color: context.theme.colorScheme.surface.withValues(
-                              alpha: .3,
-                            ),
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(4),
-                            ),
-                          ),
+                      : Center(
                           child: Text(
-                            '${newFeatures[index]['title']}'.tr,
+                            '${newFeatures[index]['title']}'.tr.replaceAll(
+                              ' ',
+                              '\n',
+                            ),
                             style: AppTextStyles.titleLarge(
+                              height: 1.2,
+                              fontSize: 40,
                               color: context.theme.canvasColor,
                             ),
                           ),
@@ -59,35 +51,32 @@ class PageViewBuild extends StatelessWidget {
                   newFeatures[index]['imagePath'] == ''
                       ? const SizedBox.shrink()
                       : Center(
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0,
-                              vertical: 4.0,
-                            ),
-                            decoration: BoxDecoration(
-                              color: context.theme.colorScheme.surface
-                                  .withValues(alpha: .3),
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(8.0),
-                              ),
-                            ),
-                            child: Image.asset(
-                              newFeatures[index]['imagePath'],
-                              width: context.customOrientation(
-                                MediaQuery.of(context).size.width * 3 / 4,
-                                MediaQuery.of(context).size.width,
-                              ),
-                            ),
-                          ),
+                          child: () {
+                            final imagePath =
+                                newFeatures[index]['imagePath'] as String;
+                            final imageWidth =
+                                context.customOrientation(
+                                      MediaQuery.of(context).size.width * 3 / 4,
+                                      MediaQuery.of(context).size.width * .3,
+                                    )
+                                    as double;
+                            if (imagePath.toLowerCase().endsWith('.svg')) {
+                              return SvgPicture.asset(
+                                imagePath,
+                                width: imageWidth,
+                              );
+                            }
+                            return Image.asset(imagePath, width: imageWidth);
+                          }(),
                         ),
                   newFeatures[index]['imagePath'] == ''
                       ? const SizedBox.shrink()
-                      : const Gap(8),
+                      : const Gap(16),
                   newFeatures[index]['details'] == ''
                       ? const SizedBox.shrink()
                       : Container(
-                          height: 350.h,
-                          width: size.width,
+                          // height: 350.h,
+                          width: Get.width,
                           alignment: Alignment.center,
                           padding: const EdgeInsets.all(16.0),
                           decoration: BoxDecoration(

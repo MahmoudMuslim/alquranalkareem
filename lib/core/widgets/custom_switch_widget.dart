@@ -31,7 +31,7 @@ class CustomSwitch extends StatelessWidget {
         ? (activeColor ?? context.theme.primaryColorLight)
         : (inactiveTrackColor ?? context.theme.colorScheme.primaryContainer);
     const thumbPadding = 3.0;
-    final thumbWidth = 40.0;
+    const thumbWidth = 40.0;
     final maxOffset = width - thumbWidth - (thumbPadding * 2);
 
     final thumbAtEnd = isRtl ? !value : value;
@@ -106,6 +106,7 @@ class CustomSwitchListTile extends StatelessWidget {
   final Color? inactiveTrackColor;
   final EdgeInsetsGeometry? contentPadding;
   final EdgeInsetsGeometry? contentMargin;
+  final Color? titleColor;
 
   const CustomSwitchListTile({
     Key? key,
@@ -118,6 +119,7 @@ class CustomSwitchListTile extends StatelessWidget {
     this.inactiveTrackColor,
     this.contentPadding,
     this.contentMargin,
+    this.titleColor,
   }) : super(key: key);
 
   @override
@@ -160,7 +162,12 @@ class CustomSwitchListTile extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: AppTextStyles.titleMedium().copyWith(height: 2),
+                      style: AppTextStyles.titleMedium().copyWith(
+                        height: 2,
+                        color:
+                            titleColor ??
+                            context.theme.colorScheme.inversePrimary,
+                      ),
                     ),
                     if (subtitle != null) ...[
                       const SizedBox(height: 2),

@@ -46,7 +46,17 @@ class AzkarController extends GetxController {
     final Map<String, dynamic> map = json.decode(jsonData);
     final list = map['data'] as List<dynamic>;
 
-    return list.map((e) => AdhkarData.fromJson(e)).toList();
+    return list
+        .map(
+          (e) => AdhkarData.fromJson({
+            ...e as Map<String, dynamic>,
+            // أعمدة المزامنة غير موجودة في azkar.json الأصلي —
+            // fromJson المولد يطلبها كقيم غير فارغة.
+            'updatedAt': 0,
+            'deleted': false,
+          }),
+        )
+        .toList();
   }
 
   Future<void> fetchDhekr() async {
@@ -227,11 +237,15 @@ class AzkarController extends GetxController {
     await SharePlus.instance.share(params);
   }
 
-  Future<void> createAndShowZekrImage() async {
+  /// يلتقط صورة الذكر من الويدجت مباشرة (بدون Screenshot مركّب داخل
+  /// الورقة، إذ يركّبها family_bottom_sheet مرتين فلا يصح GlobalKey داخلها).
+  Future<void> createAndShowZekrImage({
+    required BuildContext context,
+    required Widget imageWidget,
+  }) async {
     try {
-      final Uint8List? imageBytes = await state.dhekrScreenController.capture(
-        pixelRatio: 7,
-      );
+      final Uint8List imageBytes = await state.dhekrScreenController
+          .captureFromWidget(imageWidget, context: context, pixelRatio: 7);
       state.dhekrToImageBytes = imageBytes;
       update();
     } catch (e) {
@@ -273,8 +287,7 @@ class AzkarController extends GetxController {
   }
 
   /// تطبيع النص: إزالة التشكيل وتسوية همزات الألف.
-  String _normalize(String input) =>
-      input.removeDiacriticsQuran(input).trim();
+  String _normalize(String input) => input.removeDiacriticsQuran(input).trim();
 
   /// مسح حقل البحث والنتائج.
   void clearSearch() {

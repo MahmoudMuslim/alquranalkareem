@@ -1,5 +1,3 @@
-import 'package:alquranalkareem/core/utils/helpers/app_text_styles.dart';
-import 'package:alquranalkareem/core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
@@ -8,6 +6,8 @@ import 'package:hijri_date/convert_number_extension.dart';
 
 import '/core/utils/constants/extensions/custom_error_snackBar.dart';
 import '/core/utils/constants/extensions/svg_extensions.dart';
+import '/core/utils/helpers/app_text_styles.dart';
+import '/core/widgets/custom_button.dart';
 import '../../../../core/utils/constants/svg_constants.dart';
 import '../../../../database/bookmark_db/bookmark_database.dart';
 import '../controller/adhkar_controller.dart';
@@ -17,7 +17,7 @@ class OptionsRow extends StatelessWidget {
   final AdhkarData zekr;
   final bool azkarFav;
 
-  OptionsRow({super.key, required this.zekr, required this.azkarFav});
+  const OptionsRow({super.key, required this.zekr, required this.azkarFav});
 
   @override
   Widget build(BuildContext context) {
@@ -100,6 +100,8 @@ class OptionsRow extends StatelessWidget {
                                     description: zekr.description,
                                     reference: zekr.reference,
                                     zekr: zekr.zekr,
+                                    updatedAt: 0,
+                                    deleted: false,
                                   ),
                                 );
                         },
@@ -108,39 +110,34 @@ class OptionsRow extends StatelessWidget {
                   ],
                 ),
               ),
-              Flexible(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 4,
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(8),
+                    bottomRight: Radius.circular(8),
                   ),
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(8),
-                      bottomRight: Radius.circular(8),
-                    ),
-                    color: Theme.of(context).primaryColorDark,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        zekr.count.convertNumbers(
-                          Get.locale?.languageCode ?? 'ar',
-                        ),
-                        style: AppTextStyles.titleSmall(
-                          height: .9,
-                          color: Theme.of(context).canvasColor,
-                        ),
+                  color: Theme.of(context).primaryColorDark,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      zekr.count.convertNumbers(
+                        Get.locale?.languageCode ?? 'ar',
                       ),
-                      const Gap(5),
-                      customSvgWithColor(
-                        height: 20,
-                        SvgPath.svgAudioLoop,
+                      style: AppTextStyles.bodyNaskh(
+                        height: .2,
                         color: Theme.of(context).canvasColor,
                       ),
-                    ],
-                  ),
+                    ),
+                    const Gap(5),
+                    customSvgWithColor(
+                      height: 20,
+                      SvgPath.svgAudioLoop,
+                      color: Theme.of(context).canvasColor,
+                    ),
+                  ],
                 ),
               ),
             ],

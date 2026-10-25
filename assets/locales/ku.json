@@ -1219,8 +1219,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "What'sNewDetails10": "۞ زیادکردنی بەشی 'مداد' بۆ ئەوەی ببێتە یارمەتیدەری خوێندکار بۆ گەڕان بەدوای زانستدا.\nمۆدێلی 'مداد' پشتی بە پیشاندانی ئەنجامەکان و زانیارییە دەرهێنراوەکان لە کتێبەکان و سەرچاوە ئیسلامییەکان دەبەستێت، لەگەڵ توانای گواستنەوە بۆ سەرچاوەی ڕەسەن و خوێندنەوەی بابەتەکە بە تەواوی لە کتێبە بەستراوەکانەوە.\nئامانجی مۆدێلەکە ئاسانکردنی گەڕان و گەیشتنە بە ناوەڕۆکە.\n۞ زیادکردنی بەشە نوێیەکان بۆ کتێبخانەی ئیسلامی لەگەڵ باشترکردنی گەڕان و باشترکردنی ئەزموونی بەکارهێنەر.\n۞ زیادکردنی تایبەتمەندی گۆڕینی جۆری فۆنت.\n۞ زیادکردنی تایبەتمەندی ناردنی ڕەخنە و پێشنیارەکانتان یان هەڵەکان کە لە بەرنامەکەدا دەیانبینن، یان تایبەتمەندییەکان کە دەتانەوێت لە بەرنامەکەدا بن.",
+  "What'sNewDetails10": "۞ پێشخستنی بەشی 'مداد' بۆ ئەوەی بەشە زیاترەکان لەخۆ بگرێت لەگەڵ توانای گەڕانی ئۆنلاین.\n۞ گەڕانی ئۆنلاین ئێستا بەشێکی زیاتر لەخۆ دەگرێت کە پشتی بە داتای ناوەندی تەفسیر دەبەستێت.\n۞ توانای گۆڕینی مۆدێلەکانی گەڕان.\n۞ توانای گواستنەوە بۆ کتێب بۆ خوێندنەوەی دەقی تەواو.",
   "@What'sNewDetails10": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "What'sNewDetails11": "۞ زیادکردنی هەڵبژاردەی هاوکاتکردنی نیشانەکان، زیکرەکان، پلانەکان و ڕێکخستنەکانت لە نێو ئامێرەکانتدا لە ڕێگەی کۆدی QR — بەبێ هەژمار",
+  "@What'sNewDetails11": {
     "type": "text",
     "placeholders": {}
   },
@@ -1284,6 +1289,49 @@
   "@notifyListenBody": {
     "type": "text",
     "placeholders": {}
+  },
+  "smartReminders": "یادخستنە زیرەکەکان",
+  "@smartReminders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smartRemindersDesc": "یادخستنێکی ڕۆژانەی نەرم کە لەگەڵ خوێندنەوەکەت دەگونجێت",
+  "@smartRemindersDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reminderTime": "کاتی یادخستن",
+  "@reminderTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoTime": "خۆکار (زیرەک)",
+  "@autoTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "quietHours": "کاتژمێرە بێدەنگەکان",
+  "@quietHours": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "digestContent": "ناوەڕۆکی یادخستن",
+  "@digestContent": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "continueReading": "بەردەوامبە لە خوێندنەوە",
+  "@continueReading": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "khatmaRemainingDays": "خەتمەکەت: @done لە @total ڕۆژ تەواوکراوە",
+  "@khatmaRemainingDays": {
+    "type": "text",
+    "placeholders": {
+      "done": {},
+      "total": {}
+    }
   },
   "lastSearch": "دوایین گەڕان",
   "@lastSearch": {
@@ -1499,6 +1547,7 @@
   "feedback_contact_optional": "ئیمەیلی پەیوەندی (ئیختیاری)",
   "feedback_sent_success": "ڕەخنە و پێشنیارەکەت بە سەرکەوتوویی نێردرا!",
   "feedback_sent_error": "نەتوانرا ڕەخنە و پێشنیار بنێردرێت. دووبارە هەوڵ بدەوە.",
+  "feedback_queued": "Your feedback will be sent automatically once the connection is back",
   "my_feedback": "ڕەخنە و پێشنیارەکانم",
   "no_feedback_yet": "هێشتا هیچ ڕەخنە و پێشنیارێکت نەناردووە",
   "feedback_reply_hint": "بەدواداچوونێک بنووسە...",
@@ -1525,6 +1574,20 @@
   "askAssistant": "پرسیار لە یاریدەدەر بکە...",
   "assistantWelcome": "یاریدەدەری زیرەکی قورئان و زانستەکانی",
   "assistantWelcomeDesc": "یاریدەدەرێکی پسپۆڕ لە قورئانی پیرۆز و زانستەکانی (تفسیر، ڕێزمان، سارف، هۆکارەکانی دابەزین، خوێندنەکان). بە هەر شێوەیەک پرسیار بکە، بە سەرچاوەی متمانەپێکراوەوە وەڵام دەدەمەوە.",
+  "unifiedWelcomeDesc": "یاریدەدەرەکەت لە قورئان و زانستەکانی و بەشە ئیسلامییەکان (حەدیس، فیقه، عەقیدە، سیرە). بە هەر شێوەیەک پرسیار بکە، لە دوو سەرچاوەی متمانەپێکراو دەگەڕێم و دەقەکان وەک خۆیان دەهێنمەوە.",
+  "quotationAyah": "ئایەتی قورئانی",
+  "quotationHadith": "حەدیسی پێغەمبەر",
+  "quotationTafsir": "تەفسیر",
+  "quotationScholar": "قسەی زانایەک",
+  "quotationFiqh": "دەقی فیقه",
+  "quotationAqeedah": "دەقی عەقیدە",
+  "quotationSeerah": "سیرە و مێژوو",
+  "quotationOther": "دەقی گوتراو",
+  "fetchingFullText": "دەقی تەواو دەهێنرێت...",
+  "showFullText": "دەقی تەواو پیشان بدە",
+  "navigateToBook": "بڕۆ بۆ کتێبەکە",
+  "justNow": "ئێستا",
+  "timeAgo": "@value لەمەوبەر",
   "thinking": "بیردەکاتەوە...",
   "callingTool": "بانگکردنی @tool...",
   "clearChat": "سڕکردنی گفتوگۆ",
@@ -1546,5 +1609,207 @@
   "assistantOverloaded": "سێرڤەرەکە لە ئێستادا قەرەباڵغە. دوای چەند چرکەیەک دووبارە هەوڵبدەوە.",
   "assistantTooLarge": "پرسیارەکە زۆر درێژە. هەوڵبدە کورتی بکەیتەوە.",
   "assistantGenericError": "نەتوانرا وەڵام لە مۆدێلەکە وەربگیرێت. دووبارە هەوڵبدەوە یان مۆدێلێکی تر هەڵبژێرە.",
-  "assistantNoData": "لە ئێستادا هیچ داتایەک بەردەست نییە بۆ ئەم پرسیارە."
+  "assistantNoData": "لە ئێستادا هیچ داتایەک بەردەست نییە بۆ ئەم پرسیارە.",
+  "midad": "مداد",
+  "deviceSync": "هاوکات‌کردنی ئامێرەکان",
+  "@deviceSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deviceSyncDesc": "نیشانەکەت و زیکرەکەت و پلانەکانت و ڕێکخستنەکانت لە نێو ئامێرەکانتدا هاوکات بکە بە کۆدی QR — بەبێ هەژمار",
+  "@deviceSyncDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createSyncGroup": "دروستکردنی گروپی هاوکات‌کردن",
+  "@createSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinSyncGroup": "بەشداری بە سکانکردنی کۆدی QR",
+  "@joinSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterSyncCodeManually": "یان کۆدی هاوکات‌کردن بە دەست بنووسە",
+  "@enterSyncCodeManually": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCodeHint": "کۆدی هاوکات‌کردن",
+  "@syncCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinWithCode": "بەشداری بە کۆد",
+  "@joinWithCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrTitle": "سکانکردنی کۆدی QR",
+  "@scanQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrInstruction": "کامێراکە بەرەو کۆدەکە بگرە کە لەسەر ئامێرەکەی تریت پیشاندراوە",
+  "@scanQrInstruction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cameraPermissionDenied": "سکانکردن پێویستی بە ڕێگەی کامێرایە — کۆدەکە بە دەست بنووسە",
+  "@cameraPermissionDenied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrTitle": "کۆدی پەیوەستکردنی ئەم ئامێرە",
+  "@pairingQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrHint": "ئەم کۆدە لە ئامێرەکەی تریت سکان بکە بۆ بەشداریکردن لە گروپ",
+  "@pairingQrHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "devicesConnected": "ئامێرە پەیوەستکراوەکان",
+  "@devicesConnected": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastSync": "دوا هاوکات‌کردن",
+  "@lastSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncNow": "هاوکات‌کردن ئێستا",
+  "@syncNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncing": "هاوکات‌کردن…",
+  "@syncing": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSync": "لابردنی هاوکات‌کردنی ئەم ئامێرە",
+  "@resetSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSyncConfirm": "ئەم ئامێرە لە گروپی هاوکات‌کردن دەکرێتە دەرەوە. داتاکانی ناوخۆیی وەک خۆی دەمێنێتەوە. بەردەوام دەبیت؟",
+  "@resetSyncConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "copySyncCode": "کۆپیکردنی کۆدی هاوکات‌کردن",
+  "@copySyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCreateError": "دروستکردنی گروپ سەرکەوتوو نەبوو — پەیوەندییەکەت بپشکنە",
+  "@syncCreateError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncJoinFailed": "بەشداری سەرکەوتوو نەبوو — کۆد و پەیوەندی بپشکنە",
+  "@syncJoinFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomFull": "گروپ پڕە (بەرزترین 5 ئامێر)",
+  "@syncRoomFull": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomNotFound": "کۆد هەڵەیە یان بەسەرچووە",
+  "@syncRoomNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "invalidSyncCode": "کۆدی نادروست",
+  "@invalidSyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neverSynced": "هێشتا هاوکات‌کردن ئەنجام نەدراوە",
+  "@neverSynced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "پشتڕاستکردنەوە",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCompleted": "هاوکات‌کردن سەرکەوتوو بوو",
+  "@syncCompleted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncFailed": "هاوکات‌کردن سەرکەوتوو نەبوو — پەیوەندییەکەت بپشکنە",
+  "@syncFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tasmeaa": "تەسمیع",
+  "tasmeeStartRecording": "دەستپێکردنی تەسمیع",
+  "tasmeeStopRecording": "وەستاندنی تۆمارکردن",
+  "tasmeeRecording": "تەسمیع دەکرێت",
+  "tasmeeProcessing": "شیکردنەوەی خوێندنەوە",
+  "tasmeeConnecting": "پەیوەندی دەکرێت",
+  "tasmeeDescription": "مامۆستای تایبەت بۆ حیفز و خوێندنەکەت",
+  "tasmeePreparingEngine": "ئامادەکردنی بزوێنەر",
+  "tasmeeDownloadingModel": "داگرتنی مۆدێل",
+  "tasmeeShowWords": "پیشاندانی وشەکان",
+  "tasmeeHideWords": "شاردنەوەی وشەکان",
+  "tasmeeRetry": "دووبارە تەسمیع",
+  "tasmeeSettings": "ڕێکخستنەکانی تەسمیع",
+  "tasmeeResultTitle": "ئەنجامی تەسمیع",
+  "tasmeeNoErrors": "زۆر باش! هەڵە نییە",
+  "tasmeeTotal": "گشتی",
+  "tasmeeTajweed": "تەجوید",
+  "tasmeePronunciation": "دەربڕین",
+  "tasmeeTashkeel": "تەشکیل",
+  "tasmeeExpected": "چاوەڕوانکراو",
+  "tasmeeActual": "خوێنراو",
+  "tasmeeInsert": "زیادە",
+  "tasmeeDelete": "کەمی",
+  "tasmeeReplace": "گۆڕان",
+  "tasmeeNoMatch": "نەتوانرا خوێندنەوەکە بناسرێتەوە، دووبارە هەوڵ بدە بە دەربڕینێکی ڕوونتر",
+  "tasmeeExit": "چوونە دەرەوە",
+  "tasmeeResultsPages": "پەڕە تەواوکراوەکان",
+  "tasmeeNoResults": "هێشتا ئەنجامی پاشەکەوتکراو نییە — لاپەڕەیەک تەواو بکە و لێرە دەردەکەوێت",
+  "tasmeePage": "لاپەڕە",
+  "tasmeeErrorsCount": "هەڵە",
+  "tasmeeResultDeleted": "ئەنجامەکە سڕایەوە",
+  "tasmeeModeTitle": "شێوازی تەسمیع",
+  "tasmeeModeTasmee": "تەسمیع",
+  "tasmeeModeTasmeeDesc": "وشەکان شاراوەن و کاتێک دەیخوێنیتەوە دەردەکەون",
+  "tasmeeModeCorrector": "ڕاستکەرەوەی خوێندنەوە",
+  "tasmeeModeCorrectorDesc": "ئایەتەکان دیارە و هەر وشەیەکی هەڵە ڕاست دەکرێتەوە تا دروست بخوێنرێت",
+  "tasmeeModeTeacher": "مامۆستای قورئان",
+  "tasmeeModeTeacherDesc": "قورئانخوێن ئایەتەکە دەخوێنێت ئینجا تۆ دووبارەی دەکەیتەوە تا فێری ببیت",
+  "tasmeeCorrectWord": "وشەکە ڕاست بکەرەوە",
+  "tasmeePlayWord": "لێدانی وشە",
+  "tasmeeRepeatWord": "دووبارەی وشە بکەرەوە",
+  "tasmeeRepeatHint": "گوێ بگرە بۆ لێدان پاشان مایکرۆفۆن دابگرە و دووبارەی بکەرەوە",
+  "tasmeeRepeatWithContext": "Peyva berê «@word» bi vê peyvê re bixwîne",
+  "tasmeeListeningWord": "گوێ دەگرێت… وشەکە بڵێ",
+  "tasmeeTryAgain": "هێشتا دروست نییە — گوێ بگرە و دووبارە هەوڵ بدە",
+  "tasmeeAutoSkippedWord": "پاش @total هەوڵدان وشە بەجێهێڵرا — بەردەوام بە خوێندنەوە",
+  "tasmeeRetryAttemptOf": "هەوڵدان @attempt لە @total",
+  "tasmeeSkipWord": "وشەکە بپەڕێنە",
+  "tasmeeNonBlockingCorrector": "Xwendinê bê rûpela serrastkirinê bidomîne",
+  "tasmeeStrictness": "Tundîya serrastkirinê",
+  "tasmeeStrictnessStrict": "Tund",
+  "tasmeeStrictnessBalanced": "Hewlebî",
+  "tasmeeStrictnessLenient": "Befir",
+  "tasmeeWordCorrect": "زۆر باش! بەدروستی وت",
+  "tasmeeTeacherQariPlaying": "قورئانخوێن ئایەتەکە دەخوێنێت…",
+  "tasmeeTeacherYourTurn": "دۆرەکەت تۆیە — ئایەتەکە بخوێنە",
+  "tasmeeTeacherPageDone": "لاپەڕەکەت بەباشی تەواو کرد، زۆر باش!",
+  "tasmeeTeacherPlayFailed": "نەتوانرا لێدانی قورئانخوێن کار بکات — پەیوەندی بپشکنە و دووبارە هەوڵ بدە",
+  "tasmeeLocalModel": "مۆدێلی ڕاستکردنەوەی ناوخۆیی",
+  "tasmeeModelReady": "ئامادەیە",
+  "audioManager": "بەڕێوەبردنی دەنگ"
 }

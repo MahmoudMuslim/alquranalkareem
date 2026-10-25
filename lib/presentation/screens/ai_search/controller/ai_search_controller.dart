@@ -10,11 +10,11 @@ class AiSearchController extends GetxController {
   final _embeddingService = EmbeddingService();
   final _bm25Service = BM25Service();
   final _chatHistoryService = ChatHistoryService();
-  final _orchestrator = AssistantOrchestrator();
+  final _unifiedOrchestrator = UnifiedOrchestrator();
 
-  /// متحكم التمرير لقائمة رسائل المساعد.
+  /// متحكم التمرير لقائمة رسائل المساعد الموحَّد.
   final ScrollController assistantScrollController = ScrollController();
-  bool _isAssistantProcessing = false;
+  bool _isProcessing = false;
 
   // Track active downloads per section
   final Map<String, CancelToken> _cancelTokens = {};
@@ -44,6 +44,33 @@ class AiSearchController extends GetxController {
     ever<dynamic>(state.assistantMessages, (_) => _scrollAssistantToBottom());
     // استعد المزود المحفوظ (إن كان لا يزال له مفتاح).
     _restoreSelectedProvider();
+    // استعد الوضع المحفوظ (دلالي ↔ مساعد).
+    _restoreMidasMode();
+    // احفظ الوضع تلقائياً عند تغييره.
+    ever<MidasMode>(state.midasMode, (mode) => _saveMidasMode(mode));
+  }
+
+  static const _midasModeKey = 'ai_search_midas_mode';
+
+  /// يستعيد الوضع المحفوظ (دلالي ↔ مساعد) من GetStorage.
+  void _restoreMidasMode() {
+    try {
+      final saved = GetStorage().read<String>(_midasModeKey);
+      if (saved == 'assistant') {
+        state.midasMode.value = MidasMode.assistant;
+      } else {
+        state.midasMode.value = MidasMode.semantic;
+      }
+    } catch (_) {
+      state.midasMode.value = MidasMode.semantic;
+    }
+  }
+
+  /// يحفظ الوضع الحالي في GetStorage.
+  void _saveMidasMode(MidasMode mode) {
+    try {
+      GetStorage().write(_midasModeKey, mode.name);
+    } catch (_) {}
   }
 
   static const _selectedProviderKey = 'ai_search_selected_provider';
@@ -419,7 +446,7 @@ class AiSearchController extends GetxController {
   }
 
   List<double> _pseudoEmbedding(String query) {
-    final dim = 384;
+    const dim = 384;
     final seed = query.hashCode;
     final random = _SeededRandom(seed);
     final embedding = List.generate(dim, (_) => random.nextDouble() * 2 - 1);
@@ -532,11 +559,14 @@ class AiSearchController extends GetxController {
   // ─── المساعد الذكي (tafsir-mcp) ──────────────────────────────────
 
   /// يرسل رسالة المستخدم إلى المساعد الذكي ويبدأ دورة المعالجة.
-  Future<void> sendAssistantMessage(String query) async {
+  /// يرسل رسالة المستخدم إلى المساعد الموحَّد (tafsir-mcp + alheekmah-mcp).
+  ///
+  /// المساعد الموحَّد يصنّف السؤال مسبقاً ويختار الأدوات المناسبة من كلا الخادمين.
+  Future<void> sendMessage(String query) async {
     final text = query.trim();
-    if (text.isEmpty || _isAssistantProcessing) return;
+    if (text.isEmpty || _isProcessing) return;
 
-    _isAssistantProcessing = true;
+    _isProcessing = true;
     state.addAssistantUserMessage(text);
     state.searchTextEditing.clear();
     state.hasInputText.value = false;
@@ -556,13 +586,11 @@ class AiSearchController extends GetxController {
     });
 
     try {
-      await _orchestrator.handleUserMessage(
+      await _unifiedOrchestrator.handleUserMessage(
         userText: text,
         state: state,
         onFallback: (fallback) {
-          // حدّث القائمة لتعكس النموذج الناجح.
           selectProvider(fallback);
-          // أظهر تنبيهاً للمستخدم.
           final ctx = Get.context;
           if (ctx != null) {
             ctx.showCustomErrorSnackBar(
@@ -572,42 +600,61 @@ class AiSearchController extends GetxController {
           }
         },
       );
-
       // احفظ المحادثة في السجل بعد اكتمال الإجابة.
       _saveAssistantToHistory(text);
     } finally {
       slowNoticeTimer.cancel();
-      _isAssistantProcessing = false;
+      _isProcessing = false;
     }
   }
 
-  /// يمسح محادثة المساعد الحالية ويبدأ محادثة جديدة.
-  void clearAssistantConversation() {
-    state.clearAssistantMessages();
+  /// يمسح المحادثة/البحث الحالي ويبدأ جلسة جديدة — حسب الوضع النشط.
+  ///
+  /// - وضع المساعد: يمسح رسائل المساعد.
+  /// - وضع البحث المحلي (semantic): يمسح نتائج البحث ويعيد للشاشة الفارغة.
+  void clearConversation() {
+    if (state.midasMode.value == MidasMode.assistant) {
+      state.clearAssistantMessages();
+    } else {
+      state.clearResults();
+      state.currentQuery.value = '';
+    }
     state.searchTextEditing.clear();
     state.hasInputText.value = false;
   }
 
-  /// ينسخ نص إجابة المساعد (مع السؤال المرتبط) إلى الحافظة ويعرض تأكيداً.
+  /// ينسخ نص إجابة المساعد (مع السؤال المرتبط والاقتباسات) إلى الحافظة ويعرض تأكيداً.
   Future<void> copyAssistantAnswer(
     BuildContext context,
     String answer, [
     String? question,
+    List<Quotation> quotations = const [],
   ]) async {
-    final text = _formatAnswerForExport(answer, question);
+    final text = _formatAnswerForExport(answer, question, quotations);
     await Clipboard.setData(ClipboardData(text: text)).then(
       (_) => context.showCustomErrorSnackBar('copyAnswer'.tr, isDone: true),
     );
   }
 
-  /// يشارك نص إجابة المساعد (مع السؤال المرتبط) عبر مشاركة النظام.
-  Future<void> shareAssistantAnswer(String answer, [String? question]) async {
-    final text = _formatAnswerForExport(answer, question);
+  /// يشارك نص إجابة المساعد (مع السؤال المرتبط والاقتباسات) عبر مشاركة النظام.
+  Future<void> shareAssistantAnswer(
+    String answer, [
+    String? question,
+    List<Quotation> quotations = const [],
+  ]) async {
+    final text = _formatAnswerForExport(answer, question, quotations);
     await SharePlus.instance.share(ShareParams(text: text));
   }
 
-  /// ينسّق الإجابة (مع السؤال إن وُجد) للنسخ/المشاركة — Markdown خام قابل للقراءة.
-  String _formatAnswerForExport(String answer, String? question) {
+  /// ينسّق الإجابة (مع السؤال والاقتباسات) للنسخ/المشاركة — Markdown خام قابل للقراءة.
+  ///
+  /// الترتيب مطابق لترتيب العرض في الواجهة: السؤال → مقدمة المساعد → الاقتباسات
+  /// (بنفس ترتيبها) → تذييل التطبيق.
+  String _formatAnswerForExport(
+    String answer,
+    String? question, [
+    List<Quotation> quotations = const [],
+  ]) {
     final buffer = StringBuffer();
     if (question != null && question.trim().isNotEmpty) {
       buffer.writeln('س: $question');
@@ -615,9 +662,267 @@ class AiSearchController extends GetxController {
     }
     buffer.write(answer);
     buffer.writeln();
+
+    // الاقتباسات المنقولة بنفس ترتيب عرضها في الواجهة.
+    for (final q in quotations) {
+      buffer.writeln();
+      buffer.writeln('—');
+      buffer.writeln();
+      // النسبة التفصيلية (اسم الكتاب + المؤلف) قبل النص المنقول.
+      if (q.attribution != null && q.attribution!.trim().isNotEmpty) {
+        buffer.writeln('📖 ${q.attribution}');
+        buffer.writeln();
+      }
+      // النص المنقول حرفياً.
+      buffer.writeln(q.text);
+      // النوع كتلميح.
+      buffer.writeln();
+      buffer.writeln('(${_quotationTypeLabel(q.type)})');
+    }
+
     buffer.writeln();
-    buffer.write('— ${'appName'.tr}');
+    buffer.writeln();
+    buffer.write(
+      '${'appName'.tr}\n'
+      '${ApiConstants.appUrl}',
+    );
     return buffer.toString();
+  }
+
+  /// يعيد تسمية عربية لنوع الاقتباس (للنسخ/المشاركة).
+  String _quotationTypeLabel(QuotationType type) {
+    switch (type) {
+      case QuotationType.ayah:
+        return 'آية قرآنية';
+      case QuotationType.hadith:
+        return 'حديث نبوي';
+      case QuotationType.tafsir:
+        return 'تفسير';
+      case QuotationType.scholar:
+        return 'قول لعالم';
+      case QuotationType.fiqh:
+        return 'نص فقهي';
+      case QuotationType.aqeedah:
+        return 'نص عقدي';
+      case QuotationType.seerah:
+        return 'سيرة وتاريخ';
+      case QuotationType.other:
+        return 'نص منقول';
+    }
+  }
+
+  /// يجلب النص الكامل لقطعة من خادم MCP (عبر fetch_passage).
+  /// يُستدعى من زر "عرض النص الكامل" في QuotationCard.
+  /// يُحدّث الحالة في [state.fullTextCache] أثناء الجلب، وبعد النجاح يُحدّث الاقتباس
+  /// في الرسائل حتى ينعكس على النسخ/المشاركة.
+  Future<String?> fetchFullPassage(int passageId) async {
+    // عيّن حالة loading.
+    state.fullTextCache[passageId] = 'loading';
+    final fullText = await _unifiedOrchestrator.fetchFullPassage(passageId);
+    if (fullText != null && fullText.trim().isNotEmpty) {
+      state.fullTextCache[passageId] = fullText;
+      _updateQuotationText(passageId, fullText);
+    } else {
+      state.fullTextCache[passageId] = 'failed';
+    }
+    return fullText;
+  }
+
+  /// يطابق اسم الكتاب من MCP مع BooksController وينتقل للصفحة الصحيحة.
+  /// يعيد استخدام نفس منطق البحث المحلي (streaming_result_card.dart).
+  void navigateQuotationToBook(String sourceName, int pageNumber) {
+    final book = _findBookBySourceName(sourceName);
+    if (book == null) {
+      Get.snackbar(
+        'الكتاب غير متاح',
+        'لم يتم العثور على الكتاب «$sourceName» في مكتبة الكتب.',
+        snackPosition: SnackPosition.BOTTOM,
+      );
+      return;
+    }
+
+    final booksCtrl = BooksController.instance;
+    final bookNumber = book.bookNumber;
+    if (booksCtrl.isBookDownloaded(bookNumber)) {
+      booksCtrl.moveToBookPageByNumber(pageNumber - 1, bookNumber);
+    } else {
+      _showBookDownloadDialog(bookNumber, pageNumber);
+    }
+  }
+
+  /// يبحث عن كتاب في BooksController بمطابقة اسم المصدر من MCP.
+  static Book? _findBookBySourceName(String sourceName) {
+    final books = BooksController.instance.state.booksList;
+    String clean(String s) {
+      var v = s.trim();
+      if (v.startsWith('كتاب ')) v = v.substring(6).trim();
+      return v;
+    }
+
+    final cleaned = clean(sourceName);
+    var match = books.firstWhereOrNull((b) => clean(b.bookFullName) == cleaned);
+    if (match != null) return match;
+    match = books.firstWhereOrNull((b) => clean(b.bookName) == cleaned);
+    if (match != null) return match;
+    match = books.firstWhereOrNull(
+      (b) => clean(b.bookFullName).contains(cleaned),
+    );
+    if (match != null) return match;
+    match = books.firstWhereOrNull((b) => clean(b.bookName).contains(cleaned));
+    return match;
+  }
+
+  /// dialog تحميل الكتاب ثم الانتقال — نسخة من streaming_result_card.dart.
+  void _showBookDownloadDialog(int bookNumber, int pageNumber) {
+    final context = Get.context;
+    if (context == null) return;
+    final booksCtrl = BooksController.instance;
+    final book = booksCtrl.state.booksList.firstWhereOrNull(
+      (b) => b.bookNumber == bookNumber,
+    );
+    if (book == null) return;
+
+    Get.dialog(
+      Obx(
+        () => Dialog(
+          backgroundColor: context.theme.colorScheme.primaryContainer,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TitleWidget(title: book.bookName, horizontalPadding: 0.0),
+                const Gap(12),
+                Text(
+                  'please_download_book_first'.tr,
+                  style: AppTextStyles.titleMedium(
+                    fontSize: 14,
+                    color: context.theme.colorScheme.inversePrimary.withValues(
+                      alpha: 0.6,
+                    ),
+                  ),
+                ),
+                const Gap(16),
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SizedBox(
+                      width: double.infinity,
+                      child: ContainerButton(
+                        onPressed:
+                            booksCtrl.state.downloading[bookNumber] == true
+                            ? () {}
+                            : () async {
+                                // ابحث عن urlType الصحيح للمجموعة التي ينتمي
+                                // لها الكتاب (urlType ≠ type في بعض المجموعات،
+                                // مثل tafsir → tafsir_books_v2).
+                                final collection = booksCtrl.state.booksInfo
+                                    .firstWhereOrNull(
+                                      (c) => c.type == book.bookType,
+                                    );
+                                final urlType =
+                                    collection?.bookUrlType ?? book.bookType;
+                                await booksCtrl
+                                    .downloadBook(
+                                      bookNumber,
+                                      book.bookType,
+                                      urlType,
+                                    )
+                                    .then((_) async {
+                                      Get.back();
+                                      await booksCtrl.moveToBookPageByNumber(
+                                        pageNumber - 1,
+                                        bookNumber,
+                                      );
+                                    });
+                                if (booksCtrl.isBookDownloaded(bookNumber)) {
+                                  Get.back();
+                                  await booksCtrl.moveToBookPageByNumber(
+                                    pageNumber - 1,
+                                    bookNumber,
+                                  );
+                                }
+                              },
+                        height: 44,
+                        width: Get.width,
+                        verticalPadding: 0.0,
+                        horizontalPadding: 0.0,
+                        isTitleCentered: true,
+                        progressBackgroundColor: context
+                            .theme
+                            .colorScheme
+                            .primary
+                            .withValues(alpha: 0.2),
+                        progressColor: context.theme.colorScheme.primary,
+                        svgPath: SvgPath.svgAudioDownload,
+                        backgroundColor: context.theme.colorScheme.surface,
+                        svgColor: context.theme.colorScheme.secondaryContainer,
+                        downloadProgress:
+                            '${(booksCtrl.state.downloadProgress[bookNumber] ?? 0).round()}',
+                        isDownloading:
+                            booksCtrl.state.downloading[bookNumber] == true,
+                        title: booksCtrl.state.downloading[bookNumber] == true
+                            ? 'downloading'.tr
+                            : 'download'.tr,
+                      ),
+                    ),
+                  ],
+                ),
+                const Gap(16),
+                TextButton(
+                  onPressed: () => Get.back(),
+                  child: Text('cancel'.tr, style: AppTextStyles.titleSmall()),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  /// يُحدّث نص اقتباس (حسب passageId) في كل الرسائل بالبحث عنه.
+  /// ضروري لانعكاس النص الكامل على النسخ/المشاركة بعد جلبه.
+  void _updateQuotationText(int passageId, String newText) {
+    final messages = state.assistantMessages;
+    for (int mi = 0; mi < messages.length; mi++) {
+      final msg = messages[mi];
+      if (msg.quotations.isEmpty) continue;
+      bool changed = false;
+      final newQuotations = <Quotation>[];
+      for (final q in msg.quotations) {
+        if (q.passageId == passageId) {
+          // استبدل النص بالكامل، وأزل passageId (لا حاجة لزر النص الكامل بعد الجلب).
+          // نُبقي bookSourceName/pageNumber ليبقى زر الانتقال للكتاب متاحاً.
+          newQuotations.add(
+            Quotation(
+              text: newText,
+              type: q.type,
+              attribution: q.attribution,
+              toolName: q.toolName,
+              sourceLabel: q.sourceLabel,
+              bookSourceName: q.bookSourceName,
+              pageNumber: q.pageNumber,
+            ),
+          );
+          changed = true;
+        } else {
+          newQuotations.add(q);
+        }
+      }
+      if (changed) {
+        messages[mi] = ChatMessage(
+          role: msg.role,
+          content: msg.content,
+          toolName: msg.toolName,
+          quotations: newQuotations,
+        );
+      }
+    }
   }
 
   /// يحفظ محادثة المساعد الحالية في السجل.

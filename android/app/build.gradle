@@ -1,6 +1,6 @@
 plugins {
     id "com.android.application"
-    id "kotlin-android"
+    // id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
 }
 
@@ -44,16 +44,20 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = '17'
-    }
-
-    // Ensure Kotlin uses JDK 17 toolchain
-    kotlin {
-        jvmToolchain(17)
+        jvmTarget = JavaVersion.VERSION_17
     }
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    // flutter_onnxruntime pulls libonnxruntime.so twice: via its Maven AAR
+    // (onnxruntime-android) and via sherpa_onnx prebuilt jniLibs. Pick one copy.
+    packaging {
+        jniLibs {
+            pickFirsts += ['lib/**/libonnxruntime.so']
+            excludes += ['lib/x86_64/**']
+        }
     }
 
     defaultConfig {
@@ -72,7 +76,7 @@ android {
         release {
             keyAlias keystoreProperties['keyAlias']
             keyPassword keystoreProperties['keyPassword']
-            storeFile file(keystoreProperties['storeFile'])
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
             storePassword keystoreProperties['storePassword']
         }
     }
@@ -80,7 +84,26 @@ android {
     buildTypes {
         release {
             signingConfig signingConfigs.release
+            // AGP 9 enables R8 by default and resolves the stock optimize file
+            // to a versioned path that does not exist on a clean build tree
+            // (proguard-android-optimize.txt-9.1.0). The shipped app has never
+            // used shrinking and no keep rules exist for the plugin set, so pin
+            // the previous behavior explicitly.
+            minifyEnabled false
+            shrinkResources false
         }
+    }
+}
+
+// Both copies of libonnxruntime.so must be the SAME version: sherpa_onnx's
+// prebuilt jniLibs and libonnxruntime4j_jni.so (from the Maven AAR) resolve
+// OrtGetApiBase against strictly versioned symbols, so a 1.23.0/1.24.3 mix
+// fails dlopen at startup and aborts plugin registration. sherpa_onnx 1.12.40
+// bundles onnxruntime 1.24.3 — force the Maven dep to match. Revisit this
+// version whenever sherpa_onnx is upgraded.
+configurations.all {
+    resolutionStrategy {
+        force 'com.microsoft.onnxruntime:onnxruntime-android:1.24.3'
     }
 }
 

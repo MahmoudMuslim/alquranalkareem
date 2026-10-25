@@ -1225,8 +1225,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "What'sNewDetails10": "۞ Added a 'Madad' section to serve as an assistant for students seeking knowledge.\nThe 'Madad' model presents results and information extracted from books and Islamic references, with the ability to navigate to the original source and read the full topic from the linked book.\nThe model aims to facilitate search and access to content.\n۞ Added new sections to the Islamic library with improved search and an improved user experience.\n۞ Added a feature to change the font family.\n۞ Added a feature to send your feedback or errors you notice in the app, or features you would like to see in the app.",
+  "What'sNewDetails10": "۞ Enhanced the 'Madad' section to include more categories with online search capability.\n۞ Online search now includes an additional section based on Tafsir Center data.\n۞ Ability to switch between search models.\n۞ Ability to navigate to the book to read the full text.",
   "@What'sNewDetails10": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "What'sNewDetails11": "۞ Added an option to sync your bookmarks, adhkar, plans, and settings across your devices via QR code — no account needed",
+  "@What'sNewDetails11": {
     "type": "text",
     "placeholders": {}
   },
@@ -1291,6 +1296,49 @@
     "type": "text",
     "placeholders": {
       "bookName": {}
+    }
+  },
+  "smartReminders": "Smart reminders",
+  "@smartReminders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smartRemindersDesc": "One gentle daily reminder that adapts to your reading habits",
+  "@smartRemindersDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reminderTime": "Reminder time",
+  "@reminderTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoTime": "Automatic (smart)",
+  "@autoTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "quietHours": "Quiet hours",
+  "@quietHours": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "digestContent": "Reminder content",
+  "@digestContent": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "continueReading": "Continue reading",
+  "@continueReading": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "khatmaRemainingDays": "Your khatma: @done of @total days completed",
+  "@khatmaRemainingDays": {
+    "type": "text",
+    "placeholders": {
+      "done": {},
+      "total": {}
     }
   },
   "lastSearch": "Last Search",
@@ -1522,6 +1570,7 @@
   "feedback_contact_optional": "Contact email (optional)",
   "feedback_sent_success": "Your feedback was sent successfully!",
   "feedback_sent_error": "Could not send feedback. Please try again.",
+  "feedback_queued": "Your feedback will be sent automatically once the connection is back",
   "my_feedback": "My Feedback",
   "no_feedback_yet": "You haven't sent any feedback yet",
   "feedback_reply_hint": "Write a follow-up...",
@@ -1548,6 +1597,20 @@
   "askAssistant": "Ask the assistant...",
   "assistantWelcome": "Quran & Sciences AI Assistant",
   "assistantWelcomeDesc": "A specialized assistant in the Holy Quran and its sciences (Tafsir, grammar, morphology, revelation reasons, recitations). Ask in any way and I will use trusted sources to answer.",
+  "unifiedWelcomeDesc": "Your assistant in the Quran, its sciences, and Islamic sections (Hadith, Fiqh, Aqeedah, Seerah). Ask in any way and I will search two trusted sources and quote texts as they are.",
+  "quotationAyah": "Quranic verse",
+  "quotationHadith": "Prophetic hadith",
+  "quotationTafsir": "Tafsir",
+  "quotationScholar": "Scholar's saying",
+  "quotationFiqh": "Fiqh text",
+  "quotationAqeedah": "Aqeedah text",
+  "quotationSeerah": "Seerah & history",
+  "quotationOther": "Quoted text",
+  "fetchingFullText": "Fetching full text...",
+  "showFullText": "Show full text",
+  "navigateToBook": "Go to book",
+  "justNow": "Just now",
+  "timeAgo": "@value ago",
   "thinking": "Thinking...",
   "callingTool": "Calling @tool...",
   "clearChat": "Clear chat",
@@ -1569,5 +1632,222 @@
   "assistantOverloaded": "The server is currently busy. Try again in a moment.",
   "assistantTooLarge": "The question is too long. Try shortening it.",
   "assistantGenericError": "Could not get an answer from the model. Try again or choose another model.",
-  "assistantNoData": "No data available for this query at the moment."
+  "assistantNoData": "No data available for this query at the moment.",
+  "assistantQuotationsOnly": "The assistant could not draft an introduction, but here are the quoted texts as they appear in their sources:",
+  "quranSearch": "Quran & Its Sciences",
+  "onlineSearch": "Islamic Sciences",
+  "onlineSearchDesc": "Hadith, Fiqh, Aqeedah, and Seerah",
+  "heekmahWelcome": "Smart Assistant for Islamic Sciences",
+  "heekmahWelcomeDesc": "A specialized assistant in Hadith, Fiqh, Aqeedah, Prophetic Biography, and Islamic History. Ask in any way and I will search the books of scholars and quote texts as they are.",
+  "askHeekmah": "Ask the sections assistant...",
+  "heekmahSuggestion1": "What is the ruling on praying in a garment with impurity?",
+  "heekmahSuggestion2": "Hadiths about patience",
+  "heekmahSuggestion3": "Evidence of Allah's attributes from the Sunnah",
+  "heekmahSuggestion4": "What are the conditions of La ilaha illa Allah?",
+  "heekmahError": "Could not connect to the sections server. Check your internet connection.",
+  "heekmahNoFinalAnswer": "Could not formulate a final answer. Try rephrasing your question.",
+  "heekmahUnexpectedError": "An unexpected error occurred. Try again.",
+  "heekmahMcpError": "Could not connect to the sections server. Check your internet connection and try again.",
+  "midad": "Midad",
+  "deviceSync": "Device sync",
+  "@deviceSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deviceSyncDesc": "Sync your bookmarks, adhkar, plans and settings across your devices with a QR code — no account needed",
+  "@deviceSyncDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createSyncGroup": "Create sync group",
+  "@createSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinSyncGroup": "Join by scanning a QR code",
+  "@joinSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterSyncCodeManually": "Or enter the sync code manually",
+  "@enterSyncCodeManually": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCodeHint": "Sync code",
+  "@syncCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinWithCode": "Join with code",
+  "@joinWithCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrTitle": "Scan QR code",
+  "@scanQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrInstruction": "Point the camera at the code shown on your other device",
+  "@scanQrInstruction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cameraPermissionDenied": "Scanning needs camera permission — enter the code manually instead",
+  "@cameraPermissionDenied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrTitle": "This device's pairing code",
+  "@pairingQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrHint": "Scan this code from your other device to join the group",
+  "@pairingQrHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "devicesConnected": "Connected devices",
+  "@devicesConnected": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastSync": "Last sync",
+  "@lastSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncNow": "Sync now",
+  "@syncNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncing": "Syncing…",
+  "@syncing": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSync": "Unsync this device",
+  "@resetSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSyncConfirm": "This device will leave the sync group. Your local data stays as is. Continue?",
+  "@resetSyncConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "copySyncCode": "Copy sync code",
+  "@copySyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCreateError": "Couldn't create a sync group — check your connection",
+  "@syncCreateError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncJoinFailed": "Couldn't join — check the code and your connection",
+  "@syncJoinFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomFull": "Group is full (max 5 devices)",
+  "@syncRoomFull": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomNotFound": "Invalid or expired code",
+  "@syncRoomNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "invalidSyncCode": "Invalid code",
+  "@invalidSyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neverSynced": "Never synced",
+  "@neverSynced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCompleted": "Sync completed successfully",
+  "@syncCompleted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncFailed": "Sync failed — check your connection",
+  "@syncFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tasmeaa": "Recitation",
+  "tasmeeStartRecording": "Start reciting",
+  "tasmeeStopRecording": "Stop recording",
+  "tasmeeRecording": "Reciting",
+  "tasmeeProcessing": "Analyzing recitation",
+  "tasmeeConnecting": "Connecting",
+  "tasmeeDescription": "Your personal tutor for memorization and recitation",
+  "tasmeePreparingEngine": "Preparing engine",
+  "tasmeeDownloadingModel": "Downloading model",
+  "tasmeeShowWords": "Show words",
+  "tasmeeHideWords": "Hide words",
+  "tasmeeRetry": "Recite again",
+  "tasmeeSettings": "Tasmee settings",
+  "tasmeeResultTitle": "Recitation result",
+  "tasmeeNoErrors": "Well done! No errors",
+  "tasmeeTotal": "Total",
+  "tasmeeTajweed": "Tajweed",
+  "tasmeePronunciation": "Pronunciation",
+  "tasmeeTashkeel": "Diacritics",
+  "tasmeeExpected": "Expected",
+  "tasmeeActual": "Recited",
+  "tasmeeInsert": "Extra",
+  "tasmeeDelete": "Missing",
+  "tasmeeReplace": "Replaced",
+  "tasmeeNoMatch": "Could not recognize the recitation, try again with clearer pronunciation",
+  "tasmeeExit": "Exit",
+  "tasmeeResultsPages": "Completed pages",
+  "tasmeeNoResults": "No saved results yet — complete a page and it will appear here",
+  "tasmeePage": "Page",
+  "tasmeeErrorsCount": "errors",
+  "tasmeeResultDeleted": "Result deleted",
+  "tasmeeModeTitle": "Tasmee mode",
+  "tasmeeModeTasmee": "Recite",
+  "tasmeeModeTasmeeDesc": "Words are hidden and revealed as you recite",
+  "tasmeeModeCorrector": "Recitation corrector",
+  "tasmeeModeCorrectorDesc": "Ayahs visible with instant correction of each wrong word until recited right",
+  "tasmeeModeTeacher": "Quran teacher",
+  "tasmeeModeTeacherDesc": "The reciter recites the ayah, then you repeat it until mastered",
+  "tasmeeCorrectWord": "Correct the word",
+  "tasmeePlayWord": "Play word",
+  "tasmeeRepeatWord": "Repeat the word",
+  "tasmeeRepeatHint": "Listen to the pronunciation then tap the mic and repeat",
+  "tasmeeRepeatWithContext": "Read the previous word “@word” together with this word",
+  "tasmeeListeningWord": "Listening… say the word",
+  "tasmeeTryAgain": "Not correct yet — listen and try again",
+  "tasmeeAutoSkippedWord": "Word skipped after @total attempts — continue reciting",
+  "tasmeeRetryAttemptOf": "Attempt @attempt of @total",
+  "tasmeeSkipWord": "Skip word",
+  "tasmeeNonBlockingCorrector": "Keep reciting without the correction sheet",
+  "tasmeeStrictness": "Correction strictness",
+  "tasmeeStrictnessStrict": "Strict",
+  "tasmeeStrictnessBalanced": "Balanced",
+  "tasmeeStrictnessLenient": "Lenient",
+  "tasmeeWordCorrect": "Well done! Recited correctly",
+  "tasmeeTeacherQariPlaying": "The reciter is reciting…",
+  "tasmeeTeacherYourTurn": "Your turn — recite the ayah",
+  "tasmeeTeacherPageDone": "Page mastered, well done!",
+  "tasmeeTeacherPlayFailed": "Couldn't play the reciter — check connection and try again",
+  "tasmeeLocalModel": "Local correction model",
+  "tasmeeModelReady": "Ready",
+  "audioManager": "Audio Manager"
 }

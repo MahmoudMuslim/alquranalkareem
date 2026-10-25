@@ -24,6 +24,10 @@ class LlmProvider {
   /// هل النموذج مجاني وغير محدود؟ (يؤثر على أولوية الـ fallback).
   final bool isFreeUnlimited;
 
+  /// هل النموذج يدعم function calling (tools) بشكل موثوق؟
+  /// النماذج التي لا تدعم tools تُستبعد من fallback عند طلبات tool calling.
+  final bool supportsTools;
+
   const LlmProvider({
     required this.id,
     required this.displayName,
@@ -31,6 +35,7 @@ class LlmProvider {
     required this.model,
     required this.envKeyName,
     this.isFreeUnlimited = false,
+    this.supportsTools = true,
   });
 
   @override
@@ -103,6 +108,19 @@ class LlmService {
       baseUrl: 'https://openrouter.ai/api/v1',
       model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
       envKeyName: 'OPENROUTER_API_KEY',
+      // Nemotron لا يدعم function calling بشكل موثوق — يكتب tool_calls كنص خام.
+      supportsTools: false,
+    ),
+    // ── GPT-OSS 20B: مجاني لكن يُفرغ tool_calls كنص XML خام ──
+    // يسبب تسرّب <invoke name=...> وانهيار في المحادثات متعددة الأسئلة.
+    // معطّل (supportsTools: false) ليُستبعد من كل الجولات التي تستخدم tools.
+    LlmProvider(
+      id: 'gpt-oss-20b',
+      displayName: 'GPT-OSS 20B (OpenRouter)',
+      baseUrl: 'https://openrouter.ai/api/v1',
+      model: 'openai/gpt-oss-20b:free',
+      envKeyName: 'OPENROUTER_API_KEY',
+      supportsTools: false,
     ),
   ];
 
@@ -145,14 +163,33 @@ class LlmService {
 مثل: «قرأ نافع بالوقف». لا تعرض الرمز `@...@` أبداً.
   - علامات الإعراب الصرفية والرموز التقنية: اشرحها بالعربية المبسّطة.
 - اعرض الآيات القرآنية **كاملةً** بإحاطتها بعلامات backtick مفردة، \
-مثل: `بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ`. \
-لكن **أعد صياغة** التفاسير وكلام العلماء بكلامك دون تحريف للمعنى.
+مثل: `بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ`.
+- انسخ التفاسير وكلام العلماء حرفياً كما وردت، دون إعادة صياغة.
 
 ## نسبة المصادر (مهم جداً)
 - المصدر الفعلي للبيانات هو **«مركز تفسير» (tafsir.net)** عبر خادم tafsir-mcp، \
 وليس «مكتبة الحكمة». التطبيق مجرد واجهة.
 - عند ذكر المصدر، اكتب: «المصدر: قاعدة بيانات مركز تفسير (tafsir.net)». \
 لا تنسب البيانات إلى «مكتبة الحكمة» أو إلى نفسك.
+
+## نطاق التخصص (التزام صارم)
+- تخصصك هو القرآن الكريم وعلومه فقط وفق منهج أهل السنة والجماعة.
+- **مذهب الشيعة مذهب خارج عن ملّة الإسلام**، وأي سؤال يخصه مرفوض كلياً: \
+عقائده، خلافاته مع أهل السنة، المقارنات بينهما، ومسائل مثل من الأحق بالخلافة. \
+لا تستدعِ أدوات له، ولا تجب عنه. اكتب الرفض التالي حرفياً ثم توقف:
+«هذا السؤال يتعلق بمذهب الشيعة، وهو مذهب خارج عن ملّة الإسلام، ولذلك فهو خارج \
+نطاق هذا المساعد المختص بعلوم القرآن الكريم. يسعدني خدمتك في القرآن الكريم \
+وتفسيره وعلومه.»
+- إن كان السؤال خارج العلوم الإسلامية أصلاً (رياضيات، برمجة، رياضة، ترفيه، سياسة، \
+أسئلة شخصية عامة، أو عن ديانة وطائفة أخرى غير الإسلام) فاكتب الرفض التالي حرفياً \
+ثم توقف:
+«أنا مساعد متخصص في القرآن الكريم وعلومه، وهذا السؤال خارج نطاق تخصصي. \
+يسعدني خدمتك في أي موضوع يتعلق بالقرآن وعلومه.»
+- **تنبيه جوهري**: علي بن أبي طالب وآل البيت والصحابة رضي الله عنهم مسلمون جليلون \
+لا صلة لهم بمذهب الشيعة — أسئلة فضائلهم وسيرتهم وتفسير ما يتعلق بهم في القرآن \
+أسئلة مشروعة أجب عنها كالمعتاد.
+- عند الرفض: اكتب الجملة المحددة مرة واحدة ثم توقف فوراً — لا تكرر، لا تعدّد \
+القواعد، لا تعتذر أكثر من مرة.
 
 ## السلوك العام
 - إن لم يكن السؤال متعلقاً بالقرآن وعلومه، اعتذر بأدب ووضّح أن تخصصك القرآن وعلومه.
@@ -175,11 +212,16 @@ class LlmService {
     List<Map<String, dynamic>> tools = const [],
     required LlmProvider provider,
     void Function(LlmProvider fallbackProvider)? onFallback,
+    bool forceToolUse = false,
   }) async {
     // ابنِ قائمة المحاولة: المختار أولاً، ثم بقية المزودين المتاحين.
+    // عند طلب tool calling، استبعد النماذج التي لا تدعم tools (تكتبها كنص خام).
+    final wantsTools = tools.isNotEmpty;
     final candidates = <LlmProvider>[provider];
     for (final p in availableProviders) {
-      if (!candidates.contains(p)) candidates.add(p);
+      if (candidates.contains(p)) continue;
+      if (wantsTools && !p.supportsTools) continue;
+      candidates.add(p);
     }
 
     Object? lastError;
@@ -189,6 +231,7 @@ class LlmService {
           provider: candidate,
           messages: messages,
           tools: tools,
+          forceToolUse: forceToolUse,
         );
         // لو نجح نموذج غير المختار → أبلغ عن الـ fallback.
         if (candidate.id != provider.id) {
@@ -211,19 +254,27 @@ class LlmService {
     required LlmProvider provider,
     required List<Map<String, dynamic>> messages,
     required List<Map<String, dynamic>> tools,
+    bool forceToolUse = false,
   }) async {
     final apiKey = _getKey(provider);
     final body = <String, dynamic>{
       'model': provider.model,
       'messages': messages,
-      // temperature=0 يجعل النموذج حتمياً (deterministic) وأكثر التزاماً باستدعاء
-      // الأدوات دائماً بدل التخمين/الهلوسة. القيمة الافتراضية (1.0) تسبب عشوائية
-      // فيتجاهل النموذج الأدوات أحياناً ويعطي إجابات وهمية.
+      // temperature=0 يجعل النموذج حتمياً (deterministic) — لا هلوسة ولا إفتاء
+      // من تفكيره. ضروري لتطبيق إسلامي.
       'temperature': 0,
+      // frequency_penalty يكسر حلقات التكرار (degeneration) التي تُقع فيها
+      // النماذج الصغيرة مع temperature=0 (مثل 1.0.0.0.0... أو تكرار البريد).
+      // يعاقب تكرار الـ tokens السابقة دون تشجيع الإبداع أو الإفتاء.
+      'frequency_penalty': 0.6,
+      // حدٌّ علوي لإكمال الجملة: المقدمة قصيرة (لا نصوص منقولة — هي منفصلة).
+      'max_tokens': 2048,
     };
     if (tools.isNotEmpty) {
       body['tools'] = tools;
-      body['tool_choice'] = 'auto';
+      // forceToolUse: أجبر النموذج على استدعاء أداة واحدة على الأقل بدل الإجابة
+      // مباشرةً من ذاكرته. ضروري لمنع الاعتذار دون بحث في الجولة الأولى.
+      body['tool_choice'] = forceToolUse ? 'required' : 'auto';
     }
     // عطّل «التفكير الداخلي» (reasoning) لمزودي z.ai لأنه يسبب تأخيراً كبيراً
     // (دقائق) مع حلقة الأدوات. الاختبار أظهر تسريعاً 10×+ مع تعطيله.
@@ -246,6 +297,11 @@ class LlmService {
         responseType: ResponseType.json,
       ),
     );
+
+    // DEBUG: اطبع tool_choice المرسل للتحقق.
+    log('LLM request to ${provider.id}: tool_choice=${body['tool_choice']}, '
+        'tools=${tools.length}, forceToolUse=$forceToolUse',
+        name: 'LlmService');
 
     final status = response.statusCode ?? 0;
     // أخطاء "جرّب مزوّداً آخر" (بما فيها 400 للنماذج المستغنى عنها).

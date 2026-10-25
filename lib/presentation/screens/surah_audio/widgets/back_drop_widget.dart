@@ -1,7 +1,7 @@
 part of '../surah_audio.dart';
 
 class BackDropWidget extends StatelessWidget {
-  BackDropWidget({super.key});
+  const BackDropWidget({super.key});
 
   // final surahCtrl = AudioCtrl.instance;
 
@@ -27,7 +27,7 @@ class BackDropWidget extends StatelessWidget {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional.centerStart,
+                  alignment: AlignmentDirectional.bottomStart,
                   child: Obx(
                     () => AudioCtrl.instance.state.isPlaying.value == true
                         ? const PlayBanner()

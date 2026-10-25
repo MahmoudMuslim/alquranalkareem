@@ -1219,8 +1219,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "What'sNewDetails10": "۞ إضافة قسم 'مداد' ليكون مساعد الطالب لطلب العلم.\n يعتمد نموذج 'مداد' على عرض النتائج والمعلومات المستخرجة من الكتب والمراجع الإسلامية، مع إمكانية الانتقال إلى المصدر الأصلي وقراءة الموضوع كاملًا من الكتاب المرتبط بالنتيجة.\nويهدف النموذج إلى تسهيل البحث والوصول إلى المحتوى.\n۞ إضافة أقسام جديدة للمكتبة الإسلامية مع تحسين البحث وتحسين تجربة المستخدم.\n۞ إضافة ميزة تغيير نوع الخط.\n۞ إضافة ميزة إرسال ملاحظاتكم أو الأخطاء التي ترونها في التطبيق أو المميزات التي تريدونها أن تكون في التطبيق.",
+  "What'sNewDetails10": "۞ تطوير قسم «مداد» ليشمل أقساماً جديدة مع إمكانية البحث عبر الإنترنت.\n۞ إضافة قسم جديد في البحث عبر الإنترنت يعتمد على بيانات مركز التفسير.\n۞ إمكانية تبديل نماذج البحث.\n۞ إمكانية الانتقال إلى الكتاب لقراءة النص كاملاً.",
   "@What'sNewDetails10": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "What'sNewDetails11": "۞ إضافة خيار مزامنة علاماتك وأذكارك وخططك وإعداداتك بين أجهزتك عبر رمز QR — بدون حساب",
+  "@What'sNewDetails11": {
     "type": "text",
     "placeholders": {}
   },
@@ -1284,6 +1289,49 @@
   "@notifyListenBody": {
     "type": "text",
     "placeholders": {}
+  },
+  "smartReminders": "التذكيرات الذكية",
+  "@smartReminders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smartRemindersDesc": "تذكير يومي واحد لطيف يتكيف مع عادات قراءتك",
+  "@smartRemindersDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reminderTime": "وقت التذكير",
+  "@reminderTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoTime": "تلقائي (ذكي)",
+  "@autoTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "quietHours": "ساعات الهدوء",
+  "@quietHours": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "digestContent": "محتوى التذكير",
+  "@digestContent": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "continueReading": "متابعة القراءة",
+  "@continueReading": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "khatmaRemainingDays": "ختمتك: أنجزت @done من @total يومًا",
+  "@khatmaRemainingDays": {
+    "type": "text",
+    "placeholders": {
+      "done": {},
+      "total": {}
+    }
   },
   "lastSearch": "آخر بحث",
   "@lastSearch": {
@@ -1516,6 +1564,7 @@
   "feedback_contact_optional": "بريدك للتواصل (اختياري)",
   "feedback_sent_success": "تم إرسال ملاحظتك بنجاح!",
   "feedback_sent_error": "تعذّر إرسال الملاحظة. حاول مرة أخرى.",
+  "feedback_queued": "ستُرسل ملاحظتك تلقائيًا عند عودة الاتصال بالإنترنت",
   "my_feedback": "ملاحظاتي",
   "no_feedback_yet": "لم ترسل أي ملاحظة بعد",
   "feedback_reply_hint": "اكتب متابعة...",
@@ -1542,6 +1591,20 @@
   "askAssistant": "اسأل المساعد...",
   "assistantWelcome": "المساعد الذكي للقرآن وعلومه",
   "assistantWelcomeDesc": "مساعد متخصص في القرآن الكريم وعلومه (التفسير، الإعراب، الصرف، أسباب النزول، القراءات). اسأل بأي صيغة وسأستخدم مصادر موثوقة للإجابة.",
+  "unifiedWelcomeDesc": "مساعدك في القرآن وعلومه والأقسام الشرعية (الحديث، الفقه، العقيدة، السيرة). اسأل بأي صيغة وسأبحث في مصدرين موثوقين وأنقل النصوص كما هي.",
+  "quotationAyah": "آية قرآنية",
+  "quotationHadith": "حديث نبوي",
+  "quotationTafsir": "تفسير",
+  "quotationScholar": "قول لعالم",
+  "quotationFiqh": "نص فقهي",
+  "quotationAqeedah": "نص عقدي",
+  "quotationSeerah": "سيرة وتاريخ",
+  "quotationOther": "نص منقول",
+  "fetchingFullText": "جارٍ جلب النص الكامل...",
+  "showFullText": "عرض النص الكامل",
+  "navigateToBook": "الانتقال للكتاب",
+  "justNow": "الآن",
+  "timeAgo": "منذ @value",
   "thinking": "يفكّر...",
   "callingTool": "جارٍ @tool...",
   "clearChat": "مسح المحادثة",
@@ -1563,5 +1626,222 @@
   "assistantOverloaded": "الخادم مشغول حالياً. حاول مرة أخرى بعد لحظات.",
   "assistantTooLarge": "السؤال طويل جداً. جرّب اختصاره.",
   "assistantGenericError": "تعذّر الحصول على إجابة من النموذج. حاول مرة أخرى أو اختر نموذجاً آخر.",
-  "assistantNoData": "لا توجد بيانات متاحة لهذا الاستفسار حالياً."
+  "quranSearch": "القرآن وعلومه",
+  "onlineSearch": "الأقسام الشرعية",
+  "onlineSearchDesc": "الحديث والفقه والعقيدة والسيرة",
+  "heekmahWelcome": "المساعد الذكي للأقسام الشرعية",
+  "heekmahWelcomeDesc": "مساعد متخصص في الحديث الشريف والفقه والعقيدة والسيرة النبوية والتاريخ الإسلامي. اسأل بأي صيغة وسأبحث لك في كتب أهل العلم وأنقل النصوص كما هي.",
+  "askHeekmah": "اسأل مساعد الأقسام...",
+  "heekmahSuggestion1": "ما حكم الصلاة في الثوب النجس؟",
+  "heekmahSuggestion2": "أحاديث عن الصبر",
+  "heekmahSuggestion3": "أدلة على صفات الله من السنة",
+  "heekmahSuggestion4": "ما هي شروط لا إله إلا الله؟",
+  "heekmahError": "تعذّر الاتصال بخادم الأقسام. تحقق من اتصالك بالإنترنت.",
+  "heekmahNoFinalAnswer": "لم أتمكن من صياغة إجابة نهائية. حاول إعادة صياغة سؤالك.",
+  "heekmahUnexpectedError": "حدث خطأ غير متوقع. حاول مرة أخرى.",
+  "heekmahMcpError": "تعذّر الاتصال بخادم الأقسام. تحقق من اتصال الإنترنت ثم حاول مرة أخرى.",
+  "assistantNoData": "لا توجد بيانات متاحة لهذا الاستفسار حالياً.",
+  "assistantQuotationsOnly": "تعذّرت صياغة مقدمة من المساعد، لكن إليك النصوص المنقولة كما وردت في مصادرها:",
+  "midad": "مداد",
+  "deviceSync": "المزامنة بين الأجهزة",
+  "@deviceSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deviceSyncDesc": "زامن علاماتك وأذكارك وخططك وإعداداتك بين أجهزتك عبر رمز QR — بدون حساب",
+  "@deviceSyncDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createSyncGroup": "إنشاء مجموعة مزامنة",
+  "@createSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinSyncGroup": "الانضمام بمسح رمز QR",
+  "@joinSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterSyncCodeManually": "أو أدخل رمز المزامنة يدويًا",
+  "@enterSyncCodeManually": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCodeHint": "رمز المزامنة",
+  "@syncCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinWithCode": "انضمام بالرمز",
+  "@joinWithCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrTitle": "مسح رمز QR",
+  "@scanQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrInstruction": "وجّه الكاميرا نحو الرمز المعروض على جهازك الآخر",
+  "@scanQrInstruction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cameraPermissionDenied": "المسح يحتاج إذن الكاميرا — أدخل الرمز يدويًا",
+  "@cameraPermissionDenied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrTitle": "رمز إقران هذا الجهاز",
+  "@pairingQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrHint": "امسح هذا الرمز من جهازك الآخر للانضمام للمجموعة",
+  "@pairingQrHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "devicesConnected": "الأجهزة المتصلة",
+  "@devicesConnected": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastSync": "آخر مزامنة",
+  "@lastSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncNow": "مزامنة الآن",
+  "@syncNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncing": "جارٍ المزامنة…",
+  "@syncing": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSync": "إلغاء مزامنة هذا الجهاز",
+  "@resetSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSyncConfirm": "سيُفصل هذا الجهاز عن مجموعة المزامنة وتبقى بياناتك المحلية كما هي. هل تريد المتابعة؟",
+  "@resetSyncConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "copySyncCode": "نسخ رمز المزامنة",
+  "@copySyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCreateError": "تعذر إنشاء مجموعة المزامنة — تحقق من اتصالك",
+  "@syncCreateError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncJoinFailed": "تعذر الانضمام — تحقق من الرمز واتصالك",
+  "@syncJoinFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomFull": "المجموعة كاملة (5 أجهزة كحد أقصى)",
+  "@syncRoomFull": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomNotFound": "الرمز غير صحيح أو منتهي الصلاحية",
+  "@syncRoomNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "invalidSyncCode": "رمز غير صالح",
+  "@invalidSyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neverSynced": "لم تتم مزامنة بعد",
+  "@neverSynced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "تأكيد",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCompleted": "تمت المزامنة بنجاح",
+  "@syncCompleted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncFailed": "تعذرت المزامنة — تحقق من اتصالك",
+  "@syncFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tasmeaa": "تسميع",
+  "tasmeeStartRecording": "ابدأ التسميع",
+  "tasmeeStopRecording": "إيقاف التسجيل",
+  "tasmeeRecording": "جارٍ التسميع",
+  "tasmeeProcessing": "جارٍ تحليل التلاوة",
+  "tasmeeConnecting": "جارٍ الاتصال",
+  "tasmeeDescription": "معلمك الخاص للحفظ والتلاوة",
+  "tasmeePreparingEngine": "جارٍ تجهيز المحرك",
+  "tasmeeDownloadingModel": "تنزيل النموذج",
+  "tasmeeShowWords": "إظهار الكلمات",
+  "tasmeeHideWords": "إخفاء الكلمات",
+  "tasmeeRetry": "إعادة التسميع",
+  "tasmeeSettings": "إعدادات التسميع",
+  "tasmeeResultTitle": "نتيجة التسميع",
+  "tasmeeNoErrors": "أحسنت! لا أخطاء",
+  "tasmeeTotal": "الإجمالي",
+  "tasmeeTajweed": "تجويد",
+  "tasmeePronunciation": "نطق",
+  "tasmeeTashkeel": "تشكيل",
+  "tasmeeExpected": "المتوقع",
+  "tasmeeActual": "المنطوق",
+  "tasmeeInsert": "زيادة",
+  "tasmeeDelete": "نقصان",
+  "tasmeeReplace": "استبدال",
+  "tasmeeNoMatch": "لم يتم التعرف على التلاوة، حاول مجددًا بنطق أوضح",
+  "tasmeeExit": "خروج",
+  "tasmeeResultsPages": "صفحات منجزة",
+  "tasmeeNoResults": "لا توجد نتائج محفوظة بعد — أكمل تسميع صفحة وستظهر هنا",
+  "tasmeePage": "صفحة",
+  "tasmeeErrorsCount": "أخطاء",
+  "tasmeeResultDeleted": "تم حذف النتيجة",
+  "tasmeeModeTitle": "نمط التسميع",
+  "tasmeeModeTasmee": "تسميع",
+  "tasmeeModeTasmeeDesc": "الكلمات مخفية وتظهر أثناء تلاوتك",
+  "tasmeeModeCorrector": "مصحح التلاوة",
+  "tasmeeModeCorrectorDesc": "الآيات ظاهرة مع تصحيح فوري لكل كلمة خاطئة حتى تُتلى صحيحة",
+  "tasmeeModeTeacher": "معلم القرآن",
+  "tasmeeModeTeacherDesc": "القارئ يتلو الآية ثم تتلوها أنت وتتكرر حتى تتقنها",
+  "tasmeeCorrectWord": "صحّح الكلمة",
+  "tasmeePlayWord": "نطق الكلمة",
+  "tasmeeRepeatWord": "أعد نطق الكلمة",
+  "tasmeeRepeatHint": "استمع للنطق ثم اضغط الميكروفون وأعد الكلمة",
+  "tasmeeRepeatWithContext": "اقرأ الكلمة السابقة «@word» مع هذه الكلمة وصلًا",
+  "tasmeeListeningWord": "استمع الآن… قل الكلمة",
+  "tasmeeTryAgain": "لم تُنطق صحيحة بعد — استمع وحاول مجددًا",
+  "tasmeeAutoSkippedWord": "تم تخطي الكلمة بعد @total محاولات — تابع التلاوة",
+  "tasmeeRetryAttemptOf": "المحاولة @attempt من @total",
+  "tasmeeSkipWord": "تخطي الكلمة",
+  "tasmeeNonBlockingCorrector": "متابعة التلاوة دون شيت التصحيح",
+  "tasmeeStrictness": "صرامة التصحيح",
+  "tasmeeStrictnessStrict": "صارم",
+  "tasmeeStrictnessBalanced": "متوازن",
+  "tasmeeStrictnessLenient": "متسامح",
+  "tasmeeWordCorrect": "أحسنت! نُطقت صحيحة",
+  "tasmeeTeacherQariPlaying": "القارئ يتلو الآية…",
+  "tasmeeTeacherYourTurn": "دورك — تلُ الآية",
+  "tasmeeTeacherPageDone": "أتممت الصفحة بإتقان، أحسنت!",
+  "tasmeeTeacherPlayFailed": "تعذّر تشغيل تلاوة القارئ — تحقق من الاتصال وحاول مجددًا",
+  "tasmeeLocalModel": "نموذج التصحيح المحلي",
+  "tasmeeModelReady": "جاهز",
+  "audioManager": "إدارة الصوت"
 }

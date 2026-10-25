@@ -1219,8 +1219,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "What'sNewDetails10": "۞ Добавлен раздел 'Мадад', который станет помощником для студентов, ищущих знания.\nМодель 'Мадад' представляет результаты и информацию, извлечённые из книг и исламских источников, с возможностью перехода к первоисточнику и чтения полной темы из связанной книги.\nЦель модели — облегчить поиск и доступ к контенту.\n۞ Добавлены новые разделы в Исламскую библиотеку с улучшенным поиском и улучшенным пользовательским опытом.\n۞ Добавлена функция смены шрифта.\n۞ Добавлена функция отправки ваших отзывов или ошибок, замеченных в приложении, или функций, которые вы хотели бы видеть в приложении.",
+  "What'sNewDetails10": "۞ Улучшен раздел «Мадад» — теперь включает больше категорий с возможностью онлайн-поиска.\n۞ Онлайн-поиск теперь включает дополнительный раздел на основе данных Центра тафсиров.\n۞ Возможность переключаться между моделями поиска.\n۞ Возможность перехода к книге для чтения полного текста.",
   "@What'sNewDetails10": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "What'sNewDetails11": "۞ Добавлена возможность синхронизации ваших закладок, зикров, планов и настроек между устройствами по QR-коду — без учётной записи",
+  "@What'sNewDetails11": {
     "type": "text",
     "placeholders": {}
   },
@@ -1284,6 +1289,49 @@
   "@notifyListenBody": {
     "type": "text",
     "placeholders": {}
+  },
+  "smartReminders": "Умные напоминания",
+  "@smartReminders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smartRemindersDesc": "Одно мягкое ежедневное напоминание, подстраивающееся под ваши привычки чтения",
+  "@smartRemindersDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reminderTime": "Время напоминания",
+  "@reminderTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoTime": "Автоматически (умно)",
+  "@autoTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "quietHours": "Тихие часы",
+  "@quietHours": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "digestContent": "Содержание напоминания",
+  "@digestContent": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "continueReading": "Продолжить чтение",
+  "@continueReading": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "khatmaRemainingDays": "Ваш хатма: завершено @done из @total дней",
+  "@khatmaRemainingDays": {
+    "type": "text",
+    "placeholders": {
+      "done": {},
+      "total": {}
+    }
   },
   "lastSearch": "Последний поиск",
   "@lastSearch": {
@@ -1471,6 +1519,7 @@
   "feedback_contact_optional": "Контактный email (необязательно)",
   "feedback_sent_success": "Ваш отзыв успешно отправлен!",
   "feedback_sent_error": "Не удалось отправить отзыв. Попробуйте снова.",
+  "feedback_queued": "Your feedback will be sent automatically once the connection is back",
   "my_feedback": "Мои отзывы",
   "no_feedback_yet": "Вы еще не отправили ни одного отзыва",
   "feedback_reply_hint": "Напишите продолжение...",
@@ -1497,6 +1546,20 @@
   "askAssistant": "Спросите помощника...",
   "assistantWelcome": "ИИ-помощник по Корану и его наукам",
   "assistantWelcomeDesc": "Помощник, специализирующийся на Священном Коране и его науках (тафсир, грамматика, морфология, причины ниспослания, чтения). Задайте вопрос в любой форме, и я использую надёжные источники для ответа.",
+  "unifiedWelcomeDesc": "Ваш помощник по Корану, его наукам и исламским разделам (Хадис, Фикх, Акыда, Сира). Задайте вопрос в любой форме, и я найду информацию в двух надёжных источниках, цитируя тексты как есть.",
+  "quotationAyah": "Аят Корана",
+  "quotationHadith": "Хадис Пророка",
+  "quotationTafsir": "Тафсир",
+  "quotationScholar": "Слова учёного",
+  "quotationFiqh": "Текст фикха",
+  "quotationAqeedah": "Текст акыды",
+  "quotationSeerah": "Сира и история",
+  "quotationOther": "Цитируемый текст",
+  "fetchingFullText": "Загрузка полного текста...",
+  "showFullText": "Показать полный текст",
+  "navigateToBook": "Перейти к книге",
+  "justNow": "Только что",
+  "timeAgo": "@value назад",
   "thinking": "Думаю...",
   "callingTool": "Вызов @tool...",
   "clearChat": "Очистить чат",
@@ -1518,5 +1581,207 @@
   "assistantOverloaded": "Сервер сейчас занят. Попробуйте снова через мгновение.",
   "assistantTooLarge": "Вопрос слишком длинный. Попробуйте сократить его.",
   "assistantGenericError": "Не удалось получить ответ от модели. Попробуйте снова или выберите другую модель.",
-  "assistantNoData": "В данный момент нет данных для этого запроса."
+  "assistantNoData": "В данный момент нет данных для этого запроса.",
+  "midad": "Мидад",
+  "deviceSync": "Синхронизация устройств",
+  "@deviceSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deviceSyncDesc": "Синхронизируйте закладки, зикры, планы и настройки между устройствами по QR-коду — без аккаунта",
+  "@deviceSyncDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createSyncGroup": "Создать группу синхронизации",
+  "@createSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinSyncGroup": "Присоединиться по QR-коду",
+  "@joinSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterSyncCodeManually": "Или введите код синхронизации вручную",
+  "@enterSyncCodeManually": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCodeHint": "Код синхронизации",
+  "@syncCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinWithCode": "Присоединиться по коду",
+  "@joinWithCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrTitle": "Сканировать QR-код",
+  "@scanQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrInstruction": "Наведите камеру на код на другом устройстве",
+  "@scanQrInstruction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cameraPermissionDenied": "Для сканирования нужен доступ к камере — введите код вручную",
+  "@cameraPermissionDenied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrTitle": "Код сопряжения этого устройства",
+  "@pairingQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrHint": "Отсканируйте этот код на другом устройстве, чтобы присоединиться",
+  "@pairingQrHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "devicesConnected": "Подключённые устройства",
+  "@devicesConnected": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastSync": "Последняя синхронизация",
+  "@lastSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncNow": "Синхронизировать сейчас",
+  "@syncNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncing": "Синхронизация…",
+  "@syncing": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSync": "Отключить синхронизацию устройства",
+  "@resetSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSyncConfirm": "Устройство покинет группу синхронизации. Локальные данные останутся. Продолжить?",
+  "@resetSyncConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "copySyncCode": "Скопировать код синхронизации",
+  "@copySyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCreateError": "Не удалось создать группу — проверьте соединение",
+  "@syncCreateError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncJoinFailed": "Не удалось присоединиться — проверьте код и соединение",
+  "@syncJoinFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomFull": "Группа заполнена (макс. 5 устройств)",
+  "@syncRoomFull": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomNotFound": "Неверный или истёкший код",
+  "@syncRoomNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "invalidSyncCode": "Неверный код",
+  "@invalidSyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neverSynced": "Ещё не синхронизировалось",
+  "@neverSynced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "Подтвердить",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCompleted": "Синхронизация завершена",
+  "@syncCompleted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncFailed": "Не удалось синхронизировать — проверьте соединение",
+  "@syncFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tasmeaa": "Проверка наизусть",
+  "tasmeeStartRecording": "Начать чтение",
+  "tasmeeStopRecording": "Остановить запись",
+  "tasmeeRecording": "Идёт чтение",
+  "tasmeeProcessing": "Анализ чтения",
+  "tasmeeConnecting": "Подключение",
+  "tasmeeDescription": "Ваш личный наставник по заучиванию и чтению",
+  "tasmeePreparingEngine": "Подготовка движка",
+  "tasmeeDownloadingModel": "Загрузка модели",
+  "tasmeeShowWords": "Показать слова",
+  "tasmeeHideWords": "Скрыть слова",
+  "tasmeeRetry": "Повторить чтение",
+  "tasmeeSettings": "Настройки чтения",
+  "tasmeeResultTitle": "Результат чтения",
+  "tasmeeNoErrors": "Отлично! Ошибок нет",
+  "tasmeeTotal": "Всего",
+  "tasmeeTajweed": "Таджвид",
+  "tasmeePronunciation": "Произношение",
+  "tasmeeTashkeel": "Огласовки",
+  "tasmeeExpected": "Ожидается",
+  "tasmeeActual": "Прочитано",
+  "tasmeeInsert": "Лишнее",
+  "tasmeeDelete": "Пропущено",
+  "tasmeeReplace": "Заменено",
+  "tasmeeNoMatch": "Не удалось распознать чтение, попробуйте ещё раз с более чётким произношением",
+  "tasmeeExit": "Выход",
+  "tasmeeResultsPages": "Завершённые страницы",
+  "tasmeeNoResults": "Сохранённых результатов пока нет — завершите страницу, и она появится здесь",
+  "tasmeePage": "Страница",
+  "tasmeeErrorsCount": "ошибок",
+  "tasmeeResultDeleted": "Результат удалён",
+  "tasmeeModeTitle": "Режим проверки",
+  "tasmeeModeTasmee": "Проверка",
+  "tasmeeModeTasmeeDesc": "Слова скрыты и открываются по мере вашего чтения",
+  "tasmeeModeCorrector": "Корректор чтения",
+  "tasmeeModeCorrectorDesc": "Аяты видны, каждое ошибочное слово исправляется сразу, пока не будет прочитано верно",
+  "tasmeeModeTeacher": "Учитель Корана",
+  "tasmeeModeTeacherDesc": "Чтец читает аят, затем вы повторяете его, пока не освоите",
+  "tasmeeCorrectWord": "Исправьте слово",
+  "tasmeePlayWord": "Прослушать слово",
+  "tasmeeRepeatWord": "Повторите слово",
+  "tasmeeRepeatHint": "Послушайте произношение, затем нажмите микрофон и повторите",
+  "tasmeeRepeatWithContext": "Прочитайте предыдущее слово «@word» вместе с этим словом",
+  "tasmeeListeningWord": "Слушаю… произнесите слово",
+  "tasmeeTryAgain": "Пока неверно — послушайте и попробуйте снова",
+  "tasmeeAutoSkippedWord": "Слово пропущено после @total попыток — продолжайте чтение",
+  "tasmeeRetryAttemptOf": "Попытка @attempt из @total",
+  "tasmeeSkipWord": "Пропустить слово",
+  "tasmeeNonBlockingCorrector": "Продолжать чтение без окна исправления",
+  "tasmeeStrictness": "Строгость проверки",
+  "tasmeeStrictnessStrict": "Строгий",
+  "tasmeeStrictnessBalanced": "Сбалансированный",
+  "tasmeeStrictnessLenient": "Мягкий",
+  "tasmeeWordCorrect": "Отлично! Произнесено верно",
+  "tasmeeTeacherQariPlaying": "Чтец читает аят…",
+  "tasmeeTeacherYourTurn": "Ваша очередь — прочитайте аят",
+  "tasmeeTeacherPageDone": "Страница освоена, отлично!",
+  "tasmeeTeacherPlayFailed": "Не удалось воспроизвести чтеца — проверьте соединение и попробуйте снова",
+  "tasmeeLocalModel": "Локальная модель коррекции",
+  "tasmeeModelReady": "Готово",
+  "audioManager": "Управление аудио"
 }

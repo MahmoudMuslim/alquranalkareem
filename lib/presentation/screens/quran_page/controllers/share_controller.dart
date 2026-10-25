@@ -1,10 +1,15 @@
 part of '../quran.dart';
 
 class ShareController extends GetxController {
-  static ShareController get instance =>
-      GetInstance().putOrFind(() => ShareController());
+  /// التسجيل permanent ضروري: putOrFind كان يسجّل non-permanent فيحذفه GetX
+  /// عند إغلاق صفحة المشاركة (RouterReportManager)، بينما يُبقي get_it النسخة
+  /// القديمة يتيمة؛ فتُكتب الصورة على النسخة اليتيمة وتُقرأ من نسخة جديدة
+  /// فارغة => Null check operator عند المشاركة الثانية.
+  static ShareController get instance => Get.isRegistered<ShareController>()
+      ? Get.find<ShareController>()
+      : Get.put(ShareController(), permanent: true);
 
-  final ScreenshotController ayahScreenController = ScreenshotController();
+  // final ScreenshotController ayahScreenController = ScreenshotController();
   final ScreenshotController tafseerScreenController = ScreenshotController();
   Uint8List? ayahToImageBytes;
   Uint8List? tafseerToImageBytes;
@@ -15,17 +20,17 @@ class ShareController extends GetxController {
   ArabicNumbers arabicNumber = ArabicNumbers();
   final box = GetStorage();
 
-  Future<void> createAndShowVerseImage() async {
-    try {
-      final Uint8List? imageBytes = await ayahScreenController.capture(
-        pixelRatio: 7,
-      );
-      ayahToImageBytes = imageBytes;
-      update();
-    } catch (e) {
-      debugPrint('Error capturing verse image: $e');
-    }
-  }
+  // Future<void> createAndShowVerseImage() async {
+  //   try {
+  //     final Uint8List? imageBytes = await ayahScreenController.capture(
+  //       pixelRatio: 7,
+  //     );
+  //     ayahToImageBytes = imageBytes;
+  //     update();
+  //   } catch (e) {
+  //     debugPrint('Error capturing verse image: $e');
+  //   }
+  // }
 
   Future<void> createAndShowTafseerImage() async {
     try {

@@ -242,8 +242,6 @@ extension QuranGetters on QuranController {
       );
 
   TafsirStyle get tafsirStyle {
-    final tajweedCtrl = TajweedAyaCtrl.instance;
-    final isDownloading = tajweedCtrl.isDownloading.value;
     return TafsirStyle.defaults(
       context: Get.context!,
       isDark: ThemeController.instance.isDarkMode,
@@ -252,7 +250,7 @@ extension QuranGetters on QuranController {
       backgroundColor: Get.theme.colorScheme.primary,
       textColor: Get.theme.colorScheme.inversePrimary,
       backgroundTitleColor: Get.theme.colorScheme.surface.withValues(alpha: .5),
-      fontSizeWidget: const SizedBox().fontSizeDropDownWidget(),
+      fontSizeWidget: const SizedBox().fontSizeDropDownWidget(height: 30),
       // fontSize: generalCtrl.state.fontSizeArabic.value,
       currentTafsirColor: Get.theme.colorScheme.surface,
       selectedTafsirBorderColor: Get.theme.colorScheme.surface,
@@ -314,24 +312,10 @@ extension QuranGetters on QuranController {
           'tajweedNoDataText'.tr, // لا توجد بيانات تجويد لهذه الآية.
       tajweedStatusTextStyle: AppTextStyles.titleSmall(),
       tafsirIsEmptyNote: 'noTafsirForThisAyah'.tr, // لا يوجد تفسير لهذه الآية
-      tajweedDownloadButtonWidget: ContainerButton(
-        onPressed: () async {
-          isDownloading ? null : await tajweedCtrl.download();
-        },
-        height: 40.0,
-        width: 250.0,
-        isTitleCentered: true,
-        title: isDownloading ? 'downloading' : 'download',
-        horizontalPadding: 16.0,
-        verticalPadding: 2.0,
-        backgroundColor: Get.theme.colorScheme.surface,
-        progressColor: Get.theme.colorScheme.primary.withValues(alpha: .2),
-        isDownloading: isDownloading,
-        downloadProgress: tajweedCtrl.downloadProgress.value.toStringAsFixed(0),
-        isPreparingDownload:
-            isDownloading || tajweedCtrl.isPreparingDownload.value,
+      tajweedDownloadButtonWidget: const TajweedDownloadButton(),
+      tajweedMarkedTextStyle: AppTextStyles.titleMedium(
+        color: Get.theme.colorScheme.surface,
       ),
-      tajweedMarkedTextStyle: AppTextStyles.titleMedium(),
       tafsirDropdownWidget: const SizedBox().customSvgWithColor(
         SvgPath.svgHomeArrowDown,
         color: Get.theme.colorScheme.surface,

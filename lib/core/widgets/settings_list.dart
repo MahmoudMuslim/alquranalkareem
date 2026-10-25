@@ -12,11 +12,12 @@ import '../../presentation/screens/about_app/about_app.dart';
 import '../../presentation/screens/calendar/widgets/calender_settings.dart';
 import '../../presentation/screens/ourApp/screen/our_apps_screen.dart';
 import '../../presentation/screens/quran_page/quran.dart';
+import '../../presentation/screens/sync/sync.dart';
 import '../utils/constants/extensions/svg_extensions.dart';
 import '../utils/helpers/app_text_styles.dart';
 import 'font_family_picker.dart';
 import 'language_list.dart';
-import 'mushaf_settings.dart';
+import 'notifications_settings.dart';
 import 'select_screen.dart';
 import 'theme_change.dart';
 
@@ -72,6 +73,21 @@ class SettingsList extends StatelessWidget {
               FontFamilyPicker(),
               const Gap(24),
               const SelectScreen(),
+              const Gap(24),
+              NotificationsSettings(),
+              const Gap(24),
+              ContainerButton(
+                onPressed: () => Get.to(
+                  () => const SyncScreen(),
+                  transition: Transition.downToUp,
+                ),
+                withArrow: true,
+                width: double.infinity,
+                title: 'deviceSync',
+                horizontalPadding: 8.0,
+                verticalPadding: 12.0,
+                horizontalMargin: 16.0,
+              ),
               const Gap(24),
               Divider(
                 thickness: 1.0,

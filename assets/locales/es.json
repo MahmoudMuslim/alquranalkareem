@@ -1225,8 +1225,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "What'sNewDetails10": "۞ Se añadió una sección 'Madad' para servir como asistente a los estudiantes que buscan conocimiento.\nEl modelo 'Madad' presenta resultados e información extraídos de libros y referencias islámicas, con la posibilidad de ir a la fuente original y leer el tema completo del libro vinculado.\nEl modelo tiene como objetivo facilitar la búsqueda y el acceso al contenido.\n۞ Se añadieron nuevas secciones a la biblioteca islámica con búsqueda mejorada y una mejor experiencia de usuario.\n۞ Se añadió una función para cambiar el tipo de fuente.\n۞ Se añadió una función para enviar sus comentarios o errores que note en la aplicación, o las características que desea que estén en la aplicación.",
+  "What'sNewDetails10": "۞ Se ha mejorado la sección 'Madad' para incluir más categorías con capacidad de búsqueda en línea.\n۞ La búsqueda en línea ahora incluye una sección adicional basada en datos del Centro de Tafsir.\n۞ Posibilidad de cambiar entre los modelos de búsqueda.\n۞ Posibilidad de ir al libro para leer el texto completo.",
   "@What'sNewDetails10": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "What'sNewDetails11": "۞ Se añadió una opción para sincronizar sus marcadores, adhkar, planes y configuraciones entre sus dispositivos mediante código QR — sin necesidad de cuenta",
+  "@What'sNewDetails11": {
     "type": "text",
     "placeholders": {}
   },
@@ -1291,6 +1296,49 @@
     "type": "text",
     "placeholders": {
       "bookName": {}
+    }
+  },
+  "smartReminders": "Recordatorios inteligentes",
+  "@smartReminders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smartRemindersDesc": "Un recordatorio diario amable que se adapta a tus hábitos de lectura",
+  "@smartRemindersDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reminderTime": "Hora del recordatorio",
+  "@reminderTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoTime": "Automático (inteligente)",
+  "@autoTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "quietHours": "Horas de silencio",
+  "@quietHours": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "digestContent": "Contenido del recordatorio",
+  "@digestContent": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "continueReading": "Continuar leyendo",
+  "@continueReading": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "khatmaRemainingDays": "Tu jatma: @done de @total días completados",
+  "@khatmaRemainingDays": {
+    "type": "text",
+    "placeholders": {
+      "done": {},
+      "total": {}
     }
   },
   "lastSearch": "Última búsqueda",
@@ -1507,6 +1555,7 @@
   "feedback_contact_optional": "Correo de contacto (opcional)",
   "feedback_sent_success": "¡Tu comentario se envió con éxito!",
   "feedback_sent_error": "No se pudo enviar el comentario. Inténtalo de nuevo.",
+  "feedback_queued": "Your feedback will be sent automatically once the connection is back",
   "my_feedback": "Mis comentarios",
   "no_feedback_yet": "Aún no has enviado ningún comentario",
   "feedback_reply_hint": "Escribe un seguimiento...",
@@ -1533,6 +1582,20 @@
   "askAssistant": "Pregunta al asistente...",
   "assistantWelcome": "Asistente de IA del Corán y sus ciencias",
   "assistantWelcomeDesc": "Un asistente especializado en el Sagrado Corán y sus ciencias (Tafsir, gramática, morfología, razones de revelación, recitaciones). Pregunta de cualquier forma y usaré fuentes confiables para responder.",
+  "unifiedWelcomeDesc": "Tu asistente en el Corán, sus ciencias y las secciones islámicas (Hadiz, Fiqh, Aqida, Sira). Pregunta de cualquier forma y buscaré en dos fuentes confiables citando los textos tal como son.",
+  "quotationAyah": "Verso coránico",
+  "quotationHadith": "Hadiz profético",
+  "quotationTafsir": "Tafsir",
+  "quotationScholar": "Palabra de un erudito",
+  "quotationFiqh": "Texto de Fiqh",
+  "quotationAqeedah": "Texto de Aqida",
+  "quotationSeerah": "Sira e historia",
+  "quotationOther": "Texto citado",
+  "fetchingFullText": "Obteniendo texto completo...",
+  "showFullText": "Mostrar texto completo",
+  "navigateToBook": "Ir al libro",
+  "justNow": "Ahora mismo",
+  "timeAgo": "hace @value",
   "thinking": "Pensando...",
   "callingTool": "Llamando a @tool...",
   "clearChat": "Borrar chat",
@@ -1554,5 +1617,207 @@
   "assistantOverloaded": "El servidor esta ocupado actualmente. Intentalo de nuevo en un momento.",
   "assistantTooLarge": "La pregunta es demasiado larga. Intenta acortarla.",
   "assistantGenericError": "No se pudo obtener una respuesta del modelo. Intentalo de nuevo o elige otro modelo.",
-  "assistantNoData": "No hay datos disponibles para esta consulta en este momento."
+  "assistantNoData": "No hay datos disponibles para esta consulta en este momento.",
+  "midad": "Midad",
+  "deviceSync": "Sincronización de dispositivos",
+  "@deviceSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deviceSyncDesc": "Sincroniza tus marcadores, adhkar, planes y ajustes entre tus dispositivos con un código QR — sin cuenta",
+  "@deviceSyncDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createSyncGroup": "Crear grupo de sincronización",
+  "@createSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinSyncGroup": "Unirse escaneando un código QR",
+  "@joinSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterSyncCodeManually": "O introduce el código de sincronización manualmente",
+  "@enterSyncCodeManually": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCodeHint": "Código de sincronización",
+  "@syncCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinWithCode": "Unirse con el código",
+  "@joinWithCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrTitle": "Escanear código QR",
+  "@scanQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrInstruction": "Apunta la cámara al código mostrado en tu otro dispositivo",
+  "@scanQrInstruction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cameraPermissionDenied": "El escaneo necesita permiso de cámara — introduce el código manualmente",
+  "@cameraPermissionDenied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrTitle": "Código de emparejamiento de este dispositivo",
+  "@pairingQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrHint": "Escanea este código desde tu otro dispositivo para unirte al grupo",
+  "@pairingQrHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "devicesConnected": "Dispositivos conectados",
+  "@devicesConnected": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastSync": "Última sincronización",
+  "@lastSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncNow": "Sincronizar ahora",
+  "@syncNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncing": "Sincronizando…",
+  "@syncing": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSync": "Desvincular este dispositivo",
+  "@resetSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSyncConfirm": "Este dispositivo saldrá del grupo de sincronización. Tus datos locales permanecen igual. ¿Continuar?",
+  "@resetSyncConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "copySyncCode": "Copiar código de sincronización",
+  "@copySyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCreateError": "No se pudo crear el grupo — revisa tu conexión",
+  "@syncCreateError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncJoinFailed": "No se pudo unir — revisa el código y tu conexión",
+  "@syncJoinFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomFull": "El grupo está lleno (máx. 5 dispositivos)",
+  "@syncRoomFull": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomNotFound": "Código no válido o caducado",
+  "@syncRoomNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "invalidSyncCode": "Código no válido",
+  "@invalidSyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neverSynced": "Nunca sincronizado",
+  "@neverSynced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "Confirmar",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCompleted": "Sincronización completada",
+  "@syncCompleted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncFailed": "Error de sincronización — revisa tu conexión",
+  "@syncFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tasmeaa": "Recitación",
+  "tasmeeStartRecording": "Comenzar a recitar",
+  "tasmeeStopRecording": "Detener grabación",
+  "tasmeeRecording": "Recitando",
+  "tasmeeProcessing": "Analizando recitación",
+  "tasmeeConnecting": "Conectando",
+  "tasmeeDescription": "Tu tutor personal para memorizar y recitar",
+  "tasmeePreparingEngine": "Preparando motor",
+  "tasmeeDownloadingModel": "Descargando modelo",
+  "tasmeeShowWords": "Mostrar palabras",
+  "tasmeeHideWords": "Ocultar palabras",
+  "tasmeeRetry": "Repetir recitación",
+  "tasmeeSettings": "Ajustes de recitación",
+  "tasmeeResultTitle": "Resultado de recitación",
+  "tasmeeNoErrors": "¡Bien hecho! Sin errores",
+  "tasmeeTotal": "Total",
+  "tasmeeTajweed": "Tajwid",
+  "tasmeePronunciation": "Pronunciación",
+  "tasmeeTashkeel": "Diacríticos",
+  "tasmeeExpected": "Esperado",
+  "tasmeeActual": "Recitado",
+  "tasmeeInsert": "Adición",
+  "tasmeeDelete": "Omisión",
+  "tasmeeReplace": "Sustitución",
+  "tasmeeNoMatch": "No se pudo reconocer la recitación, intenta de nuevo con mayor claridad",
+  "tasmeeExit": "Salir",
+  "tasmeeResultsPages": "Páginas completadas",
+  "tasmeeNoResults": "Aún no hay resultados guardados; completa una página y aparecerá aquí",
+  "tasmeePage": "Página",
+  "tasmeeErrorsCount": "errores",
+  "tasmeeResultDeleted": "Resultado eliminado",
+  "tasmeeModeTitle": "Modo de memorización",
+  "tasmeeModeTasmee": "Recitar",
+  "tasmeeModeTasmeeDesc": "Las palabras están ocultas y aparecen al recitar",
+  "tasmeeModeCorrector": "Corrector de recitación",
+  "tasmeeModeCorrectorDesc": "Ayas visibles con corrección inmediata de cada palabra incorrecta hasta recitarla bien",
+  "tasmeeModeTeacher": "Maestro del Corán",
+  "tasmeeModeTeacherDesc": "El recitador recita la aya y tú la repites hasta dominarla",
+  "tasmeeCorrectWord": "Corrige la palabra",
+  "tasmeePlayWord": "Escuchar palabra",
+  "tasmeeRepeatWord": "Repite la palabra",
+  "tasmeeRepeatHint": "Escucha la pronunciación y luego toca el micrófono y repite",
+  "tasmeeRepeatWithContext": "Lee la palabra anterior «@word» junto con esta palabra",
+  "tasmeeListeningWord": "Escuchando… di la palabra",
+  "tasmeeTryAgain": "Aún no es correcta — escucha e inténtalo de nuevo",
+  "tasmeeAutoSkippedWord": "Palabra omitida tras @total intentos — continúa recitando",
+  "tasmeeRetryAttemptOf": "Intento @attempt de @total",
+  "tasmeeSkipWord": "Saltar palabra",
+  "tasmeeNonBlockingCorrector": "Seguir recitando sin la hoja de corrección",
+  "tasmeeStrictness": "Rigor de corrección",
+  "tasmeeStrictnessStrict": "Estricto",
+  "tasmeeStrictnessBalanced": "Equilibrado",
+  "tasmeeStrictnessLenient": "Tolerante",
+  "tasmeeWordCorrect": "¡Bien hecho! Pronunciada correctamente",
+  "tasmeeTeacherQariPlaying": "El recitador está recitando…",
+  "tasmeeTeacherYourTurn": "Tu turno — recita la aya",
+  "tasmeeTeacherPageDone": "¡Página dominada, bien hecho!",
+  "tasmeeTeacherPlayFailed": "No se pudo reproducir al recitador — revisa la conexión e inténtalo de nuevo",
+  "tasmeeLocalModel": "Modelo de corrección local",
+  "tasmeeModelReady": "Listo",
+  "audioManager": "Gestión de audio"
 }

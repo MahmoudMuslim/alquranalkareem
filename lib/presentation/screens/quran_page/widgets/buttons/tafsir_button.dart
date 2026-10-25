@@ -27,16 +27,17 @@ class TafsirButton extends StatelessWidget {
           svgPath: SvgPath.svgQuranTafsir,
           svgColor: context.theme.canvasColor,
           onPressed: () async {
-            if (withBack == true) {
-              Get.back();
-            }
+            // if (withBack == true) {
+            //   Get.back();
+            // }
             // await QuranLibrary().initTafsir();
             // await QuranLibrary().fetchTafsir(pageNumber: pageIndex);
             // await QuranController.instance.showTafsirOnTap(
             //   pageIndex: pageIndex,
             //   ayahUQNum: ayahUQNum,
             // );
-            customBottomSheet(
+            customPushToPage(
+              context,
               backgroundColor: context.theme.colorScheme.primary,
               handleBackgroundColor: context.theme.canvasColor,
               handleDotsColor: context.theme.colorScheme.primary,
@@ -45,7 +46,7 @@ class TafsirButton extends StatelessWidget {
                   Get.height * .8,
                   Get.height * .9,
                 ),
-                child: ShowTafseer(
+                child: ShowTafsirWidget(
                   context: context,
                   ayahUQNumber: ayah.ayahUQNumber,
                   ayahNumber: ayah.ayahNumber,

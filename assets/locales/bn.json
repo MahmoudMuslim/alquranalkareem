@@ -1225,8 +1225,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "What'sNewDetails10": "۞ জ্ঞান অন্বেষী শিক্ষার্থীদের সহায়ক হিসেবে একটি 'মাদাদ' বিভাগ যোগ করা হয়েছে।\n'মাদাদ' মডেলটি বই ও ইসলামি তথ্যসূত্র থেকে প্রাপ্ত ফলাফল ও তথ্য উপস্থাপন করে, মূল উৎসে যাওয়ার এবং সংশ্লিষ্ট বই থেকে সম্পূর্ণ বিষয়টি পড়ার সুযোগ দেয়।\nএই মডেলের লক্ষ্য হলো অনুসন্ধান ও বিষয়বস্তুতে প্রবেশ সহজ করা।\n۞ উন্নত অনুসন্ধান ও উন্নত ব্যবহারকারী অভিজ্ঞতার সাথে ইসলামি লাইব্রেরিতে নতুন বিভাগ যোগ করা হয়েছে।\n۞ ফন্টের ধরন পরিবর্তনের বৈশিষ্ট্য যোগ করা হয়েছে।\n۞ আপনার মতামত বা অ্যাপে দেখা ভুল, কিংবা অ্যাপে আপনি যেসব বৈশিষ্ট্য চান সেগুলো পাঠানোর বৈশিষ্ট্য যোগ করা হয়েছে।",
+  "What'sNewDetails10": "۞ 'মাদাদ' বিভাগের উন্নয়ন করা হয়েছে যাতে এটি আরও বেশি বিভাগ অন্তর্ভুক্ত করে এবং অনলাইন অনুসন্ধানের সুবিধা থাকে।\n۞ অনলাইন অনুসন্ধানে তাফসির কেন্দ্রের তথ্যের ওপর ভিত্তি করে একটি অতিরিক্ত বিভাগ যোগ করা হয়েছে।\n۞ অনুসন্ধানের মডেল পরিবর্তনের সুবিধা।\n۞ সম্পূর্ণ পাঠ্য পড়ার জন্য বইয়ে যাওয়ার সুবিধা।",
   "@What'sNewDetails10": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "What'sNewDetails11": "۞ QR কোডের মাধ্যমে আপনার বুকমার্ক, আজকার, পরিকল্পনা এবং সেটিংস আপনার ডিভাইসগুলোর মধ্যে সিঙ্ক করার বিকল্প যোগ করা হয়েছে — কোনো অ্যাকাউন্ট ছাড়াই",
+  "@What'sNewDetails11": {
     "type": "text",
     "placeholders": {}
   },
@@ -1291,6 +1296,49 @@
     "type": "text",
     "placeholders": {
       "bookName": {}
+    }
+  },
+  "smartReminders": "স্মার্ট রিমাইন্ডার",
+  "@smartReminders": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "smartRemindersDesc": "আপনার পড়ার অভ্যাসের সাথে মানিয়ে চলে এমন একটি কোমল দৈনিক রিমাইন্ডার",
+  "@smartRemindersDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "reminderTime": "রিমাইন্ডারের সময়",
+  "@reminderTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "autoTime": "স্বয়ংক্রিয় (স্মার্ট)",
+  "@autoTime": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "quietHours": "নীরব সময়",
+  "@quietHours": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "digestContent": "রিমাইন্ডারের বিষয়বস্তু",
+  "@digestContent": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "continueReading": "পড়া চালিয়ে যান",
+  "@continueReading": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "khatmaRemainingDays": "আপনার খাতমা: @total দিনের মধ্যে @done সম্পন্ন",
+  "@khatmaRemainingDays": {
+    "type": "text",
+    "placeholders": {
+      "done": {},
+      "total": {}
     }
   },
   "lastSearch": "শেষ অনুসন্ধান",
@@ -1507,6 +1555,7 @@
   "feedback_contact_optional": "যোগাযোগের ইমেইল (ঐচ্ছিক)",
   "feedback_sent_success": "আপনার মতামত সফলভাবে পাঠানো হয়েছে!",
   "feedback_sent_error": "মতামত পাঠানো যায়নি। আবার চেষ্টা করুন।",
+  "feedback_queued": "Your feedback will be sent automatically once the connection is back",
   "my_feedback": "আমার মতামত",
   "no_feedback_yet": "আপনি এখনও কোনো মতামত পাঠাননি",
   "feedback_reply_hint": "একটি ফলো-আপ লিখুন...",
@@ -1533,6 +1582,20 @@
   "askAssistant": "সহকারীকে জিজ্ঞাসা করুন...",
   "assistantWelcome": "কুরআন ও এর বিজ্ঞান এআই সহকারী",
   "assistantWelcomeDesc": "পবিত্র কুরআন ও এর বিজ্ঞানে (তাফসীর, নাহু, সরফ, নাযিলের কারণ, কিরাআত) বিশেষজ্ঞ একজন সহকারী। যেকোনো ভাবে জিজ্ঞাসা করুন, আমি নির্ভরযোগ্য উৎস ব্যবহার করে উত্তর দেব।",
+  "unifiedWelcomeDesc": "কুরআন, এর বিজ্ঞান এবং ইসলামিক বিভাগে (হাদীস, ফিকহ, আকীদা, সীরাত) আপনার সহকারী। যেকোনো ভাবে জিজ্ঞাসা করুন, আমি দুটি নির্ভরযোগ্য উৎসে অনুসন্ধান করব এবং পাঠ্যগুলি যেমন আছে তেমনই উদ্ধৃত করব।",
+  "quotationAyah": "কুরআনের আয়াত",
+  "quotationHadith": "নবী হাদীস",
+  "quotationTafsir": "তাফসীর",
+  "quotationScholar": "আলেমের উক্তি",
+  "quotationFiqh": "ফিকহ গ্রন্থ",
+  "quotationAqeedah": "আকীদা গ্রন্থ",
+  "quotationSeerah": "সীরাত ও ইতিহাস",
+  "quotationOther": "উদ্ধৃত পাঠ্য",
+  "fetchingFullText": "সম্পূর্ণ পাঠ্য আনা হচ্ছে...",
+  "showFullText": "সম্পূর্ণ পাঠ্য দেখান",
+  "navigateToBook": "বইয়ে যান",
+  "justNow": "এইমাত্র",
+  "timeAgo": "@value আগে",
   "thinking": "ভাবছে...",
   "callingTool": "@tool ডাকা হচ্ছে...",
   "clearChat": "চ্যাট মুছুন",
@@ -1554,5 +1617,207 @@
   "assistantOverloaded": "সার্ভার বর্তমানে ব্যস্ত। কিছুক্ষণ পরে আবার চেষ্টা করুন।",
   "assistantTooLarge": "প্রশ্নটি খুব দীর্ঘ। এটি সংক্ষিপ্ত করার চেষ্টা করুন।",
   "assistantGenericError": "মডেল থেকে উত্তর পাওয়া যায়নি। আবার চেষ্টা করুন বা অন্য মডেল বেছে নিন।",
-  "assistantNoData": "এই মুহূর্তে এই প্রশ্নের জন্য কোনো তথ্য নেই।"
+  "assistantNoData": "এই মুহূর্তে এই প্রশ্নের জন্য কোনো তথ্য নেই।",
+  "midad": "মিদাদ",
+  "deviceSync": "ডিভাইস সিঙ্ক",
+  "@deviceSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deviceSyncDesc": "আপনার বুকমার্ক, জিকির, পরিকল্পনা ও সেটিংস QR কোডের মাধ্যমে ডিভাইসগুলোর মধ্যে সিঙ্ক করুন — অ্যাকাউন্ট ছাড়াই",
+  "@deviceSyncDesc": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "createSyncGroup": "সিঙ্ক গ্রুপ তৈরি করুন",
+  "@createSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinSyncGroup": "QR কোড স্ক্যান করে যোগ দিন",
+  "@joinSyncGroup": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterSyncCodeManually": "অথবা সিঙ্ক কোড হাতে লিখুন",
+  "@enterSyncCodeManually": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCodeHint": "সিঙ্ক কোড",
+  "@syncCodeHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "joinWithCode": "কোড দিয়ে যোগ দিন",
+  "@joinWithCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrTitle": "QR কোড স্ক্যান করুন",
+  "@scanQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "scanQrInstruction": "ক্যামেরা অন্য ডিভাইসে দেখানো কোডের দিকে ধরুন",
+  "@scanQrInstruction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cameraPermissionDenied": "স্ক্যান করতে ক্যামেরার অনুমতি দরকার — কোড হাতে লিখুন",
+  "@cameraPermissionDenied": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrTitle": "এই ডিভাইসের পেয়ারিং কোড",
+  "@pairingQrTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "pairingQrHint": "গ্রুপে যোগ দিতে এই কোডটি অন্য ডিভাইস থেকে স্ক্যান করুন",
+  "@pairingQrHint": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "devicesConnected": "সংযুক্ত ডিভাইস",
+  "@devicesConnected": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "lastSync": "সর্বশেষ সিঙ্ক",
+  "@lastSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncNow": "এখনই সিঙ্ক করুন",
+  "@syncNow": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncing": "সিঙ্ক হচ্ছে…",
+  "@syncing": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSync": "এই ডিভাইসের সিঙ্ক বাতিল করুন",
+  "@resetSync": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "resetSyncConfirm": "এই ডিভাইসটি সিঙ্ক গ্রুপ থেকে বিচ্ছিন্ন হবে। আপনার লোকাল ডেটা থেকে যাবে। চালিয়ে যাবেন?",
+  "@resetSyncConfirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "copySyncCode": "সিঙ্ক কোড কপি করুন",
+  "@copySyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCreateError": "গ্রুপ তৈরি করা যায়নি — সংযোগ পরীক্ষা করুন",
+  "@syncCreateError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncJoinFailed": "যোগ দেওয়া যায়নি — কোড ও সংযোগ পরীক্ষা করুন",
+  "@syncJoinFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomFull": "গ্রুপ পূর্ণ (সর্বোচ্চ ৫টি ডিভাইস)",
+  "@syncRoomFull": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncRoomNotFound": "ভুল বা মেয়াদোত্তীর্ণ কোড",
+  "@syncRoomNotFound": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "invalidSyncCode": "ভুল কোড",
+  "@invalidSyncCode": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "neverSynced": "এখনও সিঙ্ক হয়নি",
+  "@neverSynced": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirm": "নিশ্চিত করুন",
+  "@confirm": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncCompleted": "সিঙ্ক সম্পন্ন হয়েছে",
+  "@syncCompleted": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "syncFailed": "সিঙ্ক ব্যর্থ — সংযোগ পরীক্ষা করুন",
+  "@syncFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tasmeaa": "তিলাওয়াত পরীক্ষা",
+  "tasmeeStartRecording": "তিলাওয়াত শুরু করুন",
+  "tasmeeStopRecording": "রেকর্ডিং বন্ধ করুন",
+  "tasmeeRecording": "তিলাওয়াত চলছে",
+  "tasmeeProcessing": "তিলাওয়াত বিশ্লেষণ হচ্ছে",
+  "tasmeeConnecting": "সংযোগ হচ্ছে",
+  "tasmeeDescription": "মুখস্থ ও তিলাওয়াতের জন্য আপনার ব্যক্তিগত শিক্ষক",
+  "tasmeePreparingEngine": "ইঞ্জিন প্রস্তুত হচ্ছে",
+  "tasmeeDownloadingModel": "মডেল ডাউনলোড হচ্ছে",
+  "tasmeeShowWords": "শব্দ দেখান",
+  "tasmeeHideWords": "শব্দ লুকান",
+  "tasmeeRetry": "আবার তিলাওয়াত করুন",
+  "tasmeeSettings": "তিলাওয়াত সেটিংস",
+  "tasmeeResultTitle": "তিলাওয়াতের ফলাফল",
+  "tasmeeNoErrors": "সাবাশ! কোনো ভুল নেই",
+  "tasmeeTotal": "মোট",
+  "tasmeeTajweed": "তাজবিদ",
+  "tasmeePronunciation": "উচ্চারণ",
+  "tasmeeTashkeel": "তাশকীল",
+  "tasmeeExpected": "প্রত্যাশিত",
+  "tasmeeActual": "পঠিত",
+  "tasmeeInsert": "অতিরিক্ত",
+  "tasmeeDelete": "বাদ পড়েছে",
+  "tasmeeReplace": "পরিবর্তিত",
+  "tasmeeNoMatch": "তিলাওয়াত শনাক্ত করা যায়নি, স্পষ্ট উচ্চারণে আবার চেষ্টা করুন",
+  "tasmeeExit": "বের হন",
+  "tasmeeResultsPages": "সম্পন্ন পৃষ্ঠাসমূহ",
+  "tasmeeNoResults": "এখনও কোনো সংরক্ষিত ফলাফল নেই — একটি পৃষ্ঠা সম্পূর্ণ করুন এবং এখানে দেখা যাবে",
+  "tasmeePage": "পৃষ্ঠা",
+  "tasmeeErrorsCount": "ত্রুটি",
+  "tasmeeResultDeleted": "ফলাফল মুছে ফেলা হয়েছে",
+  "tasmeeModeTitle": "তাসমী মোড",
+  "tasmeeModeTasmee": "তাসমী",
+  "tasmeeModeTasmeeDesc": "শব্দগুলো লুকানো থাকে এবং তিলাওয়াতের সময় প্রকাশ পায়",
+  "tasmeeModeCorrector": "তিলাওয়াত সংশোধক",
+  "tasmeeModeCorrectorDesc": "আয়াত দৃশ্যমান এবং প্রতিটি ভুল শব্দ সঠিকভাবে পড়া না হওয়া পর্যন্ত তাৎক্ষণিক সংশোধন হয়",
+  "tasmeeModeTeacher": "কুরআন শিক্ষক",
+  "tasmeeModeTeacherDesc": "কারী আয়াত পড়েন, তারপর আপনি আয়ত্ত না করা পর্যন্ত পুনরাবৃত্তি করেন",
+  "tasmeeCorrectWord": "শব্দটি সংশোধন করুন",
+  "tasmeePlayWord": "শব্দ শুনুন",
+  "tasmeeRepeatWord": "শব্দটি পুনরাবৃত্তি করুন",
+  "tasmeeRepeatHint": "উচ্চারণ শুনুন তারপর মাইক চেপে পুনরাবৃত্তি করুন",
+  "tasmeeRepeatWithContext": "পূর্ববর্তী শব্দ «@word» এই শব্দের সাথে একত্রে পড়ুন",
+  "tasmeeListeningWord": "শুনছি… শব্দটি বলুন",
+  "tasmeeTryAgain": "এখনও সঠিক নয় — শুনুন এবং আবার চেষ্টা করুন",
+  "tasmeeAutoSkippedWord": "@total বার চেষ্টার পর শব্দটি বাদ দেওয়া হয়েছে — তিলাওয়াত চালিয়ে যান",
+  "tasmeeRetryAttemptOf": "চেষ্টা @attempt / @total",
+  "tasmeeSkipWord": "শব্দ এড়িয়ে যান",
+  "tasmeeNonBlockingCorrector": "সংশোধনী শিট ছাড়াই তিলাওয়াত চালিয়ে যান",
+  "tasmeeStrictness": "সংশোধনীর কঠোরতা",
+  "tasmeeStrictnessStrict": "কঠোর",
+  "tasmeeStrictnessBalanced": "সুষম",
+  "tasmeeStrictnessLenient": "সহনশীল",
+  "tasmeeWordCorrect": "দারুণ! সঠিকভাবে উচ্চারিত",
+  "tasmeeTeacherQariPlaying": "কারী আয়াত পড়ছেন…",
+  "tasmeeTeacherYourTurn": "আপনার পালা — আয়াত পড়ুন",
+  "tasmeeTeacherPageDone": "পৃষ্ঠা আয়ত্ত করা হয়েছে, দারুণ!",
+  "tasmeeTeacherPlayFailed": "কারীর তিলাওয়াত চালানো যায়নি — সংযোগ পরীক্ষা করে আবার চেষ্টা করুন",
+  "tasmeeLocalModel": "স্থানীয় সংশোধন মডেল",
+  "tasmeeModelReady": "প্রস্তুত",
+  "audioManager": "অডিও ব্যবস্থাপনা"
 }

@@ -58,6 +58,13 @@ class AiSearchState {
   /// هل المساعد يعالج طلباً الآن (يفكر/يستدعي أداة)؟
   final RxBool isAssistantThinking = false.obs;
 
+  /// محتوى رسالة المساعد الحيّة المسموح لها بالتحرك (stream) مرة واحدة فقط.
+  ///
+  /// تُضبط من المسار المباشر [addAssistantMessage] فقط (لا من تحميل السجل)،
+  /// وتُفرَّغ فور اكتمال الأنيميشن — لمنع تكرار streaming عند التمرير/إعادة بناء العنصر،
+  /// إذ لا يحفظ `StreamingTextMarkdown` حالة «تم العرض» عبر إعادة التدوير.
+  final RxString streamingMessageContent = ''.obs;
+
   /// اسم الأداة الجاري تنفيذها الآن ('' إن لم تكن أداة قيد التشغيل).
   final RxString currentToolName = ''.obs;
 
@@ -67,29 +74,92 @@ class AiSearchState {
   /// هل يوجد نص في حقل الإدخال؟ (Rx ليُعيد بناء زر الإرسال عند الكتابة).
   final RxBool hasInputText = false.obs;
 
+  // ─── حالة جلب النص الكامل للاقتباسات ──────────────────────────────
+  // مفاتيح RxMap = passageId. القيم:
+  //   'loading'  → الجلب جارٍ الآن.
+  //   'failed'   → فشل الجلب (لإعادة المحاولة).
+  //   النص الكامل → نجح الجلب (يُعرض بدل snippet).
+  final RxMap<int, String> fullTextCache = <int, String>{}.obs;
+
+  /// هل النص الكامل لـ [passageId] جارٍ الجلب؟
+  bool isFetchingFullText(int passageId) =>
+      fullTextCache[passageId] == 'loading';
+
+  /// هل فشل جلب النص الكامل لـ [passageId]؟
+  bool hasFetchFailed(int passageId) => fullTextCache[passageId] == 'failed';
+
+  /// النص الكامل المجلوب لـ [passageId] (null لو لم يُجلب أو جارٍ/فاشل).
+  String? getFullText(int passageId) {
+    final v = fullTextCache[passageId];
+    if (v == null || v == 'loading' || v == 'failed') return null;
+    return v;
+  }
+
   bool get isAssistantEmpty => assistantMessages.isEmpty;
 
   void addAssistantUserMessage(String text) =>
       assistantMessages.add(ChatMessage(role: ChatRole.user, content: text));
 
-  void addAssistantMessage(String text) => assistantMessages
-      .add(ChatMessage(role: ChatRole.assistant, content: text));
+  /// يضيف رسالة مساعد، مع دعم إرفاق اقتباسات منقولة من MCP (دون تمريرها للـ LLM).
+  ///
+  /// يضبط [streamingMessageContent] **قبل** الإضافة لتمييزها كرسالة حيّة تُعرض
+  /// بحركة streaming مرة واحدة فقط (تفادياً لأي سباق مع إعادة بناء Obx).
+  void addAssistantMessage(
+    String text, {
+    List<Quotation> quotations = const [],
+  }) {
+    streamingMessageContent.value = text;
+    assistantMessages.add(
+      ChatMessage(
+        role: ChatRole.assistant,
+        content: text,
+        quotations: quotations,
+      ),
+    );
+  }
+
+  /// هل يجب أن تُعرض هذه الرسالة بحركة streaming؟
+  ///
+  /// صحيح فقط لآخر رسالة مساعد حيّة لم تُعرض بعد (محتواها يساوي [streamingMessageContent]).
+  /// بمجرّد اكتمال الأنيميشن تُفرَّغ الفتحة عبر [markAssistantStreamed] فلا تُعاد أبداً.
+  bool shouldStreamAssistant(String content, {required bool isLastMessage}) {
+    if (!isLastMessage) return false;
+    final pending = streamingMessageContent.value;
+    return pending.isNotEmpty && content == pending;
+  }
+
+  /// يُستدعى عند اكتمال أنيميشن streaming لرسالة المساعد — يُفرّغ الفتحة فلا تُعاد.
+  void markAssistantStreamed() => streamingMessageContent.value = '';
 
   void clearAssistantMessages() {
     assistantMessages.clear();
     assistantError.value = '';
     currentToolName.value = '';
     isAssistantThinking.value = false;
+    streamingMessageContent.value = '';
   }
 
-  /// يحوّل رسائل المساعد إلى صيغة OpenAI (يتجاهل رسائل الأداة المعروضة).
+  /// يحوّل رسائل المساعد إلى صيغة OpenAI (يتجاهل رسائل الأداة والاقتباسات).
+  ///
+  /// **تقليم context window:** نُبقي آخر [_maxHistoryMessages] رسالة فقط
+  /// (تقريباً آخر 3 أزوار سؤال/جواب) لمنع نموّ الـ context بلا حدّ،
+  /// ولتفادي خطأ 413 (payload too large) مع المحادثات الطويلة.
+  /// الاقتباسات [ChatMessage.quotations] لا تُرسل للنموذج إطلاقاً (هي منفصلة).
+  static const int _maxHistoryMessages = 6;
+
   List<Map<String, dynamic>> assistantMessagesToOpenAi() {
-    return assistantMessages
-        .where((m) => !m.isTool)
-        .map((m) => {
-              'role': m.isUser ? 'user' : 'assistant',
-              'content': m.content,
-            })
+    final nonTool = assistantMessages.where((m) => !m.isTool).toList();
+    // تقليم: نُبقي آخر N رسالة فقط.
+    final trimmed = nonTool.length > _maxHistoryMessages
+        ? nonTool.sublist(nonTool.length - _maxHistoryMessages)
+        : nonTool;
+    return trimmed
+        .map(
+          (m) => {
+            'role': m.isUser ? 'user' : 'assistant',
+            'content': m.content,
+          },
+        )
         .toList();
   }
 
